@@ -1,59 +1,407 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Donations Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A complete **Role-Based Donations Management System** built with **Laravel** from scratch for learning and portfolio purposes.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# 📖 About the Project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The **Donations Management System** is a web application that helps manage donations, donors, organizations, and fundraising campaigns efficiently.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project is being developed **from scratch** without relying on AI-generated implementations. The primary goal is to gain a deep understanding of Laravel by building every feature manually while following best practices.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+# 🎯 Project Goals
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Learn Laravel through a real-world application.
+* Understand Authentication & Authorization.
+* Implement Role-Based Access Control (RBAC).
+* Practice CRUD Operations.
+* Learn Laravel Middleware.
+* Work with Eloquent ORM & Relationships.
+* Build reusable and maintainable code.
+* Create a portfolio-ready Laravel project.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# 👥 User Roles
 
-### Premium Partners
+## 🔹 Admin
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Responsibilities
 
-## Contributing
+* Manage all users
+* Manage campaigns
+* View all donations
+* Approve or reject organizations
+* Generate reports
+* Manage system settings
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🔹 Donor
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Responsibilities
 
-## Security Vulnerabilities
+* Register & Login
+* Update profile
+* Donate to campaigns
+* View donation history
+* Download donation receipts
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🔹 Organization
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Responsibilities
+
+* Register & Login
+* Create fundraising campaigns
+* Manage campaigns
+* View received donations
+* Track campaign progress
+
+---
+
+## 🔹 Volunteer *(Optional)*
+
+### Responsibilities
+
+* Join campaigns
+* Update collection status
+* View assigned tasks
+
+---
+
+# 🔐 Authentication Strategy
+
+This application uses **a single `users` table**.
+
+Each user is identified by a **role** column.
+
+Example:
+
+| Role         | Description                |
+| ------------ | -------------------------- |
+| admin        | System Administrator       |
+| donor        | Donation Provider          |
+| organization | NGO / Charity Organization |
+| volunteer    | Campaign Volunteer         |
+
+After successful login, users are redirected to their respective dashboards based on their role.
+
+---
+
+# 🛠 Tech Stack
+
+* Laravel
+* PHP
+* MySQL
+* Blade
+* Bootstrap 5
+* HTML5
+* CSS3
+* JavaScript
+* Git & GitHub
+
+---
+
+# ✨ Features
+
+## Authentication
+
+* Login
+* Registration
+* Logout
+* Forgot Password
+* Change Password
+* Role-Based Redirect
+
+---
+
+## User Management
+
+* User Profile
+* Edit Profile
+* Change Password
+* Manage Users (Admin)
+
+---
+
+## Campaign Management
+
+* Create Campaign
+* Edit Campaign
+* Delete Campaign
+* Campaign Status
+* Campaign Details
+
+---
+
+## Donation Management
+
+* Make Donation
+* Donation History
+* Donation Details
+* Donation Receipt
+
+---
+
+## Dashboard
+
+### Admin Dashboard
+
+* Total Users
+* Total Donations
+* Active Campaigns
+* Recent Donations
+
+### Donor Dashboard
+
+* Total Donations
+* Donation History
+* Active Campaigns
+
+### Organization Dashboard
+
+* Total Campaigns
+* Total Received Donations
+* Active Campaign Status
+
+---
+
+## Reports
+
+* Monthly Donations
+* Campaign Reports
+* Donor Reports
+* Organization Reports
+
+---
+
+# 🗄 Database Tables
+
+```
+users
+campaigns
+donations
+categories
+payment_methods
+settings
+activity_logs
+```
+
+---
+
+# 📂 Suggested Project Structure
+
+```
+app/
+│
+├── Http/
+│   ├── Controllers/
+│   │   ├── Admin/
+│   │   ├── Donor/
+│   │   ├── Organization/
+│   │   └── Auth/
+│   │
+│   └── Middleware/
+│
+├── Models/
+│
+└── Services/
+
+resources/
+│
+├── views/
+│   ├── admin/
+│   ├── donor/
+│   ├── organization/
+│   └── auth/
+
+routes/
+│
+├── web.php
+└── auth.php
+```
+
+---
+
+# 🚀 Development Roadmap
+
+## Phase 1 — Project Setup
+
+* [ ] Create Laravel Project
+* [ ] Configure Database
+* [ ] Install Authentication
+* [ ] Git Repository Setup
+
+---
+
+## Phase 2 — Authentication
+
+* [ ] User Registration
+* [ ] User Login
+* [ ] Logout
+* [ ] Role Column
+* [ ] Role Middleware
+* [ ] Dashboard Redirection
+
+---
+
+## Phase 3 — Admin Panel
+
+* [ ] Admin Dashboard
+* [ ] User Management
+* [ ] Campaign Management
+* [ ] Reports
+
+---
+
+## Phase 4 — User Profile
+
+* [ ] View Profile
+* [ ] Update Profile
+* [ ] Change Password
+
+---
+
+## Phase 5 — Campaign Module
+
+* [ ] Create Campaign
+* [ ] Update Campaign
+* [ ] Delete Campaign
+* [ ] Campaign Details
+
+---
+
+## Phase 6 — Donation Module
+
+* [ ] Make Donation
+* [ ] Donation History
+* [ ] Donation Details
+* [ ] Donation Receipt
+
+---
+
+## Phase 7 — Reports
+
+* [ ] Monthly Reports
+* [ ] Campaign Reports
+* [ ] Donation Statistics
+
+---
+
+## Phase 8 — Notifications *(Optional)*
+
+* [ ] Email Notification
+* [ ] Donation Confirmation
+* [ ] Campaign Updates
+
+---
+
+## Phase 9 — Testing
+
+* [ ] Validation Testing
+* [ ] Authentication Testing
+* [ ] Authorization Testing
+
+---
+
+## Phase 10 — Deployment
+
+* [ ] Optimize Application
+* [ ] Deploy to Hosting
+* [ ] Final Documentation
+
+---
+
+# 📚 Laravel Concepts Covered
+
+* Routing
+* Controllers
+* Middleware
+* Authentication
+* Authorization
+* Role-Based Access Control
+* Validation
+* Eloquent ORM
+* Relationships
+* File Upload
+* Pagination
+* Search & Filtering
+* Blade Components
+* Sessions
+* Flash Messages
+* Database Migrations
+* Seeders
+* Factories
+* Git Workflow
+
+---
+
+# 📌 Development Rules
+
+* Build every feature manually.
+* Avoid copying code from tutorials.
+* Understand every line before writing it.
+* Follow Laravel Coding Standards.
+* Use meaningful commit messages.
+* Keep controllers clean.
+* Use reusable components whenever possible.
+* Document completed features.
+
+---
+
+# 🎯 Learning Outcome
+
+After completing this project, I will have practical experience with:
+
+* Laravel Fundamentals
+* Authentication System
+* Authorization
+* Role-Based Access Control
+* CRUD Applications
+* Database Design
+* MVC Architecture
+* Clean Code Practices
+* Git & GitHub Workflow
+* Real-world Project Development
+
+---
+
+# 📈 Future Improvements
+
+* Online Payment Gateway Integration
+* Email Verification
+* Notification System
+* REST API
+* Mobile API Support
+* Multi-language Support
+* Dark Mode
+* Activity Logs
+* Dashboard Charts
+* Export Reports (PDF/Excel)
+
+---
+
+# 🤝 Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+Feel free to fork the repository and submit a pull request.
+
+---
+
+# 📄 License
+
+This project is open-source and available for educational purposes.
+
+---
+
+## 👨‍💻 Author
+
+**Md Mahabubul Alam**
+
+Learning Laravel by building real-world applications from scratch.
