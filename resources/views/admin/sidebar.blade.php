@@ -30,74 +30,7 @@
                              <span class="badge text-bg-info ms-auto">New</span>
                          </a>
                      </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="payment.html">
-                             <i class="iconoir-hand-cash menu-icon"></i>
-                             <span>Payment</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="#sidebarTransactions" data-bs-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="sidebarTransactions">
-                             <i class="iconoir-task-list menu-icon"></i>
-                             <span>Transactions</span>
-                         </a>
-                         <div class="collapse " id="sidebarTransactions">
-                             <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="transactions.html">Overview</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="new-transaction.html">Add Transactions</a>
-                                 </li><!--end nav-item-->
-                             </ul><!--end nav-->
-                         </div><!--end startbarTables-->
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="cards.html">
-                             <i class="iconoir-credit-cards menu-icon"></i>
-                             <span>Cards</span>
-                             <span class="badge text-bg-pink ms-auto">03</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="taxes.html">
-                             <i class="iconoir-plug-type-l menu-icon"></i>
-                             <span>Texes</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="users.html">
-                             <i class="iconoir-group menu-icon"></i>
-                             <span>Users</span>
-                         </a>
-                     </li><!--end nav-item-->
-
-                     <li class="nav-item">
-                         <a class="nav-link" href="apps-chat.html">
-                             <i class="iconoir-chat-bubble menu-icon"></i>
-                             <span>Chat</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="apps-contact-list.html">
-                             <i class="iconoir-community menu-icon"></i>
-                             <span>Contact List</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="apps-calendar.html">
-                             <i class="iconoir-calendar menu-icon"></i>
-                             <span>Calendar</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="apps-invoice.html">
-                             <i class="iconoir-paste-clipboard menu-icon"></i>
-                             <span>Invoice</span>
-                         </a>
-                     </li><!--end nav-item-->
-
+                   
                      <li class="menu-label mt-2">
                          <small class="label-border">
                              <div class="border_left hidden-xs"></div>
