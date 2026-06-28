@@ -28,8 +28,19 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        $url = "dashboard";
+
+        if ($request->user()->role == "admin") {
+            $url = "admin/dashboard";
+        } else if ($request->user()->role == "donor") {
+            $url = "donor/dashboard";
+        } else if ($request->user()->role == "volunteer") {
+            $url = "volunteer/dashboard";
+        }
+
+        return redirect()->intended($url);
     }
+
 
     /**
      * Destroy an authenticated session.
@@ -42,6 +53,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('login');
     }
 }

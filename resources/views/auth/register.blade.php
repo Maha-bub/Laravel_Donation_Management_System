@@ -1,52 +1,122 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-startbar="dark" data-bs-theme="light">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+<head>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <meta charset="utf-8" />
+    <title>Register | Approx - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+</head>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+<!-- Top Bar Start -->
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+<body>
+    <div class="container-xxl">
+        <div class="row vh-100 d-flex justify-content-center">
+            <div class="col-12 align-self-center">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-4 mx-auto">
+                            <div class="card">
+                                <div class="card-body p-0 bg-black auth-header-box rounded-top">
+                                    <div class="text-center p-3">
+                                        <a href="index.html" class="logo logo-admin">
+                                            <img src="assets/images/logo-sm.png" height="50" alt="logo"
+                                                class="auth-logo">
+                                        </a>
+                                        <h4 class="mt-3 mb-1 fw-semibold text-white fs-18">Create an account</h4>
+                                        <p class="text-muted fw-medium mb-0">Enter your detail to Create your account
+                                            today.</p>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <form class="my-4" action="{{ route('register') }}" method="post">
+                                        @csrf
+
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger p-2 mb-3">
+                                                <ul class="mb-0 px-3">
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+
+                                        <div class="form-group mb-2">
+                                            <label class="form-label" for="username">Username</label>
+                                            <input type="text" class="form-control" id="username" name="name"
+                                                placeholder="Enter username">
+                                        </div><!--end form-group-->
+
+                                        <div class="form-group mb-2">
+                                            <label class="form-label" for="useremail">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Enter email">
+                                        </div><!--end form-group-->
+
+                                        <div class="form-group mb-2">
+                                            <label class="form-label" for="userpassword">Password</label>
+                                            <input type="password" class="form-control" name="password"
+                                                id="userpassword" placeholder="Enter password">
+                                        </div><!--end form-group-->
+
+                                        <div class="form-group mb-2">
+                                            <label class="form-label" for="Confirmpassword">ConfirmPassword</label>
+                                            <input type="password" class="form-control" name="password_confirmation"
+                                                id="Confirmpassword" placeholder="Enter Confirm password">
+                                        </div><!--end form-group-->
+
+
+                                        <div class="form-group row mt-3">
+                                            <div class="col-12">
+                                                <div class="form-check form-switch form-switch-success">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="customSwitchSuccess">
+                                                    <label class="form-check-label" for="customSwitchSuccess">By
+                                                        registering you agree to the Approx <a href="#"
+                                                            class="text-primary">Terms of Use</a></label>
+                                                </div>
+                                            </div><!--end col-->
+                                        </div><!--end form-group-->
+
+                                        <div class="form-group mb-0 row">
+                                            <div class="col-12">
+                                                <div class="d-grid mt-3">
+                                                    <button class="btn btn-primary" type="submit">Register <i
+                                                            class="fas fa-sign-in-alt ms-1"></i></button>
+                                                </div>
+                                            </div><!--end col-->
+                                        </div> <!--end form-group-->
+                                    </form><!--end form-->
+                                    <div class="text-center">
+                                        <p class="text-muted">Already have an account ? <a href="{{ route('login') }}"
+                                                class="text-primary ms-2">Log in</a></p>
+                                    </div>
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </div><!--end card-body-->
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!-- container -->
+</body>
+<!--end body-->
+
+</html>
