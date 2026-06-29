@@ -31,7 +31,7 @@
     <div class="topbar d-print-none">
 
 
-        @include('backend.parts.topbar')
+        @include('admin.backend.parts.topbar')
     </div>
     <!-- Top Bar End -->
 
@@ -45,7 +45,7 @@
             @yield('content')
 
             <!-- import footer section -->
-            @include('backend.parts.footer')
+            @include('admin.backend.parts.footer')
         </div>
         <!-- end page content -->
     </div>
