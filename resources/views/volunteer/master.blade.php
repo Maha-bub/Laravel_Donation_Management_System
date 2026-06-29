@@ -49,12 +49,7 @@
         </div>
         <!-- end page content -->
     </div>
-    <!-- end page-wrapper -->
-
-    <!-- Javascript  -->
-    <!-- vendor js -->
-
-    <script src="{{ asset('') }}assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+       <script src="{{ asset('') }}assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('') }}assets/libs/simplebar/simplebar.min.js"></script>
 
     <script src="{{ asset('') }}assets/libs/apexcharts/apexcharts.min.js"></script>

@@ -35,13 +35,13 @@
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="index.html">
+                         <a class="nav-link" href="">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Campaigns</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="index.html">
+                         <a class="nav-link" href="{{route('donorlist.index')}}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Donor List</span>
                          </a>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonorController;
+use App\Http\Controllers\DonorListController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,12 @@ Route::middleware(['auth', 'role:donor'])->group(function () {
 Route::middleware(['auth', 'role:volunteer'])->group(function () {
     Route::get('/volunteer/dashboard', [VolunteerController::class, 'dashboard'])->name('volunteer.dashboard');
 });
+
+
+// create route for donor list crud
+Route::prefix('admin')->middleware('auth')->group(function () {
+
+    Route::resource('donorlist', DonorListController::class);
+});
+
 require __DIR__ . '/auth.php';
