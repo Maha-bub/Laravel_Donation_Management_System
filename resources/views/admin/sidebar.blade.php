@@ -21,7 +21,7 @@
                  <ul class="navbar-nav mb-auto w-100">
 
                      <li class="nav-item">
-                         <a class="nav-link" href="index.html">
+                         <a class="nav-link" href="{{route('admin.dashboard')}}">
                              <i class="iconoir-report-columns menu-icon"></i>
                              <span>Dashboard</span>
                              <span class="badge text-bg-info ms-auto">overview</span>
