@@ -13,15 +13,12 @@
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('') }}assets/images/favicon.ico">
-
-
-
     <!-- App css -->
     <link href="{{ asset('') }}assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
-   @stack('styles')
+    @stack('styles')
 
 </head>
 
@@ -31,21 +28,22 @@
     <div class="topbar d-print-none">
 
 
-        @include('backend.parts.topbar')
+        @include('donor.backend.parts.topbar')
     </div>
     <!-- Top Bar End -->
 
-    @include('admin.sidebar')
+    @include('donor.sidebar')
 
 
     <div class="page-wrapper">
 
         <!-- Page Content-->
         <div class="page-content">
+            <!-- section content import here -->
             @yield('content')
 
             <!-- import footer section -->
-            @include('backend.parts.footer')
+            @include('donor.backend.parts.footer')
         </div>
         <!-- end page content -->
     </div>

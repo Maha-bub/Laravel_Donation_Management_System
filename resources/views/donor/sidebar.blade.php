@@ -20,69 +20,13 @@
                  <!-- Navigation -->
                  <ul class="navbar-nav mb-auto w-100">
                      <li class="menu-label mt-2">
-                         <span>Main</span>
+                         <span>Dashboard</span>
                      </li>
 
                      <li class="nav-item">
-                         <a class="nav-link" href="index.html">
-                             <i class="iconoir-report-columns menu-icon"></i>
+                         <a class="nav-link" href="apps-calendar.html">
+                             <i class="iconoir-calendar menu-icon"></i>
                              <span>Dashboard</span>
-                             <span class="badge text-bg-info ms-auto">New</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="payment.html">
-                             <i class="iconoir-hand-cash menu-icon"></i>
-                             <span>Payment</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="#sidebarTransactions" data-bs-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="sidebarTransactions">
-                             <i class="iconoir-task-list menu-icon"></i>
-                             <span>Transactions</span>
-                         </a>
-                         <div class="collapse " id="sidebarTransactions">
-                             <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="transactions.html">Overview</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="new-transaction.html">Add Transactions</a>
-                                 </li><!--end nav-item-->
-                             </ul><!--end nav-->
-                         </div><!--end startbarTables-->
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="cards.html">
-                             <i class="iconoir-credit-cards menu-icon"></i>
-                             <span>Cards</span>
-                             <span class="badge text-bg-pink ms-auto">03</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="taxes.html">
-                             <i class="iconoir-plug-type-l menu-icon"></i>
-                             <span>Texes</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="users.html">
-                             <i class="iconoir-group menu-icon"></i>
-                             <span>Users</span>
-                         </a>
-                     </li><!--end nav-item-->
-
-                     <li class="nav-item">
-                         <a class="nav-link" href="apps-chat.html">
-                             <i class="iconoir-chat-bubble menu-icon"></i>
-                             <span>Chat</span>
-                         </a>
-                     </li><!--end nav-item-->
-                     <li class="nav-item">
-                         <a class="nav-link" href="apps-contact-list.html">
-                             <i class="iconoir-community menu-icon"></i>
-                             <span>Contact List</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
@@ -98,84 +42,8 @@
                          </a>
                      </li><!--end nav-item-->
 
-                     <li class="menu-label mt-2">
-                         <small class="label-border">
-                             <div class="border_left hidden-xs"></div>
-                             <div class="border_right"></div>
-                         </small>
-                         <span>Components</span>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#sidebarElements" data-bs-toggle="collapse" role="button"
-                             aria-expanded="false" aria-controls="sidebarElements">
-                             <i class="iconoir-compact-disc menu-icon"></i>
-                             <span>UI Elements</span>
-                         </a>
-                         <div class="collapse " id="sidebarElements">
-                             <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-alerts.html">Alerts</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-avatar.html">Avatar</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-buttons.html">Buttons</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-badges.html">Badges</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-cards.html">Cards</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-carousels.html">Carousels</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-dropdowns.html">Dropdowns</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-grids.html">Grids</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-images.html">Images</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-list.html">List</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-modals.html">Modals</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-navs.html">Navs</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-navbar.html">Navbar</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-paginations.html">Paginations</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-popover-tooltips.html">Popover & Tooltips</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-progress.html">Progress</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-spinners.html">Spinners</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-tabs-accordions.html">Tabs & Accordions</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-typography.html">Typography</a>
-                                 </li><!--end nav-item-->
-                                 <li class="nav-item">
-                                     <a class="nav-link" href="ui-videos.html">Videos</a>
-                                 </li><!--end nav-item-->
-                             </ul><!--end nav-->
-                         </div><!--end startbarElements-->
-                     </li><!--end nav-item-->
+
+
                      <li class="nav-item">
                          <a class="nav-link" href="#sidebarAdvancedUI" data-bs-toggle="collapse" role="button"
                              aria-expanded="false" aria-controls="sidebarAdvancedUI">

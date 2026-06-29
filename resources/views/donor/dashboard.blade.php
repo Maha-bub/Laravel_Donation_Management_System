@@ -1,4 +1,4 @@
-@extends('admin.master');
+@extends('donor.master');
 @push('styles')
 @endpush
 
@@ -743,10 +743,6 @@
     </div>
     <!--end Rightbar/offcanvas-->
     <!--end Rightbar-->
-    <form action="{{ route('logout') }}" method="post">
-        @csrf
-        <button name="submit">Logout</button>
-    </form>
 @endsection
 
 
