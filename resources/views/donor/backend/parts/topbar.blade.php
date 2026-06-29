@@ -276,8 +276,13 @@
                       <a class="dropdown-item" href="pages-faq.html"><i
                               class="las la-question-circle fs-18 me-1 align-text-bottom"></i> Help Center</a>
                       <div class="dropdown-divider mb-0"></div>
-                      <a class="dropdown-item text-danger" href="auth-login.html"><i
-                              class="las la-power-off fs-18 me-1 align-text-bottom"></i> Logout</a>
+                      <form action="{{ route('logout') }}" method="POST">
+                          @csrf
+                          <button type="submit" class="dropdown-item">
+                              <i class="las la-sign-out-alt fs-18 me-1 align-text-bottom"></i>
+                              Logout
+                          </button>
+                      </form>
                   </div>
               </li>
           </ul><!--end topbar-nav-->

@@ -21,7 +21,7 @@
     <link href="{{ asset('') }}assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('') }}assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
-   @stack('styles')
+    @stack('styles')
 
 </head>
 
@@ -31,11 +31,11 @@
     <div class="topbar d-print-none">
 
 
-        @include('backend.parts.topbar')
+        @include('volunteer.backend.parts.topbar')
     </div>
     <!-- Top Bar End -->
 
-    @include('admin.sidebar')
+    @include('volunteer.sidebar')
 
 
     <div class="page-wrapper">
@@ -45,7 +45,7 @@
             @yield('content')
 
             <!-- import footer section -->
-            @include('backend.parts.footer')
+            @include('volunteer.backend.parts.footer'))
         </div>
         <!-- end page content -->
     </div>
