@@ -30,8 +30,8 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Donor List</h4>
-                         <a class="btn btn-sm btn-primary " href="{{ route('donorlist.create') }}">Add New Donor</a>
-                       
+                        <a class="btn btn-sm btn-primary " href="{{ route('donorlist.create') }}">Add New Donor</a>
+
 
                     </div><!--end card-header-->
                     <div class="card-body pt-0">
@@ -48,20 +48,40 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
+                                {{-- success message --}}
+                                @if (session('success'))
+                                    <div class="alert alert-success">{{ session('success') }}</div>
+                                @endif
+
                                 <tbody>
-                                    @foreach ($items as $item)
+                                    @forelse ($items as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->image }}</td>
+                                            <td>
+                                                <img src="{{ asset('storage/' . $item->image) }}" width="50"
+                                                    height="50" style="object-fit:cover; border-radius:4px;">
+                                            </td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->phone }}</td>
                                             <td>{{ $item->total }}</td>
-                                            <td>Edit|Delete</td>
+                                            <td>
+                                                <a href="{{ route('donorlist.edit', $item->id) }}"
+                                                    class="btn btn-xs btn-warning">Edit</a>
+
+                                                <form action="{{ route('donorlist.destroy', $item->id) }}" method="POST"
+                                                    style="display:inline" onsubmit="return confirm('Delete this donor?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-xs btn-danger">Delete</button>
+                                                </form>
+                                            </td>
                                         </tr>
-                                    @endforeach
-
-
+                                    @empty
+                                        <tr>
+                                            <td colspan="7" class="text-center">No donors found.</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>
