@@ -12,7 +12,8 @@ class CampaignListController extends Controller
      */
     public function index()
     {
-        //
+       $campaigns=CampaignList::all();
+       return view('admin.campaigns.index',['items'=>$campaigns]);
     }
 
     /**
