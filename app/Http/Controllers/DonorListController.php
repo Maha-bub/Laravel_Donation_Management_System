@@ -31,7 +31,7 @@ class DonorListController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'  => 'required|string|max:100',
+            'name' => 'required|string|max:100',
             'email' => 'required|email|max:100',
             'phone' => 'required|string|max:50',
             'total' => 'required',
@@ -44,7 +44,7 @@ class DonorListController extends Controller
         }
 
         DonorList::create([
-            'name'  => $request->name,
+            'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'total' => $request->total,
@@ -75,7 +75,7 @@ class DonorListController extends Controller
      */
     public function update(Request $request, DonorList $donorList)
     {
-        //
+
     }
 
     /**
@@ -83,6 +83,6 @@ class DonorListController extends Controller
      */
     public function destroy(DonorList $donorList)
     {
-        //
+
     }
 }
