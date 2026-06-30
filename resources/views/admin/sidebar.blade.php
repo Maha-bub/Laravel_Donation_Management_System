@@ -35,7 +35,7 @@
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="">
+                         <a class="nav-link" href="{{ route('campaignlist.index') }}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Campaigns</span>
                          </a>

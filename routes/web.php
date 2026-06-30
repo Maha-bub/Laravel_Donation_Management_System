@@ -1,6 +1,6 @@
 <?php
-
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CampaignListController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonorListController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +39,7 @@ Route::middleware(['auth', 'role:volunteer'])->group(function () {
 Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::resource('donorlist', DonorListController::class);
+    Route::resource('campaignlist', CampaignListController::class);
 });
 
 require __DIR__ . '/auth.php';
