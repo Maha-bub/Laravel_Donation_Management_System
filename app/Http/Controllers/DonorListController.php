@@ -57,7 +57,7 @@ class DonorListController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DonorList $donorList)
+    public function show(DonorList $donorlist)
     {
         //
     }
@@ -65,24 +65,47 @@ class DonorListController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DonorList $donorList)
+    public function edit(DonorList $donorlist)
     {
-        //
+        return view('admin.crud.edit', compact('donorlist'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DonorList $donorList)
+    public function update(Request $request, DonorList $donorlist)
     {
-        //
+        $request->validate([
+            'name'  => 'required|string|max:100',
+            'email' => 'required|email|max:100',
+            'phone' => 'required|string|max:50',
+            'total' => 'required',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        $imagePath = $donorlist->image; 
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('donors', 'public');
+        }
+
+        $donorlist->update([
+            'name'  => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'total' => $request->total,
+            'image' => $imagePath,
+        ]);
+
+        return redirect()->route('donorlist.index')->with('success', 'Donor updated successfully!');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DonorList $donorList)
+    public function destroy(DonorList $donorlist)
     {
-        //
+        $donorlist->delete();
+        return redirect()->route('donorlist.index')->with('success', 'Donor deleted!');
     }
 }
