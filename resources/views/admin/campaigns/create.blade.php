@@ -24,7 +24,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">Create a campaign</h4>
-                    <a class="btn btn-sm btn-info " href="{{ route('campaignlist.index') }}">Back</a>
+                    <a class="btn btn-sm btn-info " href="{{ route('campaignlist.index') }}"><i class="fas fa-arrow-left"></i> Back</a>
 
 
                 </div><!--end card-header-->
@@ -50,7 +50,7 @@
                                 Please select a valid state.
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Description</label>
                             <textarea type="text" name="category" class="form-control row-3" id="validationCustom02" required></textarea>
                             <div class="valid-feedback">
@@ -61,7 +61,7 @@
                             <label for="validationCustomUsername" class="form-label">Goal Amount</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">৳</span>
-                                <input type="text" class="form-control" id="validationCustomUsername"
+                                <input type="text" name="goal_amount" class="form-control" id="validationCustomUsername"
                                     aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
                                     Please choose a username.
@@ -77,12 +77,10 @@
                             </select>
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="validationCustom05" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="validationCustom05" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="photo">Upload Student Image:</label>
+                            <input class="form-control" id="photo" name="photo" type="file" required>
+                            <div class="invalid-feedback">Photo is required.</div>
                         </div>
                         <div class="col-12">
                             <div class="form-check">
@@ -96,7 +94,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Submit form</button>
+                            <button class="btn btn-primary justify-content-end" type="submit">Submit form</button>
                         </div>
                     </form><!--end form-->
                 </div><!--end card-body-->
@@ -105,6 +103,7 @@
 
     </div><!--end row-->
 @endsection
+
 @push('scripts')
     <script src="{{ asset('') }}assets/js/pages/form-validation.js"></script>
 @endpush
