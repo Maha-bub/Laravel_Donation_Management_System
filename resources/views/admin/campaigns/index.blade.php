@@ -61,10 +61,17 @@
                                                     width="60" height="60" class="rounded">
                                             </td>
                                             <td>{{ $item->name }} <br>
-                                                <span>{{ $item->category->name ?? 'N/A' }}</span>
+                                                <span>{{ $category->name ?? 'N/A' }}</span>
                                             </td>
-                                            <td>{{ $item->goal_amount }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->category_id }}</td>
+                                            <td>
+                                               {{ $item->goal_amount }} 
+                                            </td>
+                                            <td>
+                                                 <span class="badge {{ $item->status == 0 ? 'bg-success' : 'bg-danger' }}">
+                                                    {{ $item->status == 0 ? 'Active' : 'Deactive' }}
+                                                </span>
+                                            </td>
                                             <td>
                                                 <span class="me-2"></span>
 

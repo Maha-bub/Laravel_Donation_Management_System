@@ -9,11 +9,11 @@
                 <h4 class="page-title">Validation</h4>
                 <div class="">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="#">Approx</a>
+                        <li class="breadcrumb-item"><a href="{{route('campaignlist.index')}}">Campaigns</a>
                         </li><!--end nav-item-->
-                        <li class="breadcrumb-item"><a href="#">Forms</a>
+                        <li class="breadcrumb-item"><a href="{{route('campaignlist.create')}}">New Campaigns</a>
                         </li><!--end nav-item-->
-                        <li class="breadcrumb-item active">Validation</li>
+
                     </ol>
                 </div>
             </div><!--end page-title-box-->
@@ -48,7 +48,7 @@
                             <input type="name" name="name" class="form-control" id="validationCustom01"
                                 value="{{ old('name') }}" required>
                             <div class="valid-feedback">
-                                Looks good!
+                                Write your project name!
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -60,14 +60,14 @@
                                 @endforeach
                             </select>
                             <div class="invalid-feedback">
-                                Please select a valid state.
+                                Please select a category.
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Description</label>
                             <textarea name="description" class="form-control row-3" id="validationCustom02" required></textarea>
                             <div class="valid-feedback">
-                                Looks good!
+                                Add a short description.
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -77,7 +77,7 @@
                                 <input type="text" name="goal_amount" class="form-control" id="validationCustomUsername"
                                     aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Please choose a username.
+                                    Please choose goal amount.
                                 </div>
                             </div>
                         </div>
@@ -91,10 +91,39 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="photo">Upload Student Image:</label>
-                            <input class="form-control" id="photo" name="photo" type="file" required>
-                            <div class="invalid-feedback">Photo is required.</div>
+                            <label class="form-label" for="photo">Upload Campaign Image:</label>
+
+                            <div id="drop-area"
+                                class="border border-2 border-secondary border-dashed rounded-4 p-4 text-center position-relative"
+                                style="height: 260px; cursor:pointer; border-style:dashed !important;">
+
+                                <input class="form-control d-none" id="photo" name="photo" type="file"
+                                    accept="image/*" required>
+
+                                <div id="upload-content">
+                                    <i class="fas fa-cloud-upload-alt fs-1 text-primary mb-3"></i>
+
+                                    <h6 class="mb-2">Drag & Drop your image here</h6>
+
+                                    <p class="text-muted mb-2">
+                                        or <span class="text-primary fw-semibold">Click to browse</span>
+                                    </p>
+
+                                    <small class="text-muted">
+                                        JPG, PNG, WEBP etc.
+                                    </small>
+                                </div>
+
+                                <img id="preview-image" src="" class="d-none w-100 h-100 rounded-3"
+                                    style="object-fit: cover;">
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Photo is required.
+                            </div>
                         </div>
+
+
                         <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -119,4 +148,59 @@
 
 @push('scripts')
     <script src="{{ asset('') }}assets/js/pages/form-validation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const dropArea = document.getElementById('drop-area');
+            const input = document.getElementById('photo');
+            const preview = document.getElementById('preview-image');
+
+            dropArea.addEventListener('click', () => input.click());
+
+            input.addEventListener('change', function() {
+                if (this.files.length) {
+                    showPreview(this.files[0]);
+                }
+            });
+
+            ['dragenter', 'dragover'].forEach(event => {
+                dropArea.addEventListener(event, function(e) {
+                    e.preventDefault();
+                    dropArea.classList.add('border-primary', 'bg-light');
+                });
+            });
+
+            ['dragleave', 'drop'].forEach(event => {
+                dropArea.addEventListener(event, function(e) {
+                    e.preventDefault();
+                    dropArea.classList.remove('border-primary', 'bg-light');
+                });
+            });
+
+            dropArea.addEventListener('drop', function(e) {
+
+                const files = e.dataTransfer.files;
+
+                if (files.length) {
+                    input.files = files;
+                    showPreview(files[0]);
+                }
+            });
+
+            function showPreview(file) {
+
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('d-none');
+
+                    document.getElementById('upload-content').classList.add('d-none');
+                };
+
+                reader.readAsDataURL(file);
+            }
+
+        });
+    </script>
 @endpush
