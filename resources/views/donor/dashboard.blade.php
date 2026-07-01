@@ -1,4 +1,4 @@
-@extends('donor.master');
+@extends('donor.master')
 @push('styles')
 @endpush
 

@@ -45,7 +45,7 @@
             @yield('content')
 
             <!-- import footer section -->
-            @include('volunteer.backend.parts.footer'))
+            @include('volunteer.backend.parts.footer')
         </div>
         <!-- end page content -->
     </div>

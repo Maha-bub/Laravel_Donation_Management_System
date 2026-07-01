@@ -1,4 +1,4 @@
-@extends('volunteer.master');
+@extends('volunteer.master')
 @push('styles')
 @endpush
 

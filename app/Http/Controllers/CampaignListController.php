@@ -116,6 +116,13 @@ class CampaignListController extends Controller
      */
     public function destroy(CampaignList $campaignList)
     {
-        //
+        $path = public_path('images/' . $campaignList->image);
+        if ($campaignList->image && file_exists($path)) {
+            @unlink($path);
+        }
+
+        $campaignList->delete();
+
+        return redirect()->route('campaignlist.index')->with('success', 'Campaign deleted successfully!!');
     }
 }
