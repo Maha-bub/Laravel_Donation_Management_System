@@ -77,7 +77,38 @@ class CampaignListController extends Controller
      */
     public function update(Request $request, CampaignList $campaignList)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'category' => 'required|string|max:50',
+            'description' => 'nullable|string|max:250',
+            'goal_amount' => 'required|numeric',
+            'status' => 'nullable|boolean',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        $campaignList->name = $request->name;
+        $campaignList->category = $request->category;
+        $campaignList->description = $request->description;
+        $campaignList->goal_amount = $request->goal_amount;
+        $campaignList->status = $request->status;
+
+        if ($request->hasFile('photo')) {
+            $oldPath = public_path('images/' . $campaignList->image);
+            if ($campaignList->image && file_exists($oldPath)) {
+                @unlink($oldPath);
+            }
+
+            $randomNum = rand(0, 50);
+            $photoExt = $request->photo->extension();
+            $photoName = $randomNum . time() . '.' . $photoExt;
+            $request->photo->move(public_path('images'), $photoName);
+
+            $campaignList->image = $photoName;
+        }
+
+        $campaignList->save();
+
+        return redirect()->route('campaignlist.index')->with('success', 'Campaign updated successfully!!');
     }
 
     /**
