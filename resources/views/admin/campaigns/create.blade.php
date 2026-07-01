@@ -53,11 +53,11 @@
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom04" class="form-label">Category</label>
-                            <select class="form-select" id="validationCustom04" required>
-
+                            <select class="form-select" name="category_id" id="validationCustom04" required>
                                 <option selected disabled value="">Choose Category</option>
-
-                                <option>...</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                             <div class="invalid-feedback">
                                 Please select a valid state.
@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Description</label>
-                           <textarea name="description" class="form-control row-3" id="validationCustom02" required></textarea>
+                            <textarea name="description" class="form-control row-3" id="validationCustom02" required></textarea>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>

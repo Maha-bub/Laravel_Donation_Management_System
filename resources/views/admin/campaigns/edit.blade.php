@@ -36,12 +36,12 @@
 
                         <div class="col-md-6">
                             <label for="category" class="form-label">Category</label>
-                            <select class="form-select" id="category" name="category" required>
+                            <select class="form-select" id="category_id" name="category_id" required>
                                 <option value="" disabled>Choose Category</option>
-                                @foreach (['Education', 'Health', 'Disaster Relief', 'Food', 'Other'] as $cat)
-                                    <option value="{{ $cat }}"
-                                        {{ old('category', $campaignList->category) == $cat ? 'selected' : '' }}>
-                                        {{ $cat }}
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ old('category_id', $campaignList->category_id) == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
                                     </option>
                                 @endforeach
                             </select>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CampaignList;
+use App\Models\Category;
 use Directory;
 use Illuminate\Http\Request;
 
@@ -22,8 +23,10 @@ class CampaignListController extends Controller
      */
     public function create()
     {
-        return view('admin.campaigns.create');
+        $categories = Category::all();
+        return view('admin.campaigns.create', compact('categories'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -33,16 +36,17 @@ class CampaignListController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:100',
-            'category' => 'required|string|max:50',
+            'category_id' => 'required|exists:categories,id',
             'description' => 'nullable|string|max:250',
             'goal_amount' => 'required|numeric',
             'status' => 'nullable|boolean',
             'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
+
         $campaigns = new CampaignList;
         $campaigns->name = $request->name;
-        $campaigns->category = $request->category;
+        $campaigns->category_id = $request->category_id;
         $campaigns->description = $request->description;
         $campaigns->goal_amount = $request->goal_amount;
         $campaigns->status = $request->status;
@@ -70,7 +74,8 @@ class CampaignListController extends Controller
      */
     public function edit(CampaignList $campaignList)
     {
-        return view('admin.campaigns.edit', compact('campaignList'));
+        $categories = Category::all();
+        return view('admin.campaigns.edit', compact('campaignList', 'categories'));
     }
     /**
      * Update the specified resource in storage.
@@ -79,7 +84,7 @@ class CampaignListController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-            'category' => 'required|string|max:50',
+            'category_id' => 'required|exists:categories,id',
             'description' => 'nullable|string|max:250',
             'goal_amount' => 'required|numeric',
             'status' => 'nullable|boolean',
@@ -87,7 +92,7 @@ class CampaignListController extends Controller
         ]);
 
         $campaignList->name = $request->name;
-        $campaignList->category = $request->category;
+        $campaignList->category_id = $request->category_id;
         $campaignList->description = $request->description;
         $campaignList->goal_amount = $request->goal_amount;
         $campaignList->status = $request->status;

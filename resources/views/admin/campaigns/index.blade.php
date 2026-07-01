@@ -61,7 +61,7 @@
                                                     width="60" height="60" class="rounded">
                                             </td>
                                             <td>{{ $item->name }} <br>
-                                                <span>{{ $item->category }}</span>
+                                                <span>{{ $item->category->name ?? 'N/A' }}</span>
                                             </td>
                                             <td>{{ $item->goal_amount }}</td>
                                             <td>{{ $item->status }}</td>
