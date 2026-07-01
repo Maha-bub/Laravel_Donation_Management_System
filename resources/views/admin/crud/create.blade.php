@@ -7,7 +7,8 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Add New Donor</h4>
-                        <a href="{{ route('donorlist.index') }}" class="btn btn-sm btn-secondary">← Back</a>
+                        <a href="{{ route('donorlist.index') }}" class="btn btn-sm btn-secondary"><i
+                                class="fas fa-arrow-left"></i> Back Donor Table</a>
                     </div>
                     <div class="card-body">
 

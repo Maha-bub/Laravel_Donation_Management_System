@@ -30,7 +30,8 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Donor List</h4>
-                        <a class="btn btn-sm btn-primary " href="{{ route('donorlist.create') }}">Add New Donor</a>
+                        <a class="btn btn-sm btn-primary " href="{{ route('donorlist.create') }}">Add New Donor <i
+                                class="fas fa-arrow-right"></i></a>
 
 
                     </div><!--end card-header-->

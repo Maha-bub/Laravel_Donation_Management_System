@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Description</label>
-                            <textarea name="description" class="form-control row-3" id="validationCustom02" required></textarea>
+                           <textarea name="description" class="form-control row-3" id="validationCustom02" required></textarea>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>

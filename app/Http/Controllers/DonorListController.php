@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DonorList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DonorListController extends Controller
 {
@@ -73,36 +74,34 @@ class DonorListController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    
     public function update(Request $request, DonorList $donorlist)
     {
-    $request->validate([
-        'name' => 'required|string|max:100',
-        'email' => 'required|email|max:100',
-        'phone' => 'required|string|max:50',
-        'total' => 'required',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-    ]);
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|max:100',
+            'phone' => 'required|string|max:50',
+            'total' => 'required',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
 
-    $imagePath = $donorlist->image;
+        $imagePath = $donorlist->image;
 
-    if ($request->hasFile('image')) {
-        if ($donorlist->image && $donorlist->image !== 'default.png') {
-            Storage::disk('public')->delete($donorlist->image);
+        if ($request->hasFile('image')) {
+            if ($donorlist->image && $donorlist->image !== 'default.png') {
+                Storage::disk('public')->delete($donorlist->image);
+            }
+            $imagePath = $request->file('image')->store('donors', 'public');
         }
-        $imagePath = $request->file('image')->store('donors', 'public');
-    }
 
-    $donorlist->update([
-        'name' => $request->name,
-        'email' => $request->email,
-        'phone' => $request->phone,
-        'total' => $request->total,
-        'image' => $imagePath,
-    ]);
+        $donorlist->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'total' => $request->total,
+            'image' => $imagePath,
+        ]);
 
-    return redirect()->route('donorlist.index')->with('success', 'Donor updated successfully!');
-}
+        return redirect()->route('donorlist.index')->with('success', 'Donor updated successfully!');
     }
 
     /**
@@ -110,6 +109,12 @@ class DonorListController extends Controller
      */
     public function destroy(DonorList $donorlist)
     {
-        //
-    }
+        if ($donorlist->image && $donorlist->image !== 'default.png') {
+            Storage::disk('public')->delete($donorlist->image);
+        }
 
+        $donorlist->delete();
+
+        return redirect()->route('donorlist.index')->with('success', 'Donor deleted successfully!');
+    }
+}
