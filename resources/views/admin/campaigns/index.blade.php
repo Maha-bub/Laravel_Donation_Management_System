@@ -23,13 +23,18 @@
             </div><!--end col-->
         </div><!--end row-->
 
+        @if (session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
 
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Donor List</h4>
-                        <a class="btn btn-sm btn-info " href="{{ route('campaignlist.create') }}">New Campaign <i class="fas fa-arrow-right"></i> </a>
+                        <a class="btn btn-sm btn-info " href="{{ route('campaignlist.create') }}">New Campaign <i
+                                class="fas fa-arrow-right"></i> </a>
 
 
                     </div><!--end card-header-->
@@ -51,31 +56,38 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>{{ $item->image }}</td>
+                                            <td>
+                                                <img src="{{ asset('images/' . $item->image) }}" alt="Campaign Image"
+                                                    width="60" height="60" class="rounded">
+                                            </td>
                                             <td>{{ $item->name }} <br>
                                                 <span>{{ $item->category }}</span>
                                             </td>
                                             <td>{{ $item->goal_amount }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td>
-                                                <span class="me-2">{{ $item->id }}</span>
+                                                <span class="me-2"></span>
 
                                                 <!-- Edit Icon Button -->
-                                                <a href="{{ route('items.edit', $item->id) }}" class="text-primary me-2"
-                                                    title="Edit">
+                                                <a href="{{ route('campaignlist.edit', $item->id) }}"
+                                                    class="text-primary me-2" title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
 
                                                 <!-- Delete Icon Button -->
-                                                <form action="{{ route('items.destroy', $item->id) }}" method="POST"
-                                                    class="d-inline" onsubmit="return confirm('Are you sure?')">
+                                                <form action="{{ route('campaignlist.destroy', $item->id) }}"
+                                                    method="POST" class="d-inline"
+                                                    onsubmit="return confirm('Are you sure?')">
                                                     @csrf
+
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn p-0 border-0 text-danger"
-                                                        title="Delete">
-                                                        <i class="fas fa-trash-alt"></i>
+
+                                                    <button class="btn p-0 border-0 text-danger" type="submit">
+                                                        <i class="fas fa-trash-alt"></i>Delete
                                                     </button>
                                                 </form>
+
+
                                             </td>
 
                                         </tr>

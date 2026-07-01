@@ -24,12 +24,25 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">Create a campaign</h4>
-                    <a class="btn btn-sm btn-info " href="{{ route('campaignlist.index') }}"><i class="fas fa-arrow-left"></i> Back</a>
+                    <a class="btn btn-sm btn-info " href="{{ route('campaignlist.index') }}"><i
+                            class="fas fa-arrow-left"></i> Back</a>
 
 
                 </div><!--end card-header-->
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $e)
+                                <li>{{ $e }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card-body pt-0">
-                    <form class="row g-3 needs-validation" novalidate>
+                    <form class="row g-3 needs-validation" action="{{ route('campaignlist.store') }}"
+                        enctype="multipart/form-data" method="POST" novalidate>
+                        @csrf
                         <div class="col-md-6">
                             <label for="validationCustom01" class="form-label">Name</label>
                             <input type="name" name="name" class="form-control" id="validationCustom01"
@@ -52,7 +65,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Description</label>
-                            <textarea type="text" name="category" class="form-control row-3" id="validationCustom02" required></textarea>
+                            <textarea name="description" class="form-control row-3" id="validationCustom02" required></textarea>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>

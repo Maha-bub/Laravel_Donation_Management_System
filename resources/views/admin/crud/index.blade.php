@@ -1,4 +1,4 @@
-@extends('admin.master');
+@extends('admin.master')
 @push('styles')
     <link href="{{ asset('') }}assets/libs/simple-datatables/style.css" rel="stylesheet" type="text/css" />
 @endpush

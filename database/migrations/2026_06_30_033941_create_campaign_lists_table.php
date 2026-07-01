@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->string('category', 50);
             $table->string('goal_amount', 50)->nullable();
             $table->boolean('status')->nullable();
-            $table->string('action');
             $table->timestamps();
         });
     }

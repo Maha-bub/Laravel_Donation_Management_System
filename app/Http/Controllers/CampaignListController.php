@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CampaignList;
+use Directory;
 use Illuminate\Http\Request;
 
 class CampaignListController extends Controller
@@ -12,8 +13,8 @@ class CampaignListController extends Controller
      */
     public function index()
     {
-       $campaigns=CampaignList::all();
-       return view('admin.campaigns.index',['items'=>$campaigns]);
+        $campaigns = CampaignList::all();
+        return view('admin.campaigns.index', ['items' => $campaigns]);
     }
 
     /**
@@ -29,7 +30,21 @@ class CampaignListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campaigns = new CampaignList;
+        $campaigns->name = $request->name;
+        $campaigns->category = $request->category;
+        $campaigns->description = $request->description;
+        $campaigns->goal_amount = $request->goal_amount;
+        $campaigns->status = $request->status;
+
+        $randomNum = rand(0, 50);
+        $photoExt = $request->photo->extension();
+        $photoName = $randomNum . '.' . $photoExt;
+        $request->photo->move(public_path('images'), $photoName);
+
+        $campaigns->image = $photoName;
+        $campaigns->save();
+        return redirect()->route('campaignlist.index')->with('success', 'Campaign created successfully!!');
     }
 
     /**
@@ -45,9 +60,8 @@ class CampaignListController extends Controller
      */
     public function edit(CampaignList $campaignList)
     {
-        //
+        return view('admin.campaigns.edit', compact('campaignList'));
     }
-
     /**
      * Update the specified resource in storage.
      */
