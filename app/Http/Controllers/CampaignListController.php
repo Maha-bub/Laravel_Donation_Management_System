@@ -30,6 +30,16 @@ class CampaignListController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'category' => 'required|string|max:50',
+            'description' => 'nullable|string|max:250',
+            'goal_amount' => 'required|numeric',
+            'status' => 'nullable|boolean',
+            'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
         $campaigns = new CampaignList;
         $campaigns->name = $request->name;
         $campaigns->category = $request->category;
