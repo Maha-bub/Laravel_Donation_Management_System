@@ -49,7 +49,7 @@ class CampaignListController extends Controller
 
         $randomNum = rand(0, 50);
         $photoExt = $request->photo->extension();
-        $photoName = $randomNum . '.' . $photoExt;
+        $photoName = $randomNum . time() . '.' . $photoExt;
         $request->photo->move(public_path('images'), $photoName);
 
         $campaigns->image = $photoName;
