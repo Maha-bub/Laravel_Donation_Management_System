@@ -45,7 +45,7 @@
                         @csrf
                         <div class="col-md-6">
                             <label for="validationCustom01" class="form-label">Name</label>
-                            <input type="name" name="name" class="form-control" id="validationCustom01"
+                            <input type="text" name="name" class="form-control" id="validationCustom01"
                                 value="{{ old('name') }}" required>
                             <div class="valid-feedback">
                                 Write your project name!

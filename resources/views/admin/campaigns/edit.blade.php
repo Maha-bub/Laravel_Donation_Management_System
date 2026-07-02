@@ -23,7 +23,7 @@
                 @endif
 
                 <div class="card-body pt-0">
-                    <form class="row g-3" action="{{ route('campaignlist.update', $campaignList->id) }}"
+                    <form class="row g-3" action="{{ route('campaignlist.update', $campaignlist->id) }}"
                         enctype="multipart/form-data" method="POST">
                         @csrf
                         @method('PUT')
@@ -31,16 +31,16 @@
                         <div class="col-md-6">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" id="name"
-                                value="{{ old('name', $campaignList->name) }}" required>
+                                value="{{ old('name', $campaignlist->name) }}" required>
                         </div>
 
                         <div class="col-md-6">
-                            <label for="category" class="form-label">Category</label>
+                            <label for="category_id" class="form-label">Category</label>
                             <select class="form-select" id="category_id" name="category_id" required>
                                 <option value="" disabled>Choose Category</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"
-                                        {{ old('category_id', $campaignList->category_id) == $category->id ? 'selected' : '' }}>
+                                        {{ old('category_id', $campaignlist->category_id) == $category->id ? 'selected' : '' }}>
                                         {{ $category->name }}
                                     </option>
                                 @endforeach
@@ -49,7 +49,7 @@
 
                         <div class="col-md-6">
                             <label for="description" class="form-label">Description</label>
-                            <textarea name="description" class="form-control row-3" id="description">{{ old('description', $campaignList->description) }}</textarea>
+                            <textarea name="description" class="form-control row-3" id="description">{{ old('description', $campaignlist->description) }}</textarea>
                         </div>
 
                         <div class="col-md-6">
@@ -57,25 +57,25 @@
                             <div class="input-group">
                                 <span class="input-group-text">৳</span>
                                 <input type="text" name="goal_amount" class="form-control" id="goal_amount"
-                                    value="{{ old('goal_amount', $campaignList->goal_amount) }}" required>
+                                    value="{{ old('goal_amount', $campaignlist->goal_amount) }}" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="status" name="status">
-                                <option value="0" {{ old('status', $campaignList->status) == 0 ? 'selected' : '' }}>
+                                <option value="0" {{ old('status', $campaignlist->status) == 0 ? 'selected' : '' }}>
                                     Active</option>
-                                <option value="1" {{ old('status', $campaignList->status) == 1 ? 'selected' : '' }}>
+                                <option value="1" {{ old('status', $campaignlist->status) == 1 ? 'selected' : '' }}>
                                     Deactive</option>
                             </select>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="photo">Campaign Image</label>
-                            @if ($campaignList->image)
+                            @if ($campaignlist->image)
                                 <div class="mb-2">
-                                    <img src="{{ asset('images/' . $campaignList->image) }}" width="80"
+                                    <img src="{{ asset('images/' . $campaignlist->image) }}" width="80"
                                         style="border-radius:4px;">
                                 </div>
                             @endif

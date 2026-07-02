@@ -5,6 +5,7 @@ use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonorListController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\VolunteerManageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,6 +33,12 @@ Route::middleware(['auth', 'role:donor'])->group(function () {
 
 Route::middleware(['auth', 'role:volunteer'])->group(function () {
     Route::get('/volunteer/dashboard', [VolunteerController::class, 'dashboard'])->name('volunteer.dashboard');
+
+    // volunteer's own profile & password management
+    Route::get('/volunteer/profile', [VolunteerController::class, 'profile'])->name('volunteer.profile');
+    Route::get('/volunteer/profile/edit', [VolunteerController::class, 'editProfile'])->name('volunteer.profile.edit');
+    Route::put('/volunteer/profile', [VolunteerController::class, 'updateProfile'])->name('volunteer.profile.update');
+    Route::put('/volunteer/password', [VolunteerController::class, 'updatePassword'])->name('volunteer.password.update');
 });
 
 
@@ -39,7 +46,9 @@ Route::middleware(['auth', 'role:volunteer'])->group(function () {
 Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::resource('donorlist', DonorListController::class);
+    Route::post('donorlist/{donorlist}/donations', [DonorListController::class, 'storeDonation'])->name('donorlist.donations.store');
     Route::resource('campaignlist', CampaignListController::class);
+    Route::resource('volunteerlist', VolunteerManageController::class);
 });
 
 require __DIR__ . '/auth.php';

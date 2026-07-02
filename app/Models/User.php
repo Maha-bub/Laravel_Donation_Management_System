@@ -47,4 +47,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * The volunteer profile linked to this user account (if the user's role is volunteer).
+     */
+    public function volunteer()
+    {
+        return $this->hasOne(Volunteer::class);
+    }
 }

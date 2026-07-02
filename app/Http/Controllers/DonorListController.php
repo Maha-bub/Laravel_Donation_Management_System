@@ -13,7 +13,7 @@ class DonorListController extends Controller
      */
     public function index()
     {
-        $donor = DonorList::all();
+        $donor = DonorList::with('donations')->get();
         return view('admin.crud.index', (['items' => $donor]));
         // dd($donor);
     }
@@ -116,5 +116,30 @@ class DonorListController extends Controller
         $donorlist->delete();
 
         return redirect()->route('donorlist.index')->with('success', 'Donor deleted successfully!');
+    }
+
+    /**
+     * Record a new donation entry for a donor (used from the "View" modal on the donor list).
+     */
+    public function storeDonation(Request $request, DonorList $donorlist)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:0',
+            'donation_date' => 'required|date',
+            'note' => 'nullable|string|max:255',
+        ]);
+
+        $donorlist->donations()->create([
+            'amount' => $request->amount,
+            'donation_date' => $request->donation_date,
+            'note' => $request->note,
+        ]);
+
+        // keep the donor's total in sync with the sum of all recorded donations
+        $donorlist->update([
+            'total' => $donorlist->donations()->sum('amount'),
+        ]);
+
+        return redirect()->route('donorlist.index')->with('success', 'Donation recorded successfully!');
     }
 }

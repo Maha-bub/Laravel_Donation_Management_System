@@ -24,10 +24,16 @@
                      </li>
 
                      <li class="nav-item">
-                         <a class="nav-link" href="index.html">
+                         <a class="nav-link" href="{{ route('volunteer.dashboard') }}">
                              <i class="iconoir-report-columns menu-icon"></i>
                              <span>Dashboard</span>
                              <span class="badge text-bg-info ms-auto">New</span>
+                         </a>
+                     </li><!--end nav-item-->
+                     <li class="nav-item">
+                         <a class="nav-link" href="{{ route('volunteer.profile') }}">
+                             <i class="iconoir-user menu-icon"></i>
+                             <span>My Profile</span>
                          </a>
                      </li><!--end nav-item-->
                  </ul>

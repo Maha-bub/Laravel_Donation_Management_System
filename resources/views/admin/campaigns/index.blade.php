@@ -32,7 +32,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="card-title mb-0">Donor List</h4>
+                        <h4 class="card-title mb-0">Campaign List</h4>
                         <a class="btn btn-sm btn-info " href="{{ route('campaignlist.create') }}">New Campaign <i
                                 class="fas fa-arrow-right"></i> </a>
 
@@ -53,17 +53,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($items as $item)
+                                    @forelse ($items as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>
                                                 <img src="{{ asset('images/' . $item->image) }}" alt="Campaign Image"
                                                     width="60" height="60" class="rounded">
                                             </td>
-                                            <td>{{ $item->name }} <br>
-                                                <span>{{ $category->name ?? 'N/A' }}</span>
-                                            </td>
-                                            <td>{{ $item->category_id }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->category->name ?? 'N/A' }}</td>
                                             <td>
                                                {{ $item->goal_amount }} 
                                             </td>
@@ -78,7 +76,7 @@
                                                 <!-- Edit Icon Button -->
                                                 <a href="{{ route('campaignlist.edit', $item->id) }}"
                                                     class="text-primary me-2" title="Edit">
-                                                    <i class="fas fa-edit"></i>Edit
+                                                    <i class="fas fa-edit"></i>
                                                 </a>
 
                                                 <!-- Delete Icon Button -->
@@ -98,7 +96,11 @@
                                             </td>
 
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="7" class="text-center">No campaigns found.</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>

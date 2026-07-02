@@ -47,6 +47,12 @@
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
+                         <a class="nav-link" href="{{route('volunteerlist.index')}}">
+                             {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
+                             <span>Volunteers</span>
+                         </a>
+                     </li><!--end nav-item-->
+                     <li class="nav-item">
                          <a class="nav-link" href="#sidebarTables" data-bs-toggle="collapse" role="button"
                              aria-expanded="false" aria-controls="sidebarTables">
                              {{-- <i class="iconoir-list menu-icon"></i> --}}

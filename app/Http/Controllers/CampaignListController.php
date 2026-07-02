@@ -64,7 +64,7 @@ class CampaignListController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CampaignList $campaignList)
+    public function show(CampaignList $campaignlist)
     {
         //
     }
@@ -72,15 +72,15 @@ class CampaignListController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CampaignList $campaignList)
+    public function edit(CampaignList $campaignlist)
     {
         $categories = Category::all();
-        return view('admin.campaigns.edit', compact('campaignList', 'categories'));
+        return view('admin.campaigns.edit', compact('campaignlist', 'categories'));
     }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CampaignList $campaignList)
+    public function update(Request $request, CampaignList $campaignlist)
     {
         $request->validate([
             'name' => 'required|string|max:100',
@@ -91,15 +91,15 @@ class CampaignListController extends Controller
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $campaignList->name = $request->name;
-        $campaignList->category_id = $request->category_id;
-        $campaignList->description = $request->description;
-        $campaignList->goal_amount = $request->goal_amount;
-        $campaignList->status = $request->status;
+        $campaignlist->name = $request->name;
+        $campaignlist->category_id = $request->category_id;
+        $campaignlist->description = $request->description;
+        $campaignlist->goal_amount = $request->goal_amount;
+        $campaignlist->status = $request->status;
 
         if ($request->hasFile('photo')) {
-            $oldPath = public_path('images/' . $campaignList->image);
-            if ($campaignList->image && file_exists($oldPath)) {
+            $oldPath = public_path('images/' . $campaignlist->image);
+            if ($campaignlist->image && file_exists($oldPath)) {
                 @unlink($oldPath);
             }
 
@@ -108,10 +108,10 @@ class CampaignListController extends Controller
             $photoName = $randomNum . time() . '.' . $photoExt;
             $request->photo->move(public_path('images'), $photoName);
 
-            $campaignList->image = $photoName;
+            $campaignlist->image = $photoName;
         }
 
-        $campaignList->save();
+        $campaignlist->save();
 
         return redirect()->route('campaignlist.index')->with('success', 'Campaign updated successfully!!');
     }
@@ -119,14 +119,14 @@ class CampaignListController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CampaignList $campaignList)
+    public function destroy(CampaignList $campaignlist)
     {
-        $path = public_path('images/' . $campaignList->image);
-        if ($campaignList->image && file_exists($path)) {
+        $path = public_path('images/' . $campaignlist->image);
+        if ($campaignlist->image && file_exists($path)) {
             @unlink($path);
         }
 
-        $campaignList->delete();
+        $campaignlist->delete();
 
         return redirect()->route('campaignlist.index')->with('success', 'Campaign deleted successfully!!');
     }
