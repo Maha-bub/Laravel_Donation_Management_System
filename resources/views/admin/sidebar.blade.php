@@ -4,11 +4,11 @@
      <div class="brand">
          <a href="index.html" class="logo">
              <span>
-                 <img src="{{ asset('') }}assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                 <img src="{{ asset('') }}assets/images/logo_dark.png" alt="logo-small" class="logo-sm">
              </span>
              <span class="">
-                 <img src="{{ asset('') }}assets/images/logo-light.png" alt="logo-large" class="logo-lg logo-light">
-                 <img src="{{ asset('') }}assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                 <img src="{{ asset('') }}assets/images/logo_dark.png" alt="logo-large" width="150px" height="150px" class="logo-light">
+                 <img src="{{ asset('') }}assets/images/logo_dark.png" alt="logo-large" width="150px" height="100px" class="logo-dark">
              </span>
          </a>
      </div>
@@ -21,7 +21,7 @@
                  <ul class="navbar-nav mb-auto w-100">
 
                      <li class="nav-item">
-                         <a class="nav-link" href="{{route('admin.dashboard')}}">
+                         <a class="nav-link" href="{{ route('admin.dashboard') }}">
                              <i class="iconoir-report-columns menu-icon"></i>
                              <span>Dashboard</span>
                              <span class="badge text-bg-info ms-auto">overview</span>
@@ -41,13 +41,13 @@
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="{{route('donorlist.index')}}">
+                         <a class="nav-link" href="{{ route('donorlist.index') }}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Donor List</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="{{route('volunteerlist.index')}}">
+                         <a class="nav-link" href="{{ route('volunteerlist.index') }}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Volunteers</span>
                          </a>

@@ -40,7 +40,7 @@ class CampaignListController extends Controller
             'description' => 'nullable|string|max:250',
             'goal_amount' => 'required|numeric',
             'status' => 'nullable|boolean',
-            'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'photo' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
 
