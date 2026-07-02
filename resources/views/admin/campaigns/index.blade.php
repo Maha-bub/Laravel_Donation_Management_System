@@ -78,7 +78,7 @@
                                                 <!-- Edit Icon Button -->
                                                 <a href="{{ route('campaignlist.edit', $item->id) }}"
                                                     class="text-primary me-2" title="Edit">
-                                                    <i class="fas fa-edit"></i>
+                                                    <i class="fas fa-edit"></i>Edit
                                                 </a>
 
                                                 <!-- Delete Icon Button -->
