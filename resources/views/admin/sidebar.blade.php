@@ -7,8 +7,10 @@
                  <img src="{{ asset('') }}assets/images/logo_dark.png" alt="logo-small" class="logo-sm">
              </span>
              <span class="">
-                 <img src="{{ asset('') }}assets/images/logo_dark.png" alt="logo-large" width="150px" height="150px" class="logo-light">
-                 <img src="{{ asset('') }}assets/images/logo_dark.png" alt="logo-large" width="150px" height="100px" class="logo-dark">
+                 <img src="{{ asset('') }}assets/images/logo_dark.png" alt="logo-large" width="150px" height="150px"
+                     class="logo-light">
+                 <img src="{{ asset('') }}assets/images/logo_dark.png" alt="logo-large" width="150px"
+                     height="100px" class="logo-dark">
              </span>
          </a>
      </div>
@@ -28,7 +30,7 @@
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="index.html">
+                         <a class="nav-link" href="{{ route('donations.index') }}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Donations</span>
                              <span class="badge text-bg-info ms-auto">Total</span>

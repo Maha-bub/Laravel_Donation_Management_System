@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampaignListController;
+use App\Http\Controllers\DonationsController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonorListController;
 use App\Http\Controllers\ProfileController;
@@ -47,6 +48,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('donorlist/{donorlist}/donations', [DonorListController::class, 'storeDonation'])->name('donorlist.donations.store');
     Route::resource('campaignlist', CampaignListController::class);
     Route::resource('volunteerlist', VolunteerManageController::class);
+    Route::resource('donations', DonationsController::class);
 });
 
 require __DIR__ . '/auth.php';
