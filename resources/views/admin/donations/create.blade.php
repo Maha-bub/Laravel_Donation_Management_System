@@ -55,10 +55,14 @@
                         <div class="col-md-6">
                             <label for="validationCustom04" class="form-label">Campaigns</label>
                             <select class="form-select" name="campaigns" id="validationCustom04" required>
-                                <option selected disabled value="">Choose Category</option>
-                                <option selected  value="">Choose Category</option>
-                                <option selected  value="">Choose Category</option>
-                               
+                                <option selected disabled value="">Choose Campaigns</option>
+                                @foreach ($campains as $campain)
+                                    <option value="{{ $campain->id }}">
+                                        {{ $campain->campaign }}
+                                    </option>
+                                @endforeach
+
+
                             </select>
                             <div class="invalid-feedback">
                                 Please select a category.
@@ -77,67 +81,20 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-md-6">
-                            <label for="validationCustom02" class="form-label">Amount</label>
-                            <textarea name="amount" class="form-control row-3" id="validationCustom02" required></textarea>
-                            <div class="valid-feedback">
-                                Add a short description.
-                            </div>
-                        </div> --}}
+
                         <div class="col-md-6">
-                            <label for="validationCustom03" class="form-label">Status</label>
-                            <select class="form-select" id="validationCustom04" name="status">
-                                <option value="">Campaign Status</option>
-                                <option value="0">Active</option>
-                                <option value="1">Deactive</option>
+                            <label for="validationCustom03" class="form-label">Payment Method</label>
+                            <select class="form-select" id="validationCustom04" name="payment_method">
+                                <option value="">Choose one</option>
+                                <option value="0">Bkash</option>
+                                <option value="1">Nagad</option>
                             </select>
                         </div>
 
-                        <div class="col-md-6">
-                            <label class="form-label" for="photo">Upload Campaign Image:</label>
-
-                            <div id="drop-area"
-                                class="border border-2 border-secondary border-dashed rounded-4 p-4 text-center position-relative"
-                                style="height: 260px; cursor:pointer; border-style:dashed !important;">
-
-                                <input class="form-control d-none" id="photo" name="photo" type="file"
-                                    accept="image/*" required>
-
-                                <div id="upload-content">
-                                    <i class="fas fa-cloud-upload-alt fs-1 text-primary mb-3"></i>
-
-                                    <h6 class="mb-2">Drag & Drop your image here</h6>
-
-                                    <p class="text-muted mb-2">
-                                        or <span class="text-primary fw-semibold">Click to browse</span>
-                                    </p>
-
-                                    <small class="text-muted">
-                                        JPG, PNG, WEBP etc.
-                                    </small>
-                                </div>
-
-                                <img id="preview-image" src="" class="d-none w-100 h-100 rounded-3"
-                                    style="object-fit: cover;">
-                            </div>
-
-                            <div class="invalid-feedback">
-                                Photo is required.
-                            </div>
-                        </div>
 
 
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                <label class="form-check-label" for="invalidCheck">
-                                    Agree to terms and conditions
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
-                            </div>
-                        </div>
+
+
                         <div class="col-12">
                             <button class="btn btn-primary justify-content-end" type="submit">Submit form</button>
                         </div>
