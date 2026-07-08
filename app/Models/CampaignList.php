@@ -12,4 +12,9 @@ class CampaignList extends Model
    {
       return $this->belongsTo(Category::class);
    }
+
+   public function donations()
+   {
+      return $this->hasMany(Donations::class, 'campaign_id');
+   }
 }

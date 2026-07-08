@@ -58,9 +58,10 @@
                                 <option selected disabled value="">Choose Campaigns</option>
                                 @foreach ($campains as $campain)
                                     <option value="{{ $campain->id }}">
-                                        {{ $campain->campaign }}
+                                        {{ $campain->name }}
                                     </option>
                                 @endforeach
+
 
 
                             </select>

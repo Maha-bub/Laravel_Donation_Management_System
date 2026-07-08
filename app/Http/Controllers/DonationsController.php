@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Campaigns;
+use App\Models\CampaignList;
 use App\Models\Donations;
 use Illuminate\Http\Request;
 
@@ -21,13 +21,14 @@ class DonationsController extends Controller
      */
     public function create()
     {
-        $campaign = Campaigns::all();
-        return view('admin.donations.create',['campains'=>$campaign]);
+        $campaign = CampaignList::all();
+        return view('admin.donations.create', ['campains' => $campaign]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
+    
     public function store(Request $request)
     {
         //

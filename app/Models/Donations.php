@@ -8,10 +8,10 @@ use App\Models\Campaigns;
 
 class Donations extends Model
 {
-    protected $fillable = ['name', 'campaign', 'amount'];
+    protected $fillable = ['name', 'campaign_id', 'amount'];
 
-    public function campaign()
+    public function campaigns()
     {
-        return $this->hasMany(Campaigns::class);
+        return $this->belongsTo(CampaignList::class, 'campaign_id');
     }
 }
