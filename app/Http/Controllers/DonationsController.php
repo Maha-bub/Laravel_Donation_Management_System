@@ -22,16 +22,22 @@ class DonationsController extends Controller
     public function create()
     {
         $campaign = CampaignList::all();
+        // dd($campaign);
         return view('admin.donations.create', ['campains' => $campaign]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    
+
     public function store(Request $request)
     {
-        //
+        Donations::create([
+            'name' => $request->name,
+            'campaign_id' => $request->campaign_id,
+            'amount' => $request->amount,
+            'payment_method' => $request->payment_method,
+        ]);
     }
 
     /**

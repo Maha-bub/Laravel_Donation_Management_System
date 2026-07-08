@@ -54,11 +54,11 @@
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom04" class="form-label">Campaigns</label>
-                            <select class="form-select" name="campaigns" id="validationCustom04" required>
+                            <select class="form-select" name="campaign_id" id="validationCustom04" required>
                                 <option selected disabled value="">Choose Campaigns</option>
                                 @foreach ($campains as $campain)
                                     <option value="{{ $campain->id }}">
-                                        {{ $campain->name }}
+                                       {{ $campain->name }}
                                     </option>
                                 @endforeach
 
@@ -87,8 +87,8 @@
                             <label for="validationCustom03" class="form-label">Payment Method</label>
                             <select class="form-select" id="validationCustom04" name="payment_method">
                                 <option value="">Choose one</option>
-                                <option value="0">Bkash</option>
-                                <option value="1">Nagad</option>
+                                <option value="Bkash">Bkash</option>
+                                <option value="Nagad">Nagad</option>
                             </select>
                         </div>
 

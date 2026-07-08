@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Campaigns;
+use App\Models\CampaignList;
 
 
 class Donations extends Model
 {
-    protected $fillable = ['name', 'campaign_id', 'amount'];
+    protected $fillable = ['name', 'campaign_id', 'amount', 'payment_method'];
 
-    public function campaigns()
+    public function campaign()
     {
         return $this->belongsTo(CampaignList::class, 'campaign_id');
     }

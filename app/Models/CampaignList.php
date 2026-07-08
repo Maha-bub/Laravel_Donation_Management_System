@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Donations;
 
 class CampaignList extends Model
 {
@@ -15,6 +16,6 @@ class CampaignList extends Model
 
    public function donations()
    {
-      return $this->hasMany(Donations::class, 'campaign_id');
+      return $this->hasMany(Donations::class);
    }
 }

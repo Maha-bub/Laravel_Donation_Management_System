@@ -13,7 +13,9 @@ return new class extends Migration {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->foreignId('campaign_id')->constrained('campaign_lists')->cascadeOnDelete();
+            $table->foreignId('campaign_id')
+                ->constrained('campaign_lists')
+                ->cascadeOnDelete();
             $table->string('amount', 100);
             $table->string('payment_method', 100);
             $table->timestamps();
