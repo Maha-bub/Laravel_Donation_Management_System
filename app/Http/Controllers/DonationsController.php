@@ -35,9 +35,9 @@ class DonationsController extends Controller
     {
 
         $request->validate([
-            'name' => 'require|string|max:100',
+            'name' => 'required|string|max:100',
             'payment_method' => 'required|string|max:100',
-            'amount' => 'required|string|max:100'
+            'amount' => 'required|string|max:100',
         ]);
 
         Donations::create([
@@ -73,7 +73,7 @@ class DonationsController extends Controller
     public function update(Request $request, Donations $donations)
     {
         $request->validate([
-            'name' => 'require|string|max:100',
+            'name' => 'required|string|max:100',
             'payment_method' => 'required|string|max:100',
             'amount' => 'required|string|max:100'
         ]);

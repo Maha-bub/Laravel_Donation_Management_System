@@ -47,20 +47,26 @@
                         <div class="col-md-6">
                             <label for="validationCustom01" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" id="validationCustom01"
-                                value="{{ old('name') }}" required>
+                                value="{{ old('name') }}">
                             {{-- <div class="valid-feedback">
                                 Write your project name!
                             </div> --}}
+                            @error('name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom04" class="form-label">Campaigns</label>
-                            <select class="form-select" name="campaign_id" id="validationCustom04" required>
+                            <select class="form-select" name="campaign_id" id="validationCustom04">
                                 <option selected disabled value="">Choose Campaigns</option>
                                 @foreach ($campains as $campain)
                                     <option value="{{ $campain->id }}">
-                                       {{ $campain->name }}
+                                        {{ $campain->name }}
                                     </option>
                                 @endforeach
+                                @error('campaign_id')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
 
 
 
@@ -75,7 +81,7 @@
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">৳</span>
                                 <input type="text" name="amount" class="form-control" id="validationCustomUsername"
-                                    aria-describedby="inputGroupPrepend" required>
+                                    aria-describedby="inputGroupPrepend">
                                 <div class="invalid-feedback">
                                     Please choose goal amount.
                                 </div>
