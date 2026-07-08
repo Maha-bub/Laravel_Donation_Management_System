@@ -37,7 +37,8 @@ class DonationsController extends Controller
         $request->validate([
             'name' => 'required|string|max:100',
             'payment_method' => 'required|string|max:100',
-            'amount' => 'required|string|max:100',
+            'campaign_id' => 'required|exists:campaign_lists,id',
+            'amount' => 'required|numeric|min:1',
         ]);
 
         Donations::create([
@@ -63,8 +64,8 @@ class DonationsController extends Controller
      */
     public function edit(Donations $donations)
     {
-        return view('admin.donations.edit', ['item' => $donations]);
-
+        $campaign = CampaignList::all();
+        return view('admin.donations.edit', ['item' => $donations, 'campains' => $campaign]);
     }
 
     /**
@@ -75,7 +76,8 @@ class DonationsController extends Controller
         $request->validate([
             'name' => 'required|string|max:100',
             'payment_method' => 'required|string|max:100',
-            'amount' => 'required|string|max:100'
+            'campaign_id' => 'required|exists:campaign_lists,id',
+            'amount' => 'required|numeric|min:1'
         ]);
 
         $donations->update([
@@ -93,6 +95,6 @@ class DonationsController extends Controller
     public function destroy(Donations $donations)
     {
         $donations->delete();
-        return redirect()->route('donations.index')->with('success', 'Donation deleted successfully!!');    
+        return redirect()->route('donations.index')->with('success', 'Donation deleted successfully!!');
     }
 }

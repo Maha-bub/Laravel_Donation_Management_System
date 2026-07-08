@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Edit Volunteer</h4>
-                        <a href="{{ route('volunteerlist.index') }}" class="btn btn-sm btn-secondary">← Back</a>
+                        <a href="{{ route('admin.volunteerlist.index') }}" class="btn btn-sm btn-secondary">← Back</a>
                     </div>
                     <div class="card-body">
 
@@ -21,7 +21,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('volunteerlist.update', $volunteerlist->id) }}" method="post"
+                        <form action="{{ route('admin.volunteerlist.update', $volunteerlist->id) }}" method="post"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

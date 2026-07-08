@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Campaign List</h4>
-                        <a class="btn btn-sm btn-info " href="{{ route('campaignlist.create') }}">New Campaign <i
+                        <a class="btn btn-sm btn-info " href="{{ route('admin.campaignlist.create') }}">New Campaign <i
                                 class="fas fa-arrow-right"></i> </a>
 
 
@@ -74,13 +74,13 @@
                                                 <span class="me-2"></span>
 
                                                 <!-- Edit Icon Button -->
-                                                <a href="{{ route('campaignlist.edit', $item->id) }}"
+                                                <a href="{{ route('admin.campaignlist.edit', $item->id) }}"
                                                     class="text-primary me-2" title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
 
                                                 <!-- Delete Icon Button -->
-                                                <form action="{{ route('campaignlist.destroy', $item->id) }}"
+                                                <form action="{{ route('admin.campaignlist.destroy', $item->id) }}"
                                                     method="POST" class="d-inline"
                                                     onsubmit="return confirm('Are you sure?')">
                                                     @csrf

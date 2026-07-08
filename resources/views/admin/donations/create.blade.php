@@ -9,9 +9,9 @@
                 <h4 class="page-title">Validation</h4>
                 <div class="">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{ route('donations.index') }}">Donations</a>
+                        <li class="breadcrumb-item"><a href="{{ route('donations.index')}}">Donations</a>
                         </li><!--end nav-item-->
-                        <li class="breadcrumb-item"><a href="{{ route('donations.create') }}">New Donation</a>
+                        <li class="breadcrumb-item"><a href="{{ route('donations.index') }}">Back Table</a>
                         </li><!--end nav-item-->
 
                     </ol>
@@ -24,13 +24,13 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">Create a campaign</h4>
-                    <a class="btn btn-sm btn-info " href="{{ route('donations.index') }}"><i class="fas fa-arrow-left"></i>
+                    <a class="btn btn-sm btn-info " href="{{ route('admin.donations.index') }}"><i class="fas fa-arrow-left"></i>
                         Back Table</a>
 
 
                 </div><!--end card-header-->
 
-                {{-- @if ($errors->any())
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
                             @foreach ($errors->all() as $e)
@@ -38,10 +38,10 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif --}}
+                @endif
 
                 <div class="card-body pt-0">
-                    <form class="row g-3 needs-validation" action="{{ route('donations.store') }}"
+                    <form class="row g-3 needs-validation" action="{{ route('admin.donations.store') }}"
                         enctype="multipart/form-data" method="POST" novalidate>
                         @csrf
                         <div class="col-md-6">

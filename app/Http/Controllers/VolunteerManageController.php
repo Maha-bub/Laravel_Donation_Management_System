@@ -69,7 +69,7 @@ class VolunteerManageController extends Controller
             ]);
         });
 
-        return redirect()->route('volunteerlist.index')->with('success', 'Volunteer added successfully!');
+        return redirect()->route('admin.volunteerlist.index')->with('success', 'Volunteer added successfully!');
     }
 
     /**
@@ -136,9 +136,9 @@ class VolunteerManageController extends Controller
             ]);
         });
 
-        return redirect()->route('volunteerlist.index')->with('success', 'Volunteer updated successfully!');
+        return redirect()->route('admin.volunteerlist.index')->with('success', 'Volunteer updated successfully!');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */
@@ -155,6 +155,6 @@ class VolunteerManageController extends Controller
             $user->delete();
         }
 
-        return redirect()->route('volunteerlist.index')->with('success', 'Volunteer deleted successfully!');
+        return redirect()->route('admin.volunteerlist.index')->with('success', 'Volunteer deleted successfully!');
     }
 }

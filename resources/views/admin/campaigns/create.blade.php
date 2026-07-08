@@ -9,9 +9,9 @@
                 <h4 class="page-title">Validation</h4>
                 <div class="">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('campaignlist.index')}}">Campaigns</a>
+                        <li class="breadcrumb-item"><a href="{{route('admin.campaignlist.index')}}">Campaigns</a>
                         </li><!--end nav-item-->
-                        <li class="breadcrumb-item"><a href="{{route('campaignlist.create')}}">New Campaigns</a>
+                        <li class="breadcrumb-item"><a href="{{route('admin.campaignlist.create')}}">New Campaigns</a>
                         </li><!--end nav-item-->
 
                     </ol>
@@ -24,7 +24,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">Create a campaign</h4>
-                    <a class="btn btn-sm btn-info " href="{{ route('campaignlist.index') }}"><i
+                    <a class="btn btn-sm btn-info " href="{{ route('admin.campaignlist.index') }}"><i
                             class="fas fa-arrow-left"></i> Back</a>
 
 
@@ -40,7 +40,7 @@
                     </div>
                 @endif
                 <div class="card-body pt-0">
-                    <form class="row g-3 needs-validation" action="{{ route('campaignlist.store') }}"
+                    <form class="row g-3 needs-validation" action="{{ route('admin.campaignlist.store') }}"
                         enctype="multipart/form-data" method="POST" novalidate>
                         @csrf
                         <div class="col-md-6">
@@ -94,7 +94,7 @@
                             <label class="form-label" for="photo">Upload Campaign Image:</label>
 
                             <div id="drop-area"
-                                class="border border-2 border-secondary border-dashed rounded-4 p-4 text-center position-relative"
+                                class="border border-secondary border-dashed rounded-4 p-4 text-center position-relative"
                                 style="height: 260px; cursor:pointer; border-style:dashed !important;">
 
                                 <input class="form-control d-none" id="photo" name="photo" type="file"

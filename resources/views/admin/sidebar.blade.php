@@ -30,26 +30,26 @@
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="{{ route('donations.index') }}">
+                         <a class="nav-link" href="{{ route('admin.donations.index') }}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Donations</span>
                              <span class="badge text-bg-info ms-auto">Total</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="{{ route('campaignlist.index') }}">
+                         <a class="nav-link" href="{{ route('admin.campaignlist.index') }}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Campaigns</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="{{ route('donorlist.index') }}">
+                         <a class="nav-link" href="{{ route('admin.donorlist.index') }}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Donor List</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
-                         <a class="nav-link" href="{{ route('volunteerlist.index') }}">
+                         <a class="nav-link" href="{{ route('admin.volunteerlist.index') }}">
                              {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
                              <span>Volunteers</span>
                          </a>

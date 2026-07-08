@@ -13,11 +13,11 @@
                     <h4 class="page-title">Volunteers</h4>
                     <div class="">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Volunteer</a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.volunteerlist.index') }}">Volunteer</a>
                             </li><!--end nav-item-->
-                            <li class="breadcrumb-item"><a href="#">Tables</a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.volunteerlist.index') }}">Tables</a>
                             </li><!--end nav-item-->
-                            
+
                         </ol>
                     </div>
                 </div><!--end page-title-box-->
@@ -30,8 +30,8 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Volunteer List</h4>
-                        <a class="btn btn-sm btn-primary " href="{{ route('volunteerlist.create') }}">Add New Volunteer <i
-                                class="fas fa-arrow-right"></i></a>
+                        <a class="btn btn-sm btn-primary " href="{{ route('admin.volunteerlist.create') }}">Add New
+                            Volunteer <i class="fas fa-arrow-right"></i></a>
 
 
                     </div><!--end card-header-->
@@ -75,13 +75,15 @@
                                                     <span class="badge bg-secondary">Inactive</span>
                                                 @endif
                                             </td>
-                                            <td>{{ $item->joining_date ? \Carbon\Carbon::parse($item->joining_date)->format('d M Y') : '-' }}</td>
+                                            <td>{{ $item->joining_date ? \Carbon\Carbon::parse($item->joining_date)->format('d M Y') : '-' }}
+                                            </td>
                                             <td>
-                                                <a href="{{ route('volunteerlist.edit', $item->id) }}"
+                                                <a href="{{ route('admin.volunteerlist.edit', $item->id) }}"
                                                     class="btn btn-xs btn-warning">Edit</a>
 
-                                                <form action="{{ route('volunteerlist.destroy', $item->id) }}" method="POST"
-                                                    style="display:inline" onsubmit="return confirm('Delete this volunteer?')">
+                                                <form action="{{ route('admin.volunteerlist.destroy', $item->id) }}"
+                                                    method="POST" style="display:inline"
+                                                    onsubmit="return confirm('Delete this volunteer?')">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-xs btn-danger">Delete</button>
