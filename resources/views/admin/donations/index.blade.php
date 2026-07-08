@@ -19,9 +19,9 @@
             </div><!--end col-->
         </div><!--end row-->
 
-        {{-- @if (session('success'))
+        @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
-        @endif --}}
+        @endif
 
 
         <div class="row justify-content-center">
@@ -71,8 +71,8 @@
                                                 </a>
 
                                                 <!-- Delete -->
-                                                <form action="{{ route('admin.donations.destroy', $item->id) }}" method="POST"
-                                                    class="d-inline">
+                                                <form action="{{ route('admin.donations.destroy', $item->id) }}"
+                                                    method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
 

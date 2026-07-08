@@ -48,7 +48,7 @@ class DonationsController extends Controller
             'payment_method' => $request->payment_method,
         ]);
 
-        return redirect()->route('donations.index')->with('success', 'Donation created successfully!!');
+        return redirect()->route('admin.donations.index')->with('success', 'Donation created successfully!!');
     }
 
     /**
@@ -62,12 +62,17 @@ class DonationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Donations $donations)
-    {
-        $campaign = CampaignList::all();
-        return view('admin.donations.edit', ['item' => $donations, 'campains' => $campaign]);
-    }
 
+
+    public function edit(Donations $donation)
+    {
+        $campaigns = CampaignList::all();
+
+        return view('admin.donations.edit', [
+            'item' => $donation,
+            'campaigns' => $campaigns,
+        ]);
+    }
     /**
      * Update the specified resource in storage.
      */
@@ -86,15 +91,16 @@ class DonationsController extends Controller
             'amount' => $request->amount,
             'payment_method' => $request->payment_method,
         ]);
-        return redirect()->route('donations.index')->with('success', 'Donation updated successfully!!');
+        return redirect()->route('admin.donations.index')->with('success', 'Donation updated successfully!!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Donations $donations)
+    public function destroy(Request $request, $id)
     {
-        $donations->delete();
-        return redirect()->route('donations.index')->with('success', 'Donation deleted successfully!!');
+        $donation = Donations::findOrFail($id);
+        $donation->delete();
+        return redirect()->route('admin.donations.index')->with('success', 'Donation deleted successfully!!');
     }
 }

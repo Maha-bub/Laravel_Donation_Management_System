@@ -24,13 +24,14 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">Create a campaign</h4>
-                    <a class="btn btn-sm btn-info " href="{{ route('admin.donations.index') }}"><i class="fas fa-arrow-left"></i>
+                    <a class="btn btn-sm btn-info " href="{{ route('admin.donations.index') }}"><i
+                            class="fas fa-arrow-left"></i>
                         Back Table</a>
 
 
                 </div><!--end card-header-->
 
-                {{-- @if ($errors->any())
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
                             @foreach ($errors->all() as $e)
@@ -38,16 +39,17 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif --}}
+                @endif
 
                 <div class="card-body pt-0">
-                    <form class="row g-3 needs-validation" action="{{ route('admin.donations.store') }}"
+                    <form class="row g-3 needs-validation" action="{{ route('admin.donations.update', $item->id) }}"
                         enctype="multipart/form-data" method="POST" novalidate>
                         @csrf
+                        @method('PUT')
                         <div class="col-md-6">
                             <label for="validationCustom01" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" id="validationCustom01"
-                                value="{{ old('name') }}">
+                                value="{{ old('name', $item->name) }}">
                             {{-- <div class="valid-feedback">
                                 Write your project name!
                             </div> --}}
@@ -59,9 +61,10 @@
                             <label for="validationCustom04" class="form-label">Campaigns</label>
                             <select class="form-select" name="campaign_id" id="validationCustom04">
                                 <option selected disabled value="">Choose Campaigns</option>
-                                @foreach ($campains as $campain)
-                                    <option value="{{ $campain->id }}" {{ old('campaign_id') == $campain->id ? 'selected' : '' }}>
-                                        {{ $campain->name }}
+                                @foreach ($campaigns as $campaign)
+                                    <option value="{{ $campaign->id }}"
+                                        {{ old('campaign_id', $item->campaign_id) == $campaign->id ? 'selected' : '' }}>
+                                        {{ $campaign->name }}
                                     </option>
                                 @endforeach
                                 @error('campaign_id')
@@ -80,35 +83,42 @@
                             <label for="validationCustomUsername" class="form-label">Amount</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">৳</span>
-                                <input type="text" name="amount" class="form-control" id="validationCustomUsername"
-                                    aria-describedby="inputGroupPrepend">
+                                <input type="text" name="amount" class="form-control"
+                                    value="{{ old('amount', $item->amount) }}">
                                 <div class="invalid-feedback">
-                                    Please choose goal amount.
-                                </div>
+                                    Please choose goal amount.  
                             </div>
                         </div>
+                </div>
 
 
-                        <div class="col-md-6">
-                            <label for="validationCustom03" class="form-label">Payment Method</label>
-                            <select class="form-select" id="validationCustom04" name="payment_method">
-                                <option value="">Choose one</option>
-                                <option value="Bkash">Bkash</option>
-                                <option value="Nagad">Nagad</option>
-                            </select>
-                        </div>
+                <div class="col-md-6">
+                    <label for="validationCustom03" class="form-label">Payment Method</label>
+                    <select class="form-select" id="validationCustom04" name="payment_method">
+
+                        <option value="Bkash"
+                            {{ old('payment_method', $item->payment_method) == 'Bkash' ? 'selected' : '' }}>
+                            Bkash
+                        </option>
+
+                        <option value="Nagad"
+                            {{ old('payment_method', $item->payment_method) == 'Nagad' ? 'selected' : '' }}>
+                            Nagad
+                        </option>
+                    </select>
+                </div>
 
 
 
 
 
-                        <div class="col-12">
-                            <button class="btn btn-primary justify-content-end" type="submit">Submit form</button>
-                        </div>
-                    </form><!--end form-->
-                </div><!--end card-body-->
-            </div><!--end card-->
-        </div> <!--end col-->
+                <div class="col-12">
+                    <button class="btn btn-primary justify-content-end" type="submit">Submit form</button>
+                </div>
+                </form><!--end form-->
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div> <!--end col-->
 
     </div><!--end row-->
 @endsection
