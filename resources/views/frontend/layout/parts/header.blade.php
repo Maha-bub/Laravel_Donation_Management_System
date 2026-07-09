@@ -5,7 +5,7 @@
                  <div class="header-left">
                      <div class="logo">
                          <a href="index.html" class="header-logo">
-                             <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                             <img src="{{ asset('') }}frontent-assets/img/logo/black-logo.svg" alt="logo-img">
                          </a>
                      </div>
                  </div>
@@ -22,7 +22,7 @@
                                              <div class="homemenu-items">
                                                  <div class="homemenu">
                                                      <div class="homemenu-thumb">
-                                                         <img src="assets/img/header/home-1.jpg" alt="img">
+                                                         <img src="{{ asset('') }}frontent-assets/img/header/home-1.jpg" alt="img">
                                                          <div class="demo-button">
                                                              <a href="index.html" class="theme-btn">
                                                                  Multi Page <i class="fa-solid fa-arrow-right"></i>
@@ -37,7 +37,7 @@
                                                  </div>
                                                  <div class="homemenu">
                                                      <div class="homemenu-thumb mb-15">
-                                                         <img src="assets/img/header/home-2.jpg" alt="img">
+                                                         <img src="{{ asset('') }}frontent-assets/img/header/home-2.jpg" alt="img">
                                                          <div class="demo-button">
                                                              <a href="index-2.html" class="theme-btn">
                                                                  Multi Page <i class="fa-solid fa-arrow-right"></i>
@@ -52,7 +52,7 @@
                                                  </div>
                                                  <div class="homemenu">
                                                      <div class="homemenu-thumb mb-15">
-                                                         <img src="assets/img/header/home-3.jpg" alt="img">
+                                                         <img src="{{ asset('') }}frontent-assets/img/header/home-3.jpg" alt="img">
                                                          <div class="demo-button">
                                                              <a href="index-3.html" class="theme-btn">
                                                                  Multi Page <i class="fa-solid fa-arrow-right"></i>

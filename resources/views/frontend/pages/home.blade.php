@@ -1,215 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<!--<< Header Area >>-->
+@extends('frontend.layout.master')
 
-<head>
-    <!-- ========== Meta Tags ========== -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Pixel-plus">
-    <meta name="description" content="Kindi - Non Profit Charity HTML Template">
-    <!-- ======== Page title ============ -->
-    <title>Kindi - Non Profit Charity HTML Template</title>
-    <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="assets/img/favicon.svg">
-    <!--<< Bootstrap min.css >>-->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!--<< All Min Css >>-->
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <!--<< Animate.css >>-->
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <!--<< Magnific Popup.css >>-->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!--<< MeanMenu.css >>-->
-    <link rel="stylesheet" href="assets/css/meanmenu.css">
-    <!--<< Swiper Bundle.css >>-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <!--<< Nice Select.css >>-->
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css">
-
-</head>
-
-<body>
-
-
-
-    <!-- Preloader Start -->
-    <div id="preloader" class="preloader">
-        <div class="animation-preloader">
-            <div class="spinner">
-            </div>
-            <div class="txt-loading">
-                <span data-text-preloader="K" class="letters-loading">
-                    K
-                </span>
-                <span data-text-preloader="I" class="letters-loading">
-                    I
-                </span>
-                <span data-text-preloader="N" class="letters-loading">
-                    N
-                </span>
-                <span data-text-preloader="D" class="letters-loading">
-                    D
-                </span>
-                <span data-text-preloader="I" class="letters-loading">
-                    I
-                </span>
-            </div>
-            <p class="text-center">Loading</p>
-        </div>
-        <div class="loader">
-            <div class="row">
-                <div class="col-3 loader-section section-left">
-                    <div class="bg"></div>
-                </div>
-                <div class="col-3 loader-section section-left">
-                    <div class="bg"></div>
-                </div>
-                <div class="col-3 loader-section section-right">
-                    <div class="bg"></div>
-                </div>
-                <div class="col-3 loader-section section-right">
-                    <div class="bg"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Back To Top Start -->
-    <button id="back-top" class="back-to-top show">
-        <i class="fa-regular fa-arrow-up"></i>
-    </button>
-
-    <!-- MouseCursor Start -->
-    <div class="mouseCursor cursor-outer"></div>
-    <div class="mouseCursor cursor-inner"></div>
-
-    <!-- Header-Top Start -->
-    <div class="header-top-section">
-        <div class="container-fluid">
-            <div class="header-top-wrapper">
-                <div class="icon-items">
-                    <div class="icon">
-                        <i class="fa-regular fa-location-dot"></i>
-                    </div>
-                    <div class="content">
-                        <span>Locate Address</span>
-                        <h5>
-                            Network City, USA
-                        </h5>
-                    </div>
-                </div>
-                <div class="icon-items">
-                    <div class="icon">
-                        <i class="fa-solid fa-phone-volume"></i>
-                    </div>
-                    <div class="content">
-                        <span>Call Us any time</span>
-                        <h5>
-                            <a href="tel:+16336547896">+163 3654 7896</a>
-                        </h5>
-                    </div>
-                </div>
-                <div class="icon-items">
-                    <div class="icon">
-                        <i class="fa-regular fa-envelope"></i>
-                    </div>
-                    <div class="content">
-                        <span>Email</span>
-                        <h4>
-                            <a href="mailto:info@donat.com">info@donat.com</a>
-                        </h4>
-                    </div>
-                </div>
-                <div class="social-icon">
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Offcanvas Area Start -->
-    <div class="fix-area">
-        <div class="offcanvas__info">
-            <div class="offcanvas__wrapper">
-                <div class="offcanvas__content">
-                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                        <div class="offcanvas__logo">
-                            <a href="index.html">
-                                <img src="assets/img/logo/black-logo.svg" alt="logo-img">
-                            </a>
-                        </div>
-                        <div class="offcanvas__close">
-                            <button>
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <p class="text d-none d-xl-block">
-                        Nullam dignissim, ante scelerisque the is euismod fermentum odio sem semper the is erat, a
-                        feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
-                    </p>
-                    <div class="mobile-menu fix mb-3"></div>
-                    <div class="offcanvas__contact d-xl-block">
-                        <h4 class="d-xl-block">Contact Info</h4>
-                        <ul class="d-xl-block">
-                            <li class="d-flex align-items-center">
-                                <div class="offcanvas__contact-icon">
-                                    <i class="fal fa-map-marker-alt"></i>
-                                </div>
-                                <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
-                                </div>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <div class="offcanvas__contact-icon mr-15">
-                                    <i class="fal fa-envelope"></i>
-                                </div>
-                                <div class="offcanvas__contact-text">
-                                    <a href="mailto:info@example.com"><span
-                                            class="mailto:info@example.com">info@example.com</span></a>
-                                </div>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <div class="offcanvas__contact-icon mr-15">
-                                    <i class="fal fa-clock"></i>
-                                </div>
-                                <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
-                                </div>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <div class="offcanvas__contact-icon mr-15">
-                                    <i class="far fa-phone"></i>
-                                </div>
-                                <div class="offcanvas__contact-text">
-                                    <a href="tel:+11002345909">+11002345909</a>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="social-icon d-flex align-items-center">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="offcanvas__overlay"></div>
-
-    <!-- Header Section Start -->
-   @yield('frontend.layout.parts.header')
-
-    <!-- Search Area Start -->
+@section('content')
     <div class="search-popup">
         <div class="search-popup__overlay search-toggler"></div>
         <div class="search-popup__content">
@@ -237,43 +28,9 @@
                 <div class="swiper-slide">
                     <div class="hero-1">
                         <div class="shape">
-                            <img src="assets/img/home-1/hero/shape.png" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/hero/shape.png" alt="img">
                         </div>
-                        <div class="hero-bg bg-cover"
-                            style="background-image: url(assets/img/home-1/hero/hero-bg.jpg);">
-                        </div>
-                        <div class="container">
-                            <div class="row g-4 justify-content-center">
-                                <div class="col-lg-10">
-                                    <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s">Start Donating Poor People
-                                        </h6>
-                                        <h1 data-animation="fadeInUp" data-delay="1.5s">
-                                            We Are Non Profit Charity Organization
-                                        </h1>
-                                        <p data-animation="fadeInUp" data-delay="1.3s">
-                                            Charity not only helps to reduce suffering but also fosters a sense of unity
-                                            and shared responsibility in difference in someone's life.
-                                        </p>
-                                        <div class="hero-button" data-animation="fadeInUp" data-delay="1.5s">
-                                            <a href="contact.html" class="theme-btn">Join With Us <i
-                                                    class="fa-solid fa-arrow-right-long"></i></a>
-                                            <a href="about.html" class="theme-btn border-btn">Read More <i
-                                                    class="fa-solid fa-arrow-right-long"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="hero-1">
-                        <div class="shape">
-                            <img src="assets/img/home-1/hero/shape.png" alt="img">
-                        </div>
-                        <div class="hero-bg bg-cover"
-                            style="background-image: url(assets/img/home-1/hero/hero-bg-2.jpg);">
+                        <div class="hero-bg bg-cover" style="background-image: url(assets/img/home-1/hero/hero-bg.jpg);">
                         </div>
                         <div class="container">
                             <div class="row g-4 justify-content-center">
@@ -303,10 +60,41 @@
                 <div class="swiper-slide">
                     <div class="hero-1">
                         <div class="shape">
-                            <img src="assets/img/home-1/hero/shape.png" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/hero/shape.png" alt="img">
                         </div>
-                        <div class="hero-bg bg-cover"
-                            style="background-image: url(assets/img/home-1/hero/hero-bg-3.jpg);">
+                        <div class="hero-bg bg-cover" style="background-image: url(assets/img/home-1/hero/hero-bg-2.jpg);">
+                        </div>
+                        <div class="container">
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="hero-content">
+                                        <h6 data-animation="fadeInUp" data-delay="1.3s">Start Donating Poor People
+                                        </h6>
+                                        <h1 data-animation="fadeInUp" data-delay="1.5s">
+                                            We Are Non Profit Charity Organization
+                                        </h1>
+                                        <p data-animation="fadeInUp" data-delay="1.3s">
+                                            Charity not only helps to reduce suffering but also fosters a sense of unity
+                                            and shared responsibility in difference in someone's life.
+                                        </p>
+                                        <div class="hero-button" data-animation="fadeInUp" data-delay="1.5s">
+                                            <a href="contact.html" class="theme-btn">Join With Us <i
+                                                    class="fa-solid fa-arrow-right-long"></i></a>
+                                            <a href="about.html" class="theme-btn border-btn">Read More <i
+                                                    class="fa-solid fa-arrow-right-long"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-1">
+                        <div class="shape">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/hero/shape.png" alt="img">
+                        </div>
+                        <div class="hero-bg bg-cover" style="background-image: url(assets/img/home-1/hero/hero-bg-3.jpg);">
                         </div>
                         <div class="container">
                             <div class="row g-4 justify-content-center">
@@ -357,7 +145,7 @@
                             </p>
                             <div class="about-icon-item wow fadeInUp" data-wow-delay=".3s">
                                 <div class="icon">
-                                    <img src="assets/img/home-1/icon/01.svg" alt="img">
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/icon/01.svg" alt="img">
                                 </div>
                                 <div class="content">
                                     <h4>Fundraising</h4>
@@ -369,7 +157,7 @@
                             </div>
                             <div class="about-icon-item mb-0 wow fadeInUp" data-wow-delay=".5s">
                                 <div class="icon">
-                                    <img src="assets/img/home-1/icon/02.svg" alt="img">
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/icon/02.svg" alt="img">
                                 </div>
                                 <div class="content">
                                     <h4>Donation Marketing</h4>
@@ -384,7 +172,8 @@
                                         class="fa-solid fa-arrow-right-long"></i></a>
                                 <div class="info-item">
                                     <div class="client-image">
-                                        <img src="assets/img/home-1/about/client.png" alt="img">
+                                        <img src="{{ asset('') }}frontent-assets/img/home-1/about/client.png"
+                                            alt="img">
                                     </div>
                                     <div class="info-content">
                                         <h5>James Anderson</h5>
@@ -397,19 +186,20 @@
                     <div class="col-lg-6">
                         <div class="about-item">
                             <div class="about-image">
-                                <img src="assets/img/home-1/about/about-3.jpg" alt="img"
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/about/about-3.jpg" alt="img"
                                     class="wow img-custom-anim-right" data-wow-duration="1.3s" data-wow-delay="0.3s">
                                 <div class="shape">
-                                    <img src="assets/img/home-1/about/shape.png" alt="img">
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/about/shape.png"
+                                        alt="img">
                                 </div>
                                 <div class="about-image-2">
-                                    <img src="assets/img/home-1/about/about-1.jpg" alt="img"
-                                        class="wow img-custom-anim-left" data-wow-duration="1.3s"
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/about/about-1.jpg"
+                                        alt="img" class="wow img-custom-anim-left" data-wow-duration="1.3s"
                                         data-wow-delay="0.3s">
                                 </div>
                                 <div class="about-image-3">
-                                    <img src="assets/img/home-1/about/about-2.png" alt="img"
-                                        class="wow img-custom-anim-left" data-wow-duration="1.3s"
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/about/about-2.png"
+                                        alt="img" class="wow img-custom-anim-left" data-wow-duration="1.3s"
                                         data-wow-delay="0.3s">
                                 </div>
                             </div>
@@ -424,7 +214,7 @@
     <section class="causes-section section-padding fix bg-cover"
         style="background-image: url(assets/img/home-1/service/bg.jpg);">
         <div class="shape">
-            <img src="assets/img/home-1/service/shape.png" alt="img">
+            <img src="{{ asset('') }}frontent-assets/img/home-1/service/shape.png" alt="img">
         </div>
         <div class="container">
             <div class="section-title text-center">
@@ -438,7 +228,7 @@
                     <div class="swiper-slide">
                         <div class="causes-box-item">
                             <div class="icon">
-                                <img src="assets/img/home-1/icon/03.svg" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/icon/03.svg" alt="img">
                             </div>
                             <div class="content">
                                 <h3>
@@ -456,7 +246,7 @@
                     <div class="swiper-slide">
                         <div class="causes-box-item">
                             <div class="icon">
-                                <img src="assets/img/home-1/icon/04.svg" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/icon/04.svg" alt="img">
                             </div>
                             <div class="content">
                                 <h3>
@@ -474,7 +264,7 @@
                     <div class="swiper-slide">
                         <div class="causes-box-item">
                             <div class="icon">
-                                <img src="assets/img/home-1/icon/05.svg" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/icon/05.svg" alt="img">
                             </div>
                             <div class="content">
                                 <h3>
@@ -514,9 +304,10 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
                         <div class="donation-card-item">
                             <div class="donation-image">
-                                <img src="assets/img/home-1/donation/01.jpg" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/donation/01.jpg" alt="img">
                                 <div class="right-shape">
-                                    <img src="assets/img/home-1/donation/shape.png" alt="img">
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png"
+                                        alt="img">
                                 </div>
                             </div>
                             <div class="donation-content">
@@ -548,9 +339,10 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
                         <div class="donation-card-item">
                             <div class="donation-image">
-                                <img src="assets/img/home-1/donation/02.jpg" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/donation/02.jpg" alt="img">
                                 <div class="right-shape">
-                                    <img src="assets/img/home-1/donation/shape.png" alt="img">
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png"
+                                        alt="img">
                                 </div>
                             </div>
                             <div class="donation-content">
@@ -582,9 +374,10 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay=".6s">
                         <div class="donation-card-item">
                             <div class="donation-image">
-                                <img src="assets/img/home-1/donation/03.jpg" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/donation/03.jpg" alt="img">
                                 <div class="right-shape">
-                                    <img src="assets/img/home-1/donation/shape.png" alt="img">
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png"
+                                        alt="img">
                                 </div>
                             </div>
                             <div class="donation-content">
@@ -616,9 +409,10 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
                         <div class="donation-card-item">
                             <div class="donation-image">
-                                <img src="assets/img/home-1/donation/04.jpg" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/donation/04.jpg" alt="img">
                                 <div class="right-shape">
-                                    <img src="assets/img/home-1/donation/shape.png" alt="img">
+                                    <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png"
+                                        alt="img">
                                 </div>
                             </div>
                             <div class="donation-content">
@@ -667,9 +461,10 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="assets/img/home-1/project/01.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/01.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="assets/img/home-1/project/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                    alt="img">
                             </div>
                             <div class="project-content">
                                 <div class="content">
@@ -687,9 +482,10 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="assets/img/home-1/project/02.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/02.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="assets/img/home-1/project/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                    alt="img">
                             </div>
                             <div class="project-content">
                                 <div class="content">
@@ -707,9 +503,10 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="assets/img/home-1/project/03.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/03.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="assets/img/home-1/project/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                    alt="img">
                             </div>
                             <div class="project-content">
                                 <div class="content">
@@ -731,9 +528,10 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="assets/img/home-1/project/01.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/01.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="assets/img/home-1/project/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                    alt="img">
                             </div>
                             <div class="project-content style-2">
                                 <div class="content">
@@ -751,9 +549,10 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="assets/img/home-1/project/02.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/02.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="assets/img/home-1/project/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                    alt="img">
                             </div>
                             <div class="project-content style-2">
                                 <div class="content">
@@ -771,9 +570,10 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="assets/img/home-1/project/03.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/03.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="assets/img/home-1/project/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                    alt="img">
                             </div>
                             <div class="project-content style-2">
                                 <div class="content">
@@ -805,7 +605,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="assets/img/home-1/team/01.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/01.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -824,7 +624,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="assets/img/home-1/team/02.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/02.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -843,7 +643,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="assets/img/home-1/team/03.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/03.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -862,7 +662,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".8s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="assets/img/home-1/team/04.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/04.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -895,9 +695,10 @@
                 <div class="row g-4">
                     <div class="col-lg-5 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
                         <div class="testimonial-image">
-                            <img src="assets/img/home-1/testimonial/01.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/testimonial/01.jpg" alt="img">
                             <div class="shape">
-                                <img src="assets/img/home-1/testimonial/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/testimonial/shape.png"
+                                    alt="img">
                             </div>
                         </div>
                     </div>
@@ -969,22 +770,26 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/01.png" alt="img">
+                                            <img src="{{ asset('') }}frontent-assets/img/home-1/brand/01.png"
+                                                alt="img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/02.png" alt="img">
+                                            <img src="{{ asset('') }}frontent-assets/img/home-1/brand/02.png"
+                                                alt="img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/03.png" alt="img">
+                                            <img src="{{ asset('') }}frontent-assets/img/home-1/brand/03.png"
+                                                alt="img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/04.png" alt="img">
+                                            <img src="{{ asset('') }}frontent-assets/img/home-1/brand/04.png"
+                                                alt="img">
                                         </div>
                                     </div>
                                 </div>
@@ -999,16 +804,17 @@
     <!-- Counter Section Start -->
     <div class="counter-section fix section-bg-1">
         <div class="right-shape">
-            <img src="assets/img/home-1/feature/shape-2.png" alt="img">
+            <img src="{{ asset('') }}frontent-assets/img/home-1/feature/shape-2.png" alt="img">
         </div>
         <div class="container">
             <div class="counter-wrapper">
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6">
                         <div class="counter-image">
-                            <img src="assets/img/home-1/feature/01.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/feature/01.jpg" alt="img">
                             <div class="shape">
-                                <img src="assets/img/home-1/feature/shape-1.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/feature/shape-1.png"
+                                    alt="img">
                             </div>
                         </div>
                     </div>
@@ -1064,8 +870,8 @@
                                 <div class="accordion-item wow fadeInUp" data-wow-delay=".3s">
                                     <h2 class="accordion-header" id="headingTwo">
                                         <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
                                             What Is Charity, And Why Is It Important ?
                                         </button>
                                     </h2>
@@ -1167,9 +973,8 @@
                                 responsibility in society. It reminds us of the can make it your significant difference
                                 in someone's life.
                             </p>
-                            <div class="faq-image wow slideInRight" data-wow-delay="100ms"
-                                data-wow-duration="2500ms">
-                                <img src="assets/img/home-1/faq.jpg" alt="img">
+                            <div class="faq-image wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/faq.jpg" alt="img">
                                 <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I"
                                     class="video-btn ripple video-popup">
                                     <i class="fa-solid fa-play"></i>
@@ -1195,7 +1000,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                     <div class="news-card-items">
                         <div class="news-image">
-                            <img src="assets/img/home-1/news/01.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/news/01.jpg" alt="img">
                             <div class="news-layer-wrapper">
                                 <div class="news-layer-image"
                                     style="background-image: url('assets/img/home-1/news/01.jpg');"></div>
@@ -1207,7 +1012,7 @@
                                     style="background-image: url('assets/img/home-1/news/01.jpg');"></div>
                             </div>
                             <div class="bottom-shape">
-                                <img src="assets/img/home-1/news/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/news/shape.png" alt="img">
                             </div>
                         </div>
                         <div class="news-content">
@@ -1234,7 +1039,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
                     <div class="news-card-items">
                         <div class="news-image">
-                            <img src="assets/img/home-1/news/02.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/news/02.jpg" alt="img">
                             <div class="news-layer-wrapper">
                                 <div class="news-layer-image"
                                     style="background-image: url('assets/img/home-1/news/02.jpg');"></div>
@@ -1246,7 +1051,7 @@
                                     style="background-image: url('assets/img/home-1/news/02.jpg');"></div>
                             </div>
                             <div class="bottom-shape">
-                                <img src="assets/img/home-1/news/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/news/shape.png" alt="img">
                             </div>
                         </div>
                         <div class="news-content">
@@ -1273,7 +1078,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
                     <div class="news-card-items">
                         <div class="news-image">
-                            <img src="assets/img/home-1/news/03.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/news/03.jpg" alt="img">
                             <div class="news-layer-wrapper">
                                 <div class="news-layer-image"
                                     style="background-image: url('assets/img/home-1/news/03.jpg');"></div>
@@ -1285,7 +1090,7 @@
                                     style="background-image: url('assets/img/home-1/news/03.jpg');"></div>
                             </div>
                             <div class="bottom-shape">
-                                <img src="assets/img/home-1/news/shape.png" alt="img">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/news/shape.png" alt="img">
                             </div>
                         </div>
                         <div class="news-content">
@@ -1321,13 +1126,15 @@
                     <div class="col-lg-6">
                         <div class="contact-image wow img-custom-anim-left" data-wow-duration="1.3s"
                             data-wow-delay="0.3s">
-                            <img src="assets/img/home-1/contact.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/contact.jpg" alt="img">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="contact-content">
                             <div class="logo-image">
-                                <a href="index.html"><img src="assets/img/logo/white-logo.svg" alt="img"></a>
+                                <a href="index.html"><img
+                                        src="{{ asset('') }}frontent-assets/img/logo/white-logo.svg"
+                                        alt="img"></a>
                             </div>
                             <div class="section-title mb-0">
                                 <h2 class="sec-title text-white">
@@ -1352,34 +1159,4 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer Section Start -->
-    @yield('frontend.layout.parts.footer')
-    <!--footer section end-->
-
-
-    <!--<< All JS Plugins >>-->
-    <script src="assets/js/jquery-3.7.1.min.js"></script>
-    <!--<< Viewport Js >>-->
-    <script src="assets/js/viewport.jquery.js"></script>
-    <!--<< Bootstrap Js >>-->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!--<< nice-selec Js >>-->
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <!--<< Waypoints Js >>-->
-    <script src="assets/js/jquery.waypoints.js"></script>
-    <!--<< Counterup Js >>-->
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <!--<< Swiper Slider Js >>-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!--<< MeanMenu Js >>-->
-    <script src="assets/js/jquery.meanmenu.min.js"></script>
-    <!--<< Magnific Popup Js >>-->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <!--<< Wow Animation Js >>-->
-    <script src="assets/js/wow.min.js"></script>
-    <!--<< Main.js >>-->
-    <script src="assets/js/main.js"></script>
-</body>
-
-</html>
+@endsection

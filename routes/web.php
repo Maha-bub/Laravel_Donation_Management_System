@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonationsController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonorListController;
+use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\VolunteerManageController;
@@ -16,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/', [FrontendController::class, 'index']);
+Route::get('/about', [FrontendController::class, 'about']);
+Route::get('/contact', [FrontendController::class, 'contact']);
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -52,5 +60,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::resource('donations', DonationsController::class);
     Route::resource('category', CategoryController::class);
 });
+
+
 
 require __DIR__ . '/auth.php';
