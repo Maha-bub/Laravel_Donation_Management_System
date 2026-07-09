@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampaignListController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonationsController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonorListController;
@@ -42,13 +43,14 @@ Route::middleware(['auth', 'role:volunteer'])->group(function () {
 });
 
 
-// create route for donor list crud
+// create route for admin Dashboard
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::resource('donorlist', DonorListController::class);
     Route::resource('campaignlist', CampaignListController::class);
     Route::resource('volunteerlist', VolunteerManageController::class);
     Route::resource('donations', DonationsController::class);
+    Route::resource('category', CategoryController::class);
 });
 
 require __DIR__ . '/auth.php';

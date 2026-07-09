@@ -31,26 +31,33 @@
                      </li><!--end nav-item-->
                      <li class="nav-item">
                          <a class="nav-link" href="{{ route('admin.donations.index') }}">
-                             {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
+                             <i class="iconoir-hand-cash menu-icon"></i>
                              <span>Donations</span>
                              <span class="badge text-bg-info ms-auto">Total</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
+                         <a class="nav-link" href="{{ route('admin.category.index') }}">
+                             <i class="iconoir-view-grid menu-icon"></i>
+                             <span>Categories</span>
+
+                         </a>
+                     </li><!--end nav-item-->
+                     <li class="nav-item">
                          <a class="nav-link" href="{{ route('admin.campaignlist.index') }}">
-                             {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
+                             <i class="iconoir-megaphone menu-icon"></i>
                              <span>Campaigns</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
                          <a class="nav-link" href="{{ route('admin.donorlist.index') }}">
-                             {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
+                             <i class="iconoir-user menu-icon"></i>
                              <span>Donor List</span>
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
                          <a class="nav-link" href="{{ route('admin.volunteerlist.index') }}">
-                             {{-- <i class="iconoir-report-columns menu-icon"></i> --}}
+                            <i class="iconoir-group menu-icon"></i>
                              <span>Volunteers</span>
                          </a>
                      </li><!--end nav-item-->
