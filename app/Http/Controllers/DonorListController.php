@@ -52,7 +52,7 @@ class DonorListController extends Controller
             'image' => $imagePath,
         ]);
 
-        return redirect()->route('donorlist.index')->with('success', 'Donor added successfully!');
+        return redirect()->route('admin.donorlist.index')->with('success', 'Donor added successfully!');
     }
 
     /**
@@ -101,7 +101,7 @@ class DonorListController extends Controller
             'image' => $imagePath,
         ]);
 
-        return redirect()->route('donorlist.index')->with('success', 'Donor updated successfully!');
+        return redirect()->route('admin.donorlist.index')->with('success', 'Donor updated successfully!');
     }
 
     /**
@@ -115,7 +115,7 @@ class DonorListController extends Controller
 
         $donorlist->delete();
 
-        return redirect()->route('donorlist.index')->with('success', 'Donor deleted successfully!');
+        return redirect()->route('admin.donorlist.index')->with('success', 'Donor deleted successfully!');
     }
 
     /**
@@ -140,6 +140,6 @@ class DonorListController extends Controller
             'total' => $donorlist->donations()->sum('amount'),
         ]);
 
-        return redirect()->route('donorlist.index')->with('success', 'Donation recorded successfully!');
+        return redirect()->route('admin.donorlist.index')->with('success', 'Donation recorded successfully!');
     }
 }

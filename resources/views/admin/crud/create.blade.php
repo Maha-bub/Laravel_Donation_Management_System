@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Add New Donor</h4>
-                        <a href="{{ route('donorlist.index') }}" class="btn btn-sm btn-secondary"><i
+                        <a href="{{ route('admin.donorlist.index') }}" class="btn btn-sm btn-secondary"><i
                                 class="fas fa-arrow-left"></i> Back Donor Table</a>
                     </div>
                     <div class="card-body">
@@ -22,7 +22,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('donorlist.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.donorlist.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-3">

@@ -30,7 +30,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Donor List</h4>
-                        <a class="btn btn-sm btn-primary " href="{{ route('donorlist.create') }}">Add New Donor <i
+                        <a class="btn btn-sm btn-primary " href="{{ route('admin.donorlist.create') }}">Add New Donor <i
                                 class="fas fa-arrow-right"></i></a>
 
 
@@ -70,10 +70,10 @@
                                                 <a href="#" class="btn btn-xs btn-info text-white"
                                                     data-bs-toggle="modal" data-bs-target="#viewDonorModal{{ $item->id }}">View</a>
 
-                                                <a href="{{ route('donorlist.edit', $item->id) }}"
+                                                <a href="{{ route('admin.donorlist.edit', $item->id) }}"
                                                     class="btn btn-xs btn-warning">Edit</a>
 
-                                                <form action="{{ route('donorlist.destroy', $item->id) }}" method="POST"
+                                                <form action="{{ route('admin.donorlist.destroy', $item->id) }}" method="POST"
                                                     style="display:inline" onsubmit="return confirm('Delete this donor?')">
                                                     @csrf
                                                     @method('DELETE')
@@ -171,7 +171,7 @@
                         </div>
 
                         <h6 class="mb-2">Record a New Donation</h6>
-                        <form action="{{ route('donorlist.donations.store', $item->id) }}" method="POST"
+                        <form action="{{ route('admin.donorlist.store', $item->id) }}" method="POST"
                             class="row g-2 align-items-end">
                             @csrf
                             <div class="col-md-4">
