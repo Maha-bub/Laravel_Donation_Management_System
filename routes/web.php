@@ -19,9 +19,35 @@ Route::get('/', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('/', [FrontendController::class, 'index']);
-Route::get('/about', [FrontendController::class, 'about']);
-Route::get('/contact', [FrontendController::class, 'contact']);
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+
+// route for project navigation
+Route::prefix('projects')->name('projects.')->group(function () {
+
+    Route::get('/school-bags', [FrontendController::class, 'schoolBags'])->name('school-bags');
+
+    Route::get('/build-masjid', [FrontendController::class, 'buildMasjid'])->name('build-masjid');
+
+    Route::get('/donate-house', [FrontendController::class, 'donateHouse'])->name('house');
+
+    Route::get('/donate-quran', [FrontendController::class, 'donateQuran'])->name('quran');
+
+    Route::get('/emergency-aid', [FrontendController::class, 'emergencyAid'])->name('emergency-aid');
+
+    Route::get('/feed-daily', [FrontendController::class, 'feedDaily'])->name('feed-daily');
+
+    Route::get('/tubewell', [FrontendController::class, 'tubewell'])->name('tubewell');
+
+    Route::get('/healing-bangladesh', [FrontendController::class, 'healingBangladesh'])->name('healing');
+
+    Route::get('/income-generating', [FrontendController::class, 'incomeGenerating'])->name('income-generating');
+
+    Route::get('/sponsored-yateem', [FrontendController::class, 'sponsoredYateem'])->name('yateem');
+});
+
+Route::get('/donation', [FrontendController::class, 'donation'])->name('donation');
 
 
 

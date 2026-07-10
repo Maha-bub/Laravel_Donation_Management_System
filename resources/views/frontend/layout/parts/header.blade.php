@@ -4,7 +4,7 @@
              <div class="header-main">
                  <div class="header-left">
                      <div class="logo">
-                         <a href="index.html" class="header-logo">
+                         <a href="" class="header-logo">
                              <img src="{{ asset('') }}frontent-assets/img/logo/black-logo.svg" alt="logo-img">
                          </a>
                      </div>
@@ -14,139 +14,99 @@
                          <nav id="mobile-menu">
                              <ul>
                                  <li class="has-dropdown active menu-thumb">
-                                     <a href="index.html">
+                                     <a href="{{ route('home') }}">
                                          Home
                                      </a>
-                                     <ul class="submenu has-homemenu">
-                                         <li>
-                                             <div class="homemenu-items">
-                                                 <div class="homemenu">
-                                                     <div class="homemenu-thumb">
-                                                         <img src="{{ asset('') }}frontent-assets/img/header/home-1.jpg" alt="img">
-                                                         <div class="demo-button">
-                                                             <a href="index.html" class="theme-btn">
-                                                                 Multi Page <i class="fa-solid fa-arrow-right"></i>
-                                                             </a>
-                                                         </div>
-                                                     </div>
-                                                     <div class="homemenu-content text-center">
-                                                         <h4 class="homemenu-title">
-                                                             Home Page 01
-                                                         </h4>
-                                                     </div>
-                                                 </div>
-                                                 <div class="homemenu">
-                                                     <div class="homemenu-thumb mb-15">
-                                                         <img src="{{ asset('') }}frontent-assets/img/header/home-2.jpg" alt="img">
-                                                         <div class="demo-button">
-                                                             <a href="index-2.html" class="theme-btn">
-                                                                 Multi Page <i class="fa-solid fa-arrow-right"></i>
-                                                             </a>
-                                                         </div>
-                                                     </div>
-                                                     <div class="homemenu-content text-center">
-                                                         <h4 class="homemenu-title">
-                                                             Home Page 02
-                                                         </h4>
-                                                     </div>
-                                                 </div>
-                                                 <div class="homemenu">
-                                                     <div class="homemenu-thumb mb-15">
-                                                         <img src="{{ asset('') }}frontent-assets/img/header/home-3.jpg" alt="img">
-                                                         <div class="demo-button">
-                                                             <a href="index-3.html" class="theme-btn">
-                                                                 Multi Page <i class="fa-solid fa-arrow-right"></i>
-                                                             </a>
-                                                         </div>
-                                                     </div>
-                                                     <div class="homemenu-content text-center">
-                                                         <h4 class="homemenu-title">
-                                                             Home Page 03
-                                                         </h4>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                         </li>
-                                     </ul>
-                                 </li>
-                                 <li class="has-dropdown active d-xl-none">
-                                     <a href="index.html" class="border-none">
-                                         Home
-                                     </a>
-                                     <ul class="submenu">
-                                         <li><a href="index.html">Home 01</a></li>
-                                         <li><a href="index-2.html">Home 02</a></li>
-                                         <li><a href="index-3.html">MHome 03</a></li>
-                                     </ul>
-                                 </li>
-                                 <li>
-                                     <a href="about.html">About Us</a>
                                  </li>
                                  <li class="has-dropdown">
-                                     <a href="news-details.html">
-                                         Pages
+                                     <a href="#">
+                                         Projects
+                                         <i class="fas fa-angle-down"></i>
                                      </a>
+
                                      <ul class="submenu">
-                                         <li class="has-dropdown">
-                                             <a href="project-details.html">
-                                                 Cause
-                                                 <i class="fas fa-angle-right"></i>
+                                         <li>
+                                             <a href="{{ route('projects.school-bags') }}">
+                                                 <i class="fas fa-school me-2"></i>
+                                                 School Bags
                                              </a>
-                                             <ul class="submenu">
-                                                 <li><a href="project.html">Our Cause</a></li>
-                                                 <li><a href="project-details.html">Cause Details</a></li>
-                                             </ul>
                                          </li>
-                                         <li class="has-dropdown">
-                                             <a href="volounteer-details.html">
-                                                 volounteer
-                                                 <i class="fas fa-angle-right"></i>
+
+                                         <li>
+                                             <a href="{{ route('projects.build-masjid') }}">
+                                                 <i class="fas fa-mosque me-2"></i>
+                                                 Build a Masjid
                                              </a>
-                                             <ul class="submenu">
-                                                 <li><a href="become-volounteer.html">Become Volounteer</a></li>
-                                                 <li><a href="volounteer.html">Volounteer</a></li>
-                                                 <li><a href="volounteer-details.html">Volounteer Details</a></li>
-                                             </ul>
                                          </li>
-                                         <li class="has-dropdown">
-                                             <a href="event-details.html">
-                                                 Event
-                                                 <i class="fas fa-angle-right"></i>
+
+                                         <li>
+                                             <a href="{{ route('projects.house') }}">
+                                                 <i class="fas fa-home me-2"></i>
+                                                 Donate a House
                                              </a>
-                                             <ul class="submenu">
-                                                 <li><a href="event.html"> Our Event</a></li>
-                                                 <li><a href="event-list.html">Event List</a></li>
-                                                 <li><a href="event-details.html">Event Details</a></li>
-                                             </ul>
                                          </li>
-                                         <li class="has-dropdown">
-                                             <a href="donation-details.html">
-                                                 Donation
-                                                 <i class="fas fa-angle-right"></i>
+
+                                         <li>
+                                             <a href="{{ route('projects.quran') }}">
+                                                 <i class="fas fa-book-open me-2"></i>
+                                                 Donate a Quran
                                              </a>
-                                             <ul class="submenu">
-                                                 <li><a href="donation.html"> Our Donation</a></li>
-                                                 <li><a href="donation-now.html">Donation Now</a></li>
-                                                 <li><a href="donation-details.html">Donation Details</a></li>
-                                             </ul>
                                          </li>
-                                         <li><a href="pricing.html">Our Pricing</a></li>
-                                         <li><a href="faq.html">Our Faq</a></li>
-                                         <li><a href="404.html">404 Page</a></li>
+
+                                         <li>
+                                             <a href="{{ route('projects.emergency-aid') }}">
+                                                 <i class="fas fa-hand-holding-medical me-2"></i>
+                                                 Emergency Aid
+                                             </a>
+                                         </li>
+
+                                         <li>
+                                             <a href="{{ route('projects.feed-daily') }}">
+                                                 <i class="fas fa-bowl-rice me-2"></i>
+                                                 Feed Daily
+                                             </a>
+                                         </li>
+
+                                         <li>
+                                             <a href="{{ route('projects.tubewell') }}">
+                                                 <i class="fas fa-tint me-2"></i>
+                                                 Tubewell / Gift of Water
+                                             </a>
+                                         </li>
+
+                                         <li>
+                                             <a href="{{ route('projects.healing') }}">
+                                                 <i class="fas fa-heartbeat me-2"></i>
+                                                 Healing Bangladesh
+                                             </a>
+                                         </li>
+
+                                         <li>
+                                             <a href="{{ route('projects.income-generating') }}">
+                                                 <i class="fas fa-seedling me-2"></i>
+                                                 Income Generating
+                                             </a>
+                                         </li>
+
+                                         <li>
+                                             <a href="{{ route('projects.yateem') }}">
+                                                 <i class="fas fa-child me-2"></i>
+                                                 Sponsored A Yateem
+                                             </a>
+                                         </li>
                                      </ul>
+                                 </li>
+
+                                 <li>
+                                     <a href="{{ route('about') }}">About Us</a>
                                  </li>
                                  <li>
                                      <a href="news-details.html">
-                                         Blog
+                                         Gallery
                                      </a>
-                                     <ul class="submenu">
-                                         <li><a href="news-grid.html">Blog Grid</a></li>
-                                         <li><a href="news.html">Blog Standard</a></li>
-                                         <li><a href="news-details.html">Blog Details</a></li>
-                                     </ul>
                                  </li>
                                  <li>
-                                     <a href="contact.html">Contact Us</a>
+                                     <a href="{{ route('contact') }}">Contact Us</a>
                                  </li>
                              </ul>
                          </nav>
@@ -157,7 +117,7 @@
                          <i class="fa-regular fa-magnifying-glass"></i>
                      </a>
                      <div class="header-button">
-                         <a href="donation-details.html" class="theme-btn">
+                         <a href="{{ route('donation') }}" class="theme-btn">
                              Donte Now <i class="fa-solid fa-arrow-right"></i>
                          </a>
                      </div>
