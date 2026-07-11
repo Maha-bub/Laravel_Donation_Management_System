@@ -3,15 +3,23 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-use DB;
+use App\Models\CampaignList;
+use App\Models\Donations;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        // $data = DB::table('categories')->get();
-        return view('frontend.pages.home');
+        // Show the latest active campaigns on the homepage "Donation Causes" section.
+        $campaigns = CampaignList::with('category')
+            ->withSum('donations', 'amount')
+            ->where('status', 0)
+            ->latest()
+            ->take(4)
+            ->get();
+
+        return view('frontend.pages.home', compact('campaigns'));
     }
 
     public function about()
@@ -74,8 +82,77 @@ class FrontendController extends Controller
         return view('frontend.pages.projects.sponsored-yateem');
     }
 
-    public function donation()
+    /**
+     * Full list of all active campaigns, shown on the public "Campaigns" page.
+     */
+    public function campaigns()
     {
-        return view('frontend.pages.donation');
+        $campaigns = CampaignList::with('category')
+            ->withSum('donations', 'amount')
+            ->where('status', 0)
+            ->latest()
+            ->get();
+
+        return view('frontend.pages.campaigns.index', compact('campaigns'));
+    }
+
+    /**
+     * Single campaign detail page, with a quick-donate call to action.
+     */
+    public function campaignShow(CampaignList $campaign)
+    {
+        $campaign->loadSum('donations', 'amount');
+
+        $relatedCampaigns = CampaignList::where('status', 0)
+            ->where('id', '!=', $campaign->id)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('frontend.pages.campaigns.show', compact('campaign', 'relatedCampaigns'));
+    }
+
+    /**
+     * The public donation page with the "Complete Your Donation" form.
+     */
+    public function donation(Request $request)
+    {
+        $campaigns = CampaignList::where('status', 0)->latest()->get();
+        $selectedCampaignId = $request->query('campaign_id');
+
+        return view('frontend.pages.donation', compact('campaigns', 'selectedCampaignId'));
+    }
+
+    /**
+     * Handle the public donation form submission and store it in the same
+     * `donations` table the admin dashboard reads from, so every donation
+     * made from the website shows up instantly for the admin.
+     */
+    public function storeDonation(Request $request)
+    {
+        // A visitor either picks one of the preset amount buttons ("amount")
+        // or types their own value in the custom amount box ("custom_amount").
+        // Whichever one is filled in wins.
+        if ($request->filled('custom_amount')) {
+            $request->merge(['amount' => $request->custom_amount]);
+        }
+
+        $request->validate([
+            'campaign_id' => 'required|exists:campaign_lists,id',
+            'name' => 'required|string|max:100',
+            'amount' => 'required|numeric|min:1',
+            'payment_method' => 'required|string|max:100',
+        ], [
+            'amount.required' => 'Please choose a donation amount or enter a custom amount.',
+        ]);
+
+        Donations::create([
+            'name' => $request->name,
+            'campaign_id' => $request->campaign_id,
+            'amount' => $request->amount,
+            'payment_method' => $request->payment_method,
+        ]);
+
+        return redirect()->route('donation')->with('success', 'Thank you! Your donation has been received.');
     }
 }

@@ -62,6 +62,12 @@
                          </a>
                      </li><!--end nav-item-->
                      <li class="nav-item">
+                         <a class="nav-link" href="{{ route('admin.settings.index') }}">
+                             <i class="iconoir-settings menu-icon"></i>
+                             <span>Settings</span>
+                         </a>
+                     </li><!--end nav-item-->
+                     <li class="nav-item">
                          <a class="nav-link" href="#sidebarTables" data-bs-toggle="collapse" role="button"
                              aria-expanded="false" aria-controls="sidebarTables">
                              {{-- <i class="iconoir-list menu-icon"></i> --}}

@@ -768,7 +768,21 @@
                                 Fill in your details to proceed securely.
                             </p>
 
-                            <form action="" method="POST">
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $e)
+                                            <li>{{ $e }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <form action="{{ route('donation.store') }}" method="POST" id="donate-form">
 
                                 @csrf
 
@@ -782,23 +796,20 @@
                                             Select Project
                                         </label>
 
-                                        <select class="form-select">
+                                        <select class="form-select" name="campaign_id" required>
 
-                                            <option selected>
+                                            <option value="" disabled {{ old('campaign_id', $selectedCampaignId) ? '' : 'selected' }}>
                                                 Choose Project
                                             </option>
 
-                                            <option>
-                                                Education
-                                            </option>
-
-                                            <option>
-                                                Health
-                                            </option>
-
-                                            <option>
-                                                Food
-                                            </option>
+                                            @forelse ($campaigns as $campaign)
+                                                <option value="{{ $campaign->id }}"
+                                                    {{ (string) old('campaign_id', $selectedCampaignId) === (string) $campaign->id ? 'selected' : '' }}>
+                                                    {{ $campaign->name }}
+                                                </option>
+                                            @empty
+                                                <option value="" disabled>No active campaigns available</option>
+                                            @endforelse
 
                                         </select>
 
@@ -842,7 +853,8 @@
                                             Your Name
                                         </label>
 
-                                        <input type="text" class="form-control" placeholder="Enter Full Name">
+                                        <input type="text" name="name" class="form-control"
+                                            value="{{ old('name') }}" placeholder="Enter Full Name" required>
 
                                     </div>
 
@@ -854,7 +866,8 @@
                                             Mobile Number
                                         </label>
 
-                                        <input type="text" class="form-control" placeholder="01XXXXXXXXX">
+                                        <input type="text" name="phone" class="form-control"
+                                            value="{{ old('phone') }}" placeholder="01XXXXXXXXX">
 
                                     </div>
 
@@ -866,7 +879,8 @@
                                             City
                                         </label>
 
-                                        <input type="text" class="form-control" placeholder="Enter Your City">
+                                        <input type="text" name="city" class="form-control"
+                                            value="{{ old('city') }}" placeholder="Enter Your City">
 
                                     </div>
 
@@ -878,7 +892,8 @@
                                             Address
                                         </label>
 
-                                        <input type="text" class="form-control" placeholder="Full Address">
+                                        <input type="text" name="address" class="form-control"
+                                            value="{{ old('address') }}" placeholder="Full Address">
 
                                     </div>
 
@@ -887,7 +902,8 @@
                                         <label class="form-label fw-semibold">
                                             Email Address
                                         </label>
-                                        <input type="email" class="form-control" placeholder="example@email.com">
+                                        <input type="email" name="email" class="form-control"
+                                            value="{{ old('email') }}" placeholder="example@email.com">
                                     </div>
 
                                     <!-- Anonymous Donation -->
@@ -912,31 +928,36 @@
 
                                         <div class="d-flex flex-wrap gap-3">
 
-                                            <input type="radio" class="btn-check" name="amount" id="amount1" checked>
+                                            <input type="radio" class="btn-check" name="amount" id="amount1"
+                                                value="200" checked>
 
                                             <label class="btn btn-outline-success px-4" for="amount1">
                                                 ৳200
                                             </label>
 
-                                            <input type="radio" class="btn-check" name="amount" id="amount2">
+                                            <input type="radio" class="btn-check" name="amount" id="amount2"
+                                                value="500">
 
                                             <label class="btn btn-outline-success px-4" for="amount2">
                                                 ৳500
                                             </label>
 
-                                            <input type="radio" class="btn-check" name="amount" id="amount3">
+                                            <input type="radio" class="btn-check" name="amount" id="amount3"
+                                                value="1000">
 
                                             <label class="btn btn-outline-success px-4" for="amount3">
                                                 ৳1000
                                             </label>
 
-                                            <input type="radio" class="btn-check" name="amount" id="amount4">
+                                            <input type="radio" class="btn-check" name="amount" id="amount4"
+                                                value="2000">
 
                                             <label class="btn btn-outline-success px-4" for="amount4">
                                                 ৳2000
                                             </label>
 
-                                            <input type="radio" class="btn-check" name="amount" id="amount5">
+                                            <input type="radio" class="btn-check" name="amount" id="amount5"
+                                                value="5000">
 
                                             <label class="btn btn-outline-success px-4" for="amount5">
                                                 ৳5000
@@ -960,7 +981,8 @@
                                                 ৳
                                             </span>
 
-                                            <input type="number" class="form-control" placeholder="Enter Amount">
+                                            <input type="number" name="custom_amount" min="1" class="form-control"
+                                                placeholder="Enter Amount">
 
                                         </div>
 
@@ -980,8 +1002,8 @@
 
                                             <div class="col-md-4">
 
-                                                <input class="btn-check" type="radio" name="payment" id="bkash"
-                                                    checked>
+                                                <input class="btn-check" type="radio" name="payment_method" id="bkash"
+                                                    value="bKash" checked>
 
                                                 <label class="btn btn-outline-success w-100 py-3" for="bkash">
 
@@ -995,7 +1017,8 @@
 
                                             <div class="col-md-4">
 
-                                                <input class="btn-check" type="radio" name="payment" id="nagad">
+                                                <input class="btn-check" type="radio" name="payment_method" id="nagad"
+                                                    value="Nagad">
 
                                                 <label class="btn btn-outline-success w-100 py-3" for="nagad">
 
@@ -1009,7 +1032,8 @@
 
                                             <div class="col-md-4">
 
-                                                <input class="btn-check" type="radio" name="payment" id="card">
+                                                <input class="btn-check" type="radio" name="payment_method" id="card"
+                                                    value="Visa/Master">
 
                                                 <label class="btn btn-outline-success w-100 py-3" for="card">
 

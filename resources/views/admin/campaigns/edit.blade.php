@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">Edit Campaign</h4>
-                    <a class="btn btn-sm btn-info" href="{{ route('campaignlist.index') }}"><i class="fas fa-arrow-left"></i>
+                    <a class="btn btn-sm btn-info" href="{{ route('admin.campaignlist.index') }}"><i class="fas fa-arrow-left"></i>
                         Back</a>
                 </div><!--end card-header-->
 
@@ -23,7 +23,7 @@
                 @endif
 
                 <div class="card-body pt-0">
-                    <form class="row g-3" action="{{ route('campaignlist.update', $campaignlist->id) }}"
+                    <form class="row g-3" action="{{ route('admin.campaignlist.update', $campaignlist->id) }}"
                         enctype="multipart/form-data" method="POST">
                         @csrf
                         @method('PUT')

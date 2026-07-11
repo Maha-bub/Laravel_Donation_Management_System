@@ -42,23 +42,26 @@
             <div class="spinner">
             </div>
             <div class="txt-loading">
-                <span data-text-preloader="K" class="letters-loading">
-                    K
+                <span data-text-preloader="D" class="letters-loading">
+                    D
                 </span>
-                <span data-text-preloader="I" class="letters-loading">
-                    I
+                <span data-text-preloader="O" class="letters-loading">
+                    O
                 </span>
                 <span data-text-preloader="N" class="letters-loading">
                     N
                 </span>
-                <span data-text-preloader="D" class="letters-loading">
-                    D
+                <span data-text-preloader="A" class="letters-loading">
+                    A
                 </span>
-                <span data-text-preloader="I" class="letters-loading">
-                    I
+                <span data-text-preloader="T" class="letters-loading">
+                    T
+                </span>
+                <span data-text-preloader="E" class="letters-loading">
+                    E
                 </span>
             </div>
-            <p class="text-center">Loading</p>
+            <p class="text-center">NOW</p>
         </div>
         <div class="loader">
             <div class="row">
@@ -88,44 +91,27 @@
     <div class="mouseCursor cursor-inner"></div>
 
     <!-- Header-Top Start -->
-    <div class="header-top-section">
+    <div class="header-top-section-2">
         <div class="container-fluid">
-            <div class="header-top-wrapper">
-                <div class="icon-items">
-                    <div class="icon">
-                        <i class="fa-regular fa-location-dot"></i>
-                    </div>
-                    <div class="content">
-                        <span>Locate Address</span>
-                        <h5>
-                            Network City, USA
-                        </h5>
-                    </div>
-                </div>
-                <div class="icon-items">
-                    <div class="icon">
-                        <i class="fa-solid fa-phone-volume"></i>
-                    </div>
-                    <div class="content">
-                        <span>Call Us any time</span>
-                        <h5>
-                            <a href="tel:+16336547896">+163 3654 7896</a>
-                        </h5>
-                    </div>
-                </div>
-                <div class="icon-items">
-                    <div class="icon">
-                        <i class="fa-regular fa-envelope"></i>
-                    </div>
-                    <div class="content">
-                        <span>Email</span>
-                        <h4>
-                            <a href="mailto:info@donat.com">info@donat.com</a>
-                        </h4>
-                    </div>
+            <div class="header-top-wrapper-2">
+                <div class="header-left">
+                    <ul class="list-icon">
+                        <li>
+                            <i class="fa-regular fa-location-dot"></i>
+                            Jaldhaka,Nilphamari
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:info.mahabubul0511@gmail.com">info.mahabubul0511@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <a href="tel:+16336547896">+88 01758-285407</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="social-icon">
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="www.facebook.cam/mahabub2a"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
@@ -133,6 +119,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Offcanvas Area Start -->
     <div class="fix-area">

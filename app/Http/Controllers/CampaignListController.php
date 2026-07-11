@@ -58,7 +58,7 @@ class CampaignListController extends Controller
 
         $campaigns->image = $photoName;
         $campaigns->save();
-        return redirect()->route('campaignlist.index')->with('success', 'Campaign created successfully!!');
+        return redirect()->route('admin.campaignlist.index')->with('success', 'Campaign created successfully!!');
     }
 
     /**
@@ -113,7 +113,7 @@ class CampaignListController extends Controller
 
         $campaignlist->save();
 
-        return redirect()->route('campaignlist.index')->with('success', 'Campaign updated successfully!!');
+        return redirect()->route('admin.campaignlist.index')->with('success', 'Campaign updated successfully!!');
     }
 
     /**
@@ -128,6 +128,6 @@ class CampaignListController extends Controller
 
         $campaignlist->delete();
 
-        return redirect()->route('campaignlist.index')->with('success', 'Campaign deleted successfully!!');
+        return redirect()->route('admin.campaignlist.index')->with('success', 'Campaign deleted successfully!!');
     }
 }

@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $catData = Category::all();
+        $catData = Category::withCount('campaigns')->latest()->get();
 
         return view('admin.category.index', ['items' => $catData]);
     }
@@ -30,12 +30,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $categorydata = new Category;
-        $categorydata->name = $request->name;
-        $categorydata->save();
+        $request->validate([
+            'name' => 'required|string|max:100|unique:categories,name',
+        ]);
+
+        Category::create([
+            'name' => $request->name,
+        ]);
+
         return redirect()->route('admin.category.index')->with('success', 'Category created successfully!!');
-
-
     }
 
     /**
@@ -51,7 +54,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -59,7 +62,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100|unique:categories,name,' . $category->id,
+        ]);
+
+        $category->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('admin.category.index')->with('success', 'Category updated successfully!!');
     }
 
     /**
@@ -67,6 +78,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if ($category->campaigns()->exists()) {
+            return redirect()->route('admin.category.index')
+                ->with('error', 'This category is used by one or more campaigns and cannot be deleted. Remove or reassign those campaigns first.');
+        }
+
+        $category->delete();
+
+        return redirect()->route('admin.category.index')->with('success', 'Category deleted successfully!!');
     }
 }

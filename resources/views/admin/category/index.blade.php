@@ -10,14 +10,12 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
-                    <h4 class="page-title">Datatable</h4>
+                    <h4 class="page-title">Categories</h4>
                     <div class="">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Approx</a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a>
                             </li><!--end nav-item-->
-                            <li class="breadcrumb-item"><a href="#">Tables</a>
-                            </li><!--end nav-item-->
-                            <li class="breadcrumb-item active">Datatable</li>
+                            <li class="breadcrumb-item active">Categories</li>
                         </ol>
                     </div>
                 </div><!--end page-title-box-->
@@ -36,27 +34,50 @@
 
                     </div><!--end card-header-->
                     <div class="card-body pt-0">
+
+                        {{-- success / error message --}}
+                        @if (session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger">{{ session('error') }}</div>
+                        @endif
+
                         <div class="table-responsive">
                             <table class="table datatable" id="datatable_2">
                                 <thead class="">
                                     <tr>
                                         <th>Id</th>
-
+                                        <th>Name</th>
+                                        <th>Campaigns</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
-                                {{-- success message --}}
-                                {{-- @if (session('success'))
-                                    <div class="alert alert-success">{{ session('success') }}</div>
-                                @endif --}}
 
                                 <tbody>
-                                    @foreach ($items as $item)
+                                    @forelse ($items as $item)
                                         <tr>
-
+                                            <td>{{ $item->id }}</td>
                                             <td>{{ $item->name }}</td>
-                                        </tr>
-                                    @endforeach
+                                            <td>{{ $item->campaigns_count }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.category.edit', $item->id) }}"
+                                                    class="btn btn-xs btn-warning">Edit</a>
 
+                                                <form action="{{ route('admin.category.destroy', $item->id) }}"
+                                                    method="POST" style="display:inline"
+                                                    onsubmit="return confirm('Delete this category?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-xs btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="4" class="text-center">No categories found.</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>

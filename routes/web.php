@@ -8,13 +8,18 @@ use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonorListController;
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\VolunteerManageController;
 use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
+// NOTE: this used to also be registered on '/', which silently swallowed the
+// public homepage route below (guests hitting '/' were redirected to /login).
+// It's kept only because a few Breeze auth controllers redirect to
+// route('dashboard') as a generic fallback.
+Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -47,7 +52,11 @@ Route::prefix('projects')->name('projects.')->group(function () {
     Route::get('/sponsored-yateem', [FrontendController::class, 'sponsoredYateem'])->name('yateem');
 });
 
+Route::get('/our-campaigns', [FrontendController::class, 'campaigns'])->name('campaigns.index');
+Route::get('/our-campaigns/{campaign}', [FrontendController::class, 'campaignShow'])->name('campaigns.show');
+
 Route::get('/donation', [FrontendController::class, 'donation'])->name('donation');
+Route::post('/donation', [FrontendController::class, 'storeDonation'])->name('donation.store');
 
 
 
@@ -81,10 +90,14 @@ Route::middleware(['auth', 'role:volunteer'])->group(function () {
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::resource('donorlist', DonorListController::class);
+    Route::post('donorlist/{donorlist}/donations', [DonorListController::class, 'storeDonation'])
+        ->name('donorlist.donations.store');
+
     Route::resource('campaignlist', CampaignListController::class);
     Route::resource('volunteerlist', VolunteerManageController::class);
     Route::resource('donations', DonationsController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('settings', SettingController::class)->except(['show']);
 });
 
 

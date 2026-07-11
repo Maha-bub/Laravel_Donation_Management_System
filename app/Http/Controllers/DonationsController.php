@@ -54,9 +54,9 @@ class DonationsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Donations $donations)
+    public function show(Donations $donation)
     {
-        return view('admin.donations.show', ['item' => $donations]);
+        return view('admin.donations.show', ['item' => $donation]);
     }
 
     /**
@@ -76,7 +76,7 @@ class DonationsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Donations $donations)
+    public function update(Request $request, Donations $donation)
     {
         $request->validate([
             'name' => 'required|string|max:100',
@@ -85,7 +85,7 @@ class DonationsController extends Controller
             'amount' => 'required|numeric|min:1'
         ]);
 
-        $donations->update([
+        $donation->update([
             'name' => $request->name,
             'campaign_id' => $request->campaign_id,
             'amount' => $request->amount,

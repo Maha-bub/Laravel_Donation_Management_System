@@ -171,7 +171,7 @@
                         </div>
 
                         <h6 class="mb-2">Record a New Donation</h6>
-                        <form action="{{ route('admin.donorlist.store', $item->id) }}" method="POST"
+                        <form action="{{ route('admin.donorlist.donations.store', $item->id) }}" method="POST"
                             class="row g-2 align-items-end">
                             @csrf
                             <div class="col-md-4">

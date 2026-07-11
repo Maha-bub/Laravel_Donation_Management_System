@@ -98,6 +98,9 @@
                                  </li>
 
                                  <li>
+                                     <a href="{{ route('campaigns.index') }}">Campaigns</a>
+                                 </li>
+                                 <li>
                                      <a href="{{ route('about') }}">About Us</a>
                                  </li>
                                  <li>

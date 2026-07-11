@@ -86,27 +86,26 @@
                                 <input type="text" name="amount" class="form-control"
                                     value="{{ old('amount', $item->amount) }}">
                                 <div class="invalid-feedback">
-                                    Please choose goal amount.  
+                                    Please choose goal amount.
+                                </div>
                             </div>
                         </div>
-                </div>
 
+                        <div class="col-md-6">
+                            <label for="validationCustom03" class="form-label">Payment Method</label>
+                            <select class="form-select" id="validationCustom03" name="payment_method">
 
-                <div class="col-md-6">
-                    <label for="validationCustom03" class="form-label">Payment Method</label>
-                    <select class="form-select" id="validationCustom04" name="payment_method">
+                                <option value="Bkash"
+                                    {{ old('payment_method', $item->payment_method) == 'Bkash' ? 'selected' : '' }}>
+                                    Bkash
+                                </option>
 
-                        <option value="Bkash"
-                            {{ old('payment_method', $item->payment_method) == 'Bkash' ? 'selected' : '' }}>
-                            Bkash
-                        </option>
-
-                        <option value="Nagad"
-                            {{ old('payment_method', $item->payment_method) == 'Nagad' ? 'selected' : '' }}>
-                            Nagad
-                        </option>
-                    </select>
-                </div>
+                                <option value="Nagad"
+                                    {{ old('payment_method', $item->payment_method) == 'Nagad' ? 'selected' : '' }}>
+                                    Nagad
+                                </option>
+                            </select>
+                        </div>
 
 
 

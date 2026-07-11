@@ -30,7 +30,7 @@
                         </span>
 
                         <h2 class="fw-bold mt-3 mb-2">
-                            122,569.00
+                            {{ number_format((float) $totalRaised, 2) }}
                             <small class="fs-5 text-muted">BDT</small>
                         </h2>
 
@@ -54,7 +54,7 @@
                                     <p class="text-muted text-uppercase mb-1 fs-13">
                                         Total Campaign
                                     </p>
-                                    <h3 class="mb-0">11</h3>
+                                    <h3 class="mb-0">{{ $totalCampaigns }}</h3>
                                 </div>
 
                                 <div
@@ -73,7 +73,7 @@
                                     <p class="text-muted text-uppercase mb-1 fs-13">
                                         Active Campaign
                                     </p>
-                                    <h3 class="mb-0 text-success">8</h3>
+                                    <h3 class="mb-0 text-success">{{ $activeCampaigns }}</h3>
                                 </div>
 
                                 <div
@@ -92,7 +92,7 @@
                                     <p class="text-muted text-uppercase mb-1 fs-13">
                                         Inactive Campaign
                                     </p>
-                                    <h3 class="mb-0 text-warning">3</h3>
+                                    <h3 class="mb-0 text-warning">{{ $inactiveCampaigns }}</h3>
                                 </div>
 
                                 <div
@@ -111,7 +111,7 @@
                                     <p class="text-muted text-uppercase mb-1 fs-13">
                                         Total Donor
                                     </p>
-                                    <h3 class="mb-0 text-danger">50</h3>
+                                    <h3 class="mb-0 text-danger">{{ $totalDonors }}</h3>
                                 </div>
 
                                 <div
