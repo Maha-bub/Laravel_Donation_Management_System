@@ -94,8 +94,7 @@
                         <div class="shape">
                             <img src="{{ asset('') }}frontent-assets/img/home-1/hero/shape.png" alt="img">
                         </div>
-                        <div class="hero-bg bg-cover"
-                            style="background-image: url({{ asset('') }}frontent-assets/img/home-1/hero/hero-bg-3.jpg);">
+                        <div class="hero-bg bg-cover" style="background-image: url(assets/img/home-1/hero/hero-bg-3.jpg);">
                         </div>
                         <div class="container">
                             <div class="row g-4 justify-content-center">
@@ -288,6 +287,73 @@
         </div>
     </section>
 
+    <!-- Donation Section Start -->
+    <section class="donation-section section-padding fix">
+        <div class="container">
+            <div class="section-title-area">
+                <div class="section-title">
+                    <span class="sub-title wow fadeInUp">Lets Start Donating</span>
+                    <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                        <span>S</span>ee You Impact Transparent <br> Donation Causes
+                    </h2>
+                </div>
+                <a href="{{ route('campaigns.index') }}" class="theme-btn">Learn More <i
+                        class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+            <div class="donation-wrapper">
+                <div class="row">
+                    @forelse ($campaigns as $index => $campaign)
+                        @php
+                            $goal = (float) $campaign->goal_amount;
+                            $raised = (float) ($campaign->donations_sum_amount ?? 0);
+                            $percent = $goal > 0 ? min(100, round(($raised / $goal) * 100)) : 0;
+                            $styleClass = $index === 0 ? '' : 'style-' . ($index + 1);
+                        @endphp
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".{{ ($index + 1) * 2 }}s">
+                            <div class="donation-card-item">
+                                <div class="donation-image">
+                                    <img src="{{ asset('images/' . $campaign->image) }}" alt="{{ $campaign->name }}">
+                                    <div class="right-shape">
+                                        <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png"
+                                            alt="img">
+                                    </div>
+                                </div>
+                                <div class="donation-content">
+                                    <h4>
+                                        <a href="{{ route('campaigns.show', $campaign->id) }}">{{ $campaign->name }}</a>
+                                    </h4>
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit($campaign->description, 90) }}
+                                    </p>
+                                    <div class="pro-items {{ $styleClass }}">
+                                        <div class="progress">
+                                            <div class="progress-value" style="animation:none; width: {{ $percent }}%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="donate-list">
+                                        <li>
+                                            <span>Goal :</span> ৳{{ number_format($goal) }}
+                                        </li>
+                                        <li>
+                                            <span>Raised:</span> ৳{{ number_format($raised) }}
+                                        </li>
+                                    </ul>
+                                    <a href="{{ route('donation', ['campaign_id' => $campaign->id]) }}"
+                                        class="theme-btn {{ $styleClass }}">Donate Now <i
+                                            class="fa-solid fa-arrow-right-long"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="col-12 text-center">
+                            <p>No active campaigns right now. Please check back soon.</p>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Project Section Start -->
     <section class="project-section fix">
@@ -435,161 +501,6 @@
         </div>
     </section>
 
-    <section class="donation-section section-padding fix">
-        <div class="container">
-            <div class="section-title-area">
-                <div class="section-title">
-                    <span class="sub-title wow fadeInUp">Lets Start Donating</span>
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                        <span>S</span>ee You Impact Transparent <br> Donation Causes
-                    </h2>
-                </div>
-                <a href="donation.html" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
-            </div>
-            <div class="donation-wrapper">
-                <div class="row">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-                        <div class="donation-card-item">
-                            <div class="donation-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/donation/01.jpg" alt="img">
-                                <div class="right-shape">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png" alt="img">
-                                </div>
-                            </div>
-                            <div class="donation-content">
-                                <h4>
-                                    <a href="donation-details.html">Give African Children a Good Education</a>
-                                </h4>
-                                <p>
-                                    Looking for a restaurant that serves delicious, beautifully presented dishes with
-                                    impeccable service.
-                                </p>
-                                <div class="pro-items">
-                                    <div class="progress">
-                                        <div class="progress-value style-two"></div>
-                                    </div>
-                                </div>
-                                <ul class="donate-list">
-                                    <li>
-                                        <span>Goal :</span> $250,000
-                                    </li>
-                                    <li>
-                                        <span>Raised:</span> $500,000
-                                    </li>
-                                </ul>
-                                <a href="donation-details.html" class="theme-btn">Donte Now <i
-                                        class="fa-solid fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
-                        <div class="donation-card-item">
-                            <div class="donation-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/donation/02.jpg" alt="img">
-                                <div class="right-shape">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png" alt="img">
-                                </div>
-                            </div>
-                            <div class="donation-content">
-                                <h4>
-                                    <a href="donation-details.html">Support Learning, Inspire Hope in Africa</a>
-                                </h4>
-                                <p>
-                                    Looking for a restaurant that serves delicious, beautifully presented dishes with
-                                    impeccable service.
-                                </p>
-                                <div class="pro-items style-2">
-                                    <div class="progress">
-                                        <div class="progress-value style-two"></div>
-                                    </div>
-                                </div>
-                                <ul class="donate-list">
-                                    <li>
-                                        <span>Goal :</span> $250,000
-                                    </li>
-                                    <li>
-                                        <span>Raised:</span> $500,000
-                                    </li>
-                                </ul>
-                                <a href="donation-details.html" class="theme-btn style-2">Donte Now <i
-                                        class="fa-solid fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".6s">
-                        <div class="donation-card-item">
-                            <div class="donation-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/donation/03.jpg" alt="img">
-                                <div class="right-shape">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png" alt="img">
-                                </div>
-                            </div>
-                            <div class="donation-content">
-                                <h4>
-                                    <a href="donation-details.html">Building Bright Futures With Every Lesson</a>
-                                </h4>
-                                <p>
-                                    Looking for a restaurant that serves delicious, beautifully presented dishes with
-                                    impeccable service.
-                                </p>
-                                <div class="pro-items style-3">
-                                    <div class="progress">
-                                        <div class="progress-value style-two"></div>
-                                    </div>
-                                </div>
-                                <ul class="donate-list">
-                                    <li>
-                                        <span>Goal :</span> $250,000
-                                    </li>
-                                    <li>
-                                        <span>Raised:</span> $500,000
-                                    </li>
-                                </ul>
-                                <a href="donation-details.html" class="theme-btn style-3">Donte Now <i
-                                        class="fa-solid fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
-                        <div class="donation-card-item">
-                            <div class="donation-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/donation/04.jpg" alt="img">
-                                <div class="right-shape">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png" alt="img">
-                                </div>
-                            </div>
-                            <div class="donation-content">
-                                <h4>
-                                    <a href="donation-details.html">Help Children Dream Bigger With Education</a>
-                                </h4>
-                                <p>
-                                    Looking for a restaurant that serves delicious, beautifully presented dishes with
-                                    impeccable service.
-                                </p>
-                                <div class="pro-items style-4">
-                                    <div class="progress">
-                                        <div class="progress-value style-two"></div>
-                                    </div>
-                                </div>
-                                <ul class="donate-list">
-                                    <li>
-                                        <span>Goal :</span> $250,000
-                                    </li>
-                                    <li>
-                                        <span>Raised:</span> $500,000
-                                    </li>
-                                </ul>
-                                <a href="donation-details.html" class="theme-btn style-4">Donte Now <i
-                                        class="fa-solid fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
     <!-- Team Section Start -->
     <section class="team-section section-padding fix pb-0">
         <div class="container">
@@ -603,13 +514,13 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="{{ asset('') }}assets/images/users/avatar-1.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/01.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
                                 <a href="volounteer-details.html">Darrell Steward</a>
                             </h5>
-                            <p>Founder</p>
+                            <p>Software Developer</p>
                             <div class="social-icon">
                                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
                                 <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -622,7 +533,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="{{ asset('') }}assets/images/users/avatar-2.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/02.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -641,7 +552,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="{{ asset('') }}assets/images/users/avatar-3.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/03.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -660,7 +571,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".8s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="{{ asset('') }}assets/images/users/avatar-4.jpg" alt="img">
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/04.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -693,8 +604,11 @@
                 <div class="row g-4">
                     <div class="col-lg-5 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
                         <div class="testimonial-image">
-                            <img src="{{ asset('') }}campaigns/income-genarating.png" alt="img">
-
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/testimonial/01.jpg" alt="img">
+                            <div class="shape">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/testimonial/shape.png"
+                                    alt="img">
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -806,8 +720,11 @@
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6">
                         <div class="counter-image">
-                            <img src="{{ asset('') }}campaigns/income-genarating.png" alt="img">
-
+                            <img src="{{ asset('') }}frontent-assets/img/home-1/feature/01.jpg" alt="img">
+                            <div class="shape">
+                                <img src="{{ asset('') }}frontent-assets/img/home-1/feature/shape-1.png"
+                                    alt="img">
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6">

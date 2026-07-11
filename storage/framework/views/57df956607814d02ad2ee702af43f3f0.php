@@ -84,13 +84,32 @@
                         </div>
                     </div>
 
-                    <!-- Inactive -->
+                    <!-- Completed -->
                     <div class="col-md-6">
                         <div class="card h-100 shadow-sm bg-corner-img">
                             <div class="card-body d-flex justify-content-between align-items-center">
                                 <div>
                                     <p class="text-muted text-uppercase mb-1 fs-13">
-                                        Inactive Campaign
+                                        Completed Campaign
+                                    </p>
+                                    <h3 class="mb-0 text-primary"><?php echo e($completedCampaigns); ?></h3>
+                                </div>
+
+                                <div
+                                    class="thumb-md border border-primary rounded d-flex align-items-center justify-content-center">
+                                    <i class="iconoir-check-circle fs-22 text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Closed -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm bg-corner-img">
+                            <div class="card-body d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="text-muted text-uppercase mb-1 fs-13">
+                                        Closed Campaign
                                     </p>
                                     <h3 class="mb-0 text-warning"><?php echo e($inactiveCampaigns); ?></h3>
                                 </div>

@@ -14,4 +14,15 @@ class Donations extends Model
     {
         return $this->belongsTo(CampaignList::class, 'campaign_id');
     }
+
+    protected static function booted()
+    {
+        // Raised Amount on a campaign is always derived from its donations
+        // (see CampaignList::getRaisedAmountAttribute). Whenever a donation
+        // is recorded, check whether the campaign's goal has now been
+        // reached so its status can move Active -> Completed automatically.
+        static::created(function (Donations $donation) {
+            $donation->campaign?->refreshStatus();
+        });
+    }
 }

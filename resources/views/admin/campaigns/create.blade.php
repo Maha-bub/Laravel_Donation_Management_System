@@ -6,14 +6,12 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
-                <h4 class="page-title">Validation</h4>
+                <h4 class="page-title">Create Campaign</h4>
                 <div class="">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{route('admin.campaignlist.index')}}">Campaigns</a>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.campaignlist.index') }}">Campaigns</a>
                         </li><!--end nav-item-->
-                        <li class="breadcrumb-item"><a href="{{route('admin.campaignlist.create')}}">New Campaigns</a>
-                        </li><!--end nav-item-->
-
+                        <li class="breadcrumb-item active">New Campaign</li><!--end nav-item-->
                     </ol>
                 </div>
             </div><!--end page-title-box-->
@@ -44,74 +42,89 @@
                         enctype="multipart/form-data" method="POST" novalidate>
                         @csrf
                         <div class="col-md-6">
-                            <label for="validationCustom01" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="validationCustom01"
-                                value="{{ old('name') }}" required>
+                            <label for="name" class="form-label">Campaign Title</label>
+                            <input type="text" name="name" class="form-control" id="name"
+                                value="{{ old('name') }}" maxlength="100" required>
                             <div class="valid-feedback">
-                                Write your project name!
+                                Write your campaign title!
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="validationCustom04" class="form-label">Category</label>
-                            <select class="form-select" name="category_id" id="validationCustom04" required>
+                            <label for="category_id" class="form-label">Category</label>
+                            <select class="form-select" name="category_id" id="category_id" required>
                                 <option selected disabled value="">Choose Category</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}"
+                                        {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
                                 @endforeach
                             </select>
                             <div class="invalid-feedback">
                                 Please select a category.
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="validationCustom02" class="form-label">Description</label>
-                            <textarea name="description" class="form-control row-3" id="validationCustom02" required></textarea>
+                        <div class="col-md-12">
+                            <label for="description" class="form-label">Short Description</label>
+                            <textarea name="description" class="form-control row-3" id="description" maxlength="500" rows="3">{{ old('description') }}</textarea>
                             <div class="valid-feedback">
                                 Add a short description.
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="validationCustomUsername" class="form-label">Goal Amount</label>
+                        <div class="col-md-4">
+                            <label for="goal_amount" class="form-label">Goal Amount</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">৳</span>
-                                <input type="text" name="goal_amount" class="form-control" id="validationCustomUsername"
+                                <input type="number" step="0.01" min="1" name="goal_amount" class="form-control"
+                                    id="goal_amount" value="{{ old('goal_amount') }}"
                                     aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Please choose goal amount.
+                                    Please enter a goal amount.
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-4">
+                            <label for="start_date" class="form-label">Start Date</label>
+                            <input type="date" name="start_date" class="form-control" id="start_date"
+                                value="{{ old('start_date') }}">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="end_date" class="form-label">End Date</label>
+                            <input type="date" name="end_date" class="form-control" id="end_date"
+                                value="{{ old('end_date') }}">
+                        </div>
+
                         <div class="col-md-6">
-                            <label for="validationCustom03" class="form-label">Status</label>
-                            <select class="form-select" id="validationCustom04" name="status">
-                                <option value="">Campaign Status</option>
-                                <option value="0">Active</option>
-                                <option value="1">Deactive</option>
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status" name="status" required>
+                                @foreach ($statuses as $statusOption)
+                                    <option value="{{ $statusOption }}"
+                                        {{ old('status', 'Draft') == $statusOption ? 'selected' : '' }}>
+                                        {{ $statusOption }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="photo">Upload Campaign Image:</label>
+                            <label class="form-label" for="photo">Featured Image</label>
 
                             <div id="drop-area"
                                 class="border border-secondary border-dashed rounded-4 p-4 text-center position-relative"
-                                style="height: 260px; cursor:pointer; border-style:dashed !important;">
+                                style="height: 120px; cursor:pointer; border-style:dashed !important;">
 
                                 <input class="form-control d-none" id="photo" name="photo" type="file"
                                     accept="image/*" required>
 
                                 <div id="upload-content">
-                                    <i class="fas fa-cloud-upload-alt fs-1 text-primary mb-3"></i>
+                                    <i class="fas fa-cloud-upload-alt fs-3 text-primary mb-1"></i>
 
-                                    <h6 class="mb-2">Drag & Drop your image here</h6>
-
-                                    <p class="text-muted mb-2">
-                                        or <span class="text-primary fw-semibold">Click to browse</span>
+                                    <p class="text-muted mb-0">
+                                        Drag & drop or <span class="text-primary fw-semibold">click to browse</span>
+                                        (JPG, PNG, WEBP)
                                     </p>
-
-                                    <small class="text-muted">
-                                        JPG, PNG, WEBP etc.
-                                    </small>
                                 </div>
 
                                 <img id="preview-image" src="" class="d-none w-100 h-100 rounded-3"
@@ -123,20 +136,8 @@
                             </div>
                         </div>
 
-
                         <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                <label class="form-check-label" for="invalidCheck">
-                                    Agree to terms and conditions
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary justify-content-end" type="submit">Submit form</button>
+                            <button class="btn btn-primary justify-content-end" type="submit">Create Campaign</button>
                         </div>
                     </form><!--end form-->
                 </div><!--end card-body-->

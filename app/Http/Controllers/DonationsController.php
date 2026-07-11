@@ -41,12 +41,14 @@ class DonationsController extends Controller
             'amount' => 'required|numeric|min:1',
         ]);
 
-        Donations::create([
+        $donation = Donations::create([
             'name' => $request->name,
             'campaign_id' => $request->campaign_id,
             'amount' => $request->amount,
             'payment_method' => $request->payment_method,
         ]);
+
+        $donation->campaign?->refreshStatus();
 
         return redirect()->route('admin.donations.index')->with('success', 'Donation created successfully!!');
     }

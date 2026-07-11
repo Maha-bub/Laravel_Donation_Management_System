@@ -3,6 +3,20 @@
 @endpush
 
 @section('content')
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
+                <h4 class="page-title">Edit Campaign</h4>
+                <div class="">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.campaignlist.index') }}">Campaigns</a>
+                        </li><!--end nav-item-->
+                        <li class="breadcrumb-item active">Edit</li><!--end nav-item-->
+                    </ol>
+                </div>
+            </div><!--end page-title-box-->
+        </div><!--end col-->
+    </div><!--end row-->
     <div class="row justify-content-center">
         <div class="col-md-12 col-lg-12">
             <div class="card">
@@ -29,9 +43,9 @@
                         @method('PUT')
 
                         <div class="col-md-6">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label">Campaign Title</label>
                             <input type="text" name="name" class="form-control" id="name"
-                                value="{{ old('name', $campaignlist->name) }}" required>
+                                value="{{ old('name', $campaignlist->name) }}" maxlength="100" required>
                         </div>
 
                         <div class="col-md-6">
@@ -47,32 +61,46 @@
                             </select>
                         </div>
 
-                        <div class="col-md-6">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea name="description" class="form-control row-3" id="description">{{ old('description', $campaignlist->description) }}</textarea>
+                        <div class="col-md-12">
+                            <label for="description" class="form-label">Short Description</label>
+                            <textarea name="description" class="form-control row-3" id="description" maxlength="500" rows="3">{{ old('description', $campaignlist->description) }}</textarea>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="goal_amount" class="form-label">Goal Amount</label>
                             <div class="input-group">
                                 <span class="input-group-text">৳</span>
-                                <input type="text" name="goal_amount" class="form-control" id="goal_amount"
-                                    value="{{ old('goal_amount', $campaignlist->goal_amount) }}" required>
+                                <input type="number" step="0.01" min="1" name="goal_amount" class="form-control"
+                                    id="goal_amount" value="{{ old('goal_amount', $campaignlist->goal_amount) }}" required>
                             </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="start_date" class="form-label">Start Date</label>
+                            <input type="date" name="start_date" class="form-control" id="start_date"
+                                value="{{ old('start_date', optional($campaignlist->start_date)->format('Y-m-d')) }}">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="end_date" class="form-label">End Date</label>
+                            <input type="date" name="end_date" class="form-control" id="end_date"
+                                value="{{ old('end_date', optional($campaignlist->end_date)->format('Y-m-d')) }}">
                         </div>
 
                         <div class="col-md-6">
                             <label for="status" class="form-label">Status</label>
-                            <select class="form-select" id="status" name="status">
-                                <option value="0" {{ old('status', $campaignlist->status) == 0 ? 'selected' : '' }}>
-                                    Active</option>
-                                <option value="1" {{ old('status', $campaignlist->status) == 1 ? 'selected' : '' }}>
-                                    Deactive</option>
+                            <select class="form-select" id="status" name="status" required>
+                                @foreach ($statuses as $statusOption)
+                                    <option value="{{ $statusOption }}"
+                                        {{ old('status', $campaignlist->status) == $statusOption ? 'selected' : '' }}>
+                                        {{ $statusOption }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="photo">Campaign Image</label>
+                            <label class="form-label" for="photo">Featured Image</label>
                             @if ($campaignlist->image)
                                 <div class="mb-2">
                                     <img src="{{ asset('images/' . $campaignlist->image) }}" width="80"
@@ -80,6 +108,7 @@
                                 </div>
                             @endif
                             <input class="form-control" id="photo" name="photo" type="file" accept="image/*">
+                            <small class="text-muted">Leave empty to keep the current image.</small>
                         </div>
 
                         <div class="col-12">

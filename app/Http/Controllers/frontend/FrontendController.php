@@ -14,7 +14,7 @@ class FrontendController extends Controller
         // Show the latest active campaigns on the homepage "Donation Causes" section.
         $campaigns = CampaignList::with('category')
             ->withSum('donations', 'amount')
-            ->where('status', 0)
+            ->where('status', CampaignList::STATUS_ACTIVE)
             ->latest()
             ->take(4)
             ->get();
@@ -89,7 +89,7 @@ class FrontendController extends Controller
     {
         $campaigns = CampaignList::with('category')
             ->withSum('donations', 'amount')
-            ->where('status', 0)
+            ->where('status', CampaignList::STATUS_ACTIVE)
             ->latest()
             ->get();
 
@@ -103,7 +103,7 @@ class FrontendController extends Controller
     {
         $campaign->loadSum('donations', 'amount');
 
-        $relatedCampaigns = CampaignList::where('status', 0)
+        $relatedCampaigns = CampaignList::where('status', CampaignList::STATUS_ACTIVE)
             ->where('id', '!=', $campaign->id)
             ->latest()
             ->take(3)
@@ -117,7 +117,7 @@ class FrontendController extends Controller
      */
     public function donation(Request $request)
     {
-        $campaigns = CampaignList::where('status', 0)->latest()->get();
+        $campaigns = CampaignList::where('status', CampaignList::STATUS_ACTIVE)->latest()->get();
         $selectedCampaignId = $request->query('campaign_id');
 
         return view('frontend.pages.donation', compact('campaigns', 'selectedCampaignId'));
@@ -146,12 +146,16 @@ class FrontendController extends Controller
             'amount.required' => 'Please choose a donation amount or enter a custom amount.',
         ]);
 
-        Donations::create([
+        $donation = Donations::create([
             'name' => $request->name,
             'campaign_id' => $request->campaign_id,
             'amount' => $request->amount,
             'payment_method' => $request->payment_method,
         ]);
+
+        // Raised Amount for the campaign is derived automatically from its
+        // donations, and its status flips to Completed once the goal is hit.
+        $donation->campaign?->refreshStatus();
 
         return redirect()->route('donation')->with('success', 'Thank you! Your donation has been received.');
     }
