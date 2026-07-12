@@ -113,10 +113,12 @@
                              <h3>Newsletter</h3>
                          </div>
                          <div class="footer-newsletter">
+                             {{-- Footer Dynamic --}}
                              <p>
-                                 Charity not only helps to reduce suffering but also fosters a sense of unity and
-                                 shared responsibility in society.
+                                 {{ $siteSettings?->footer_text ?? 'Charity not only helps to reduce suffering but also fosters a sense of unity and shared responsibility in society.' }}
                              </p>
+
+
                              <form action="#">
                                  <div class="form-clt">
                                      <input type="text" name="email" id="email" placeholder="Enter Your Email">
@@ -125,11 +127,26 @@
                                      </button>
                                  </div>
                              </form>
+
+
+                             {{-- Dynamic social icons --}}
                              <div class="social-icon">
-                                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                 <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                 @if (!empty($siteSettings?->facebook_url))
+                                     <a href="{{ $siteSettings->facebook_url }}" target="_blank"><i
+                                             class="fa-brands fa-facebook-f"></i></a>
+                                 @endif
+                                 @if (!empty($siteSettings?->twitter_url))
+                                     <a href="{{ $siteSettings->twitter_url }}" target="_blank"><i
+                                             class="fa-brands fa-twitter"></i></a>
+                                 @endif
+                                 @if (!empty($siteSettings?->instagram_url))
+                                     <a href="{{ $siteSettings->instagram_url }}" target="_blank"><i
+                                             class="fa-brands fa-instagram"></i></a>
+                                 @endif
+                                 @if (!empty($siteSettings?->youtube_url))
+                                     <a href="{{ $siteSettings->youtube_url }}" target="_blank"><i
+                                             class="fa-brands fa-youtube"></i></a>
+                                 @endif
                              </div>
                          </div>
                      </div>
