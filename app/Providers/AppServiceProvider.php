@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Pagination\Paginator;
+use App\Models\Setting;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,8 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // The admin theme (and the campaign list pagination) is built on
-        // Bootstrap 5, so render paginators using Bootstrap-styled links.
-        Paginator::useBootstrapFive();
+        View::composer('frontend.*', function ($view) {
+            $view->with('siteSettings', Setting::current());
+        });
     }
 }

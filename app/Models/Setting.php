@@ -27,10 +27,10 @@ class Setting extends Model
     public static function current(): self
     {
         return static::first() ?? static::create([
-            'site_name' => 'Esho Desh Gori',
-            'site_email' => 'info@donat.com',
-            'site_phone' => '+163 3654 7896',
-            'address' => 'Network City, USA',
+            'site_name' => 'Donation Management',
+            'site_email' => 'info.mahabubul0511@gmail.com',
+            'site_phone' => '+8801758-285407',
+            'address' => 'Jaldhaka, Nilphamari',
         ]);
     }
 }
