@@ -19,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 // public homepage route below (guests hitting '/' were redirected to /login).
 // It's kept only because a few Breeze auth controllers redirect to
 // route('dashboard') as a generic fallback.
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'dashboard'])
+    ->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -93,8 +92,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::post('donorlist/{donorlist}/donations', [DonorListController::class, 'storeDonation'])
         ->name('donorlist.donations.store');
 
-    Route::put('campaignlist/{id}/restore', [CampaignListController::class, 'restore'])->name('campaignlist.restore');
-    Route::delete('campaignlist/{id}/force-delete', [CampaignListController::class, 'forceDelete'])->name('campaignlist.forceDelete');
     Route::resource('campaignlist', CampaignListController::class);
     Route::resource('volunteerlist', VolunteerManageController::class);
     Route::resource('donations', DonationsController::class);
