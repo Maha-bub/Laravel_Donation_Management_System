@@ -287,73 +287,87 @@
         </div>
     </section>
 
-    <!-- Donation Section Start -->
-    <section class="donation-section section-padding fix">
+
+
+    {{-- Active campaigns sections  --}}
+
+    <section class="donation-section-2 section-padding fix">
         <div class="container">
-            <div class="section-title-area">
-                <div class="section-title">
-                    <span class="sub-title wow fadeInUp">Lets Start Donating</span>
-                    <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                        <span>S</span>ee You Impact Transparent <br> Donation Causes
-                    </h2>
-                </div>
-                <a href="{{ route('campaigns.index') }}" class="theme-btn">Learn More <i
-                        class="fa-solid fa-arrow-right-long"></i></a>
+            <div class="section-title style-2">
+                <span class="sub-title wow fadeInUp">Funds Collection</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                    <span>C</span>hoose a Cause to Support
+                </h2>
             </div>
-            <div class="donation-wrapper">
+            <div class="donation-wrapper-2">
+                @php
+                    $shapes = ['shape-1.png', 'shape-2.png', 'shape-3.png'];
+
+                    $buttonClasses = ['style-2', '', 'style-3'];
+
+                    $progressClasses = ['', 'style-2', 'style-3'];
+                @endphp
+
                 <div class="row">
-                    @forelse ($campaigns as $index => $campaign)
+                    @foreach ($campaigns as $campaign)
                         @php
-                            $goal = (float) $campaign->goal_amount;
-                            $raised = (float) ($campaign->donations_sum_amount ?? 0);
-                            $percent = $goal > 0 ? min(100, round(($raised / $goal) * 100)) : 0;
-                            $styleClass = $index === 0 ? '' : 'style-' . ($index + 1);
+                            $index = $loop->index % 3;
                         @endphp
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".{{ ($index + 1) * 2 }}s">
-                            <div class="donation-card-item">
-                                <div class="donation-image">
-                                    <img src="{{ asset('images/' . $campaign->image) }}" alt="{{ $campaign->name }}">
-                                    <div class="right-shape">
-                                        <img src="{{ asset('') }}frontent-assets/img/home-1/donation/shape.png"
-                                            alt="img">
-                                    </div>
+
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="{{ 0.3 + $index * 0.2 }}s">
+
+                            <div class="donation-card-item-2">
+
+                                <div class="left-shape">
+                                    <img src="{{ asset('frontent-assets/img/home-2/donation/' . $shapes[$index]) }}"
+                                        alt="shape">
                                 </div>
+
+                                <div class="donation-image">
+                                    <img src="{{ asset('images/' . $campaign->image) }}" alt="{{ $campaign->name }}"
+                                        class="img-fluid w-100 rounded" style="height:250px;object-fit:cover;">
+                                </div>
+
                                 <div class="donation-content">
-                                    <h4>
-                                        <a href="{{ route('campaigns.show', $campaign->id) }}">{{ $campaign->name }}</a>
-                                    </h4>
-                                    <p>
-                                        {{ \Illuminate\Support\Str::limit($campaign->description, 90) }}
-                                    </p>
-                                    <div class="pro-items {{ $styleClass }}">
+
+                                    <h4>{{ $campaign->name }}</h4>
+
+                                    @php
+                                        $raised = $campaign->donations_sum_amount ?? 0;
+                                        $goal = $campaign->goal_amount ?? 1;
+                                        $percentage = $goal > 0 ? min(($raised / $goal) * 100, 100) : 0;
+                                    @endphp
+
+                                    <div class="pro-items {{ $progressClasses[$index] }}">
                                         <div class="progress">
-                                            <div class="progress-value" style="animation:none; width: {{ $percent }}%;">
+                                            <div class="progress-value style-two" style="width: {{ $percentage }}%;">
+                                                <p>{{ round($percentage, 2) }}%</p>
                                             </div>
                                         </div>
                                     </div>
+
                                     <ul class="donate-list">
-                                        <li>
-                                            <span>Goal :</span> ৳{{ number_format($goal) }}
-                                        </li>
-                                        <li>
-                                            <span>Raised:</span> ৳{{ number_format($raised) }}
-                                        </li>
+                                        <li>Raised - ${{ number_format($raised, 2) }}</li>
+                                        <li>Goal - ${{ number_format($campaign->goal_amount, 2) }}</li>
                                     </ul>
-                                    <a href="{{ route('donation', ['campaign_id' => $campaign->id]) }}"
-                                        class="theme-btn {{ $styleClass }}">Donate Now <i
-                                            class="fa-solid fa-arrow-right-long"></i></a>
+
+                                    <a href="{{ route('donation', $campaign->id) }}"
+                                        class="theme-btn {{ $buttonClasses[$index] }}">
+                                        Donate Now
+                                        <i class="fa-solid fa-arrow-right-long"></i>
+                                    </a>
+
                                 </div>
+
                             </div>
                         </div>
-                    @empty
-                        <div class="col-12 text-center">
-                            <p>No active campaigns right now. Please check back soon.</p>
-                        </div>
-                    @endforelse
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- Project Section Start -->
     <section class="project-section fix">

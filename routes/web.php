@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampaignListController;
 use App\Http\Controllers\CategoryController;
@@ -27,7 +26,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
-// route for project navigation
+// route for projects navigation
 Route::prefix('projects')->name('projects.')->group(function () {
 
     Route::get('/school-bags', [FrontendController::class, 'schoolBags'])->name('school-bags');
@@ -70,6 +69,21 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
 
+// create route for admin Dashboard
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
+
+    Route::resource('donorlist', DonorListController::class);
+    Route::post('donorlist/{donorlist}/donations', [DonorListController::class, 'storeDonation'])
+        ->name('donorlist.donations.store');
+
+    Route::resource('campaignlist', CampaignListController::class);
+    Route::resource('volunteerlist', VolunteerManageController::class);
+    Route::resource('donations', DonationsController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('settings', SettingController::class)->except(['show']);
+});
+
+
 Route::middleware(['auth', 'role:donor'])->group(function () {
     Route::get('/donor/dashboard', [DonorController::class, 'dashboard'])->name('donor.dashboard');
 });
@@ -85,19 +99,6 @@ Route::middleware(['auth', 'role:volunteer'])->group(function () {
 });
 
 
-// create route for admin Dashboard
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
-
-    Route::resource('donorlist', DonorListController::class);
-    Route::post('donorlist/{donorlist}/donations', [DonorListController::class, 'storeDonation'])
-        ->name('donorlist.donations.store');
-
-    Route::resource('campaignlist', CampaignListController::class);
-    Route::resource('volunteerlist', VolunteerManageController::class);
-    Route::resource('donations', DonationsController::class);
-    Route::resource('category', CategoryController::class);
-    Route::resource('settings', SettingController::class)->except(['show']);
-});
 
 
 
