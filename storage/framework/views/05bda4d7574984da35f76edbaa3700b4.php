@@ -12,23 +12,23 @@
     <!-- ======== Page title ============ -->
     <title>Kindi - Non Profit Charity HTML Template</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="{{ asset('') }}frontent-assets/img/favicon.svg">
+    <link rel="shortcut icon" href="<?php echo e(asset('')); ?>frontent-assets/img/favicon.svg">
     <!--<< Bootstrap min.css >>-->
-    <link rel="stylesheet" href="{{ asset('') }}frontent-assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>frontent-assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
-    <link rel="stylesheet" href="{{ asset('') }}frontent-assets/css/all.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>frontent-assets/css/all.min.css">
     <!--<< Animate.css >>-->
-    <link rel="stylesheet" href="{{ asset('') }}frontent-assets/css/animate.css">
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>frontent-assets/css/animate.css">
     <!--<< Magnific Popup.css >>-->
-    <link rel="stylesheet" href="{{ asset('') }}frontent-assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>frontent-assets/css/magnific-popup.css">
     <!--<< MeanMenu.css >>-->
-    <link rel="stylesheet" href="{{ asset('') }}frontent-assets/css/meanmenu.css">
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>frontent-assets/css/meanmenu.css">
     <!--<< Swiper Bundle.css >>-->
-    <link rel="stylesheet" href="{{ asset('') }}frontent-assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>frontent-assets/css/swiper-bundle.min.css">
     <!--<< Nice Select.css >>-->
-    <link rel="stylesheet" href="{{ asset('') }}frontent-assets/css/nice-select.css">
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>frontent-assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="{{ asset('') }}frontent-assets/css/main.css">
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>frontent-assets/css/main.css">
 
 </head>
 
@@ -145,7 +145,7 @@
                     <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
                             <a href="index.html">
-                                <img src="{{ asset('') }}frontent-assets/img/logo/black-logo.svg" alt="logo-img">
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/logo/black-logo.svg" alt="logo-img">
                             </a>
                         </div>
                         <div class="offcanvas__close">
@@ -210,39 +210,40 @@
     <div class="offcanvas__overlay"></div>
 
     <!-- Header Section Start -->
-    @include('frontend.layout.parts.header')
+    <?php echo $__env->make('frontend.layout.parts.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
     <!-- Search Area Start -->
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 
 
     <!-- Footer Section Start -->
-    @include('frontend.layout.parts.footer')
+    <?php echo $__env->make('frontend.layout.parts.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
     <!--footer section end-->
 
 
     <!--<< All JS Plugins >>-->
-    <script src="{{ asset('') }}frontent-assets/js/jquery-3.7.1.min.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/jquery-3.7.1.min.js"></script>
     <!--<< Viewport Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/viewport.jquery.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/viewport.jquery.js"></script>
     <!--<< Bootstrap Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/bootstrap.bundle.min.js"></script>
     <!--<< nice-selec Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/jquery.nice-select.min.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/jquery.nice-select.min.js"></script>
     <!--<< Waypoints Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/jquery.waypoints.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/jquery.waypoints.js"></script>
     <!--<< Counterup Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/jquery.counterup.min.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/jquery.counterup.min.js"></script>
     <!--<< Swiper Slider Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/swiper-bundle.min.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/swiper-bundle.min.js"></script>
     <!--<< MeanMenu Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/jquery.meanmenu.min.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/jquery.meanmenu.min.js"></script>
     <!--<< Magnific Popup Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/jquery.magnific-popup.min.js"></script>
     <!--<< Wow Animation Js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/wow.min.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
-    <script src="{{ asset('') }}frontent-assets/js/main.js"></script>
+    <script src="<?php echo e(asset('')); ?>frontent-assets/js/main.js"></script>
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\Laravel_Donation_Management_System\resources\views/frontend/layout/master.blade.php ENDPATH**/ ?>
