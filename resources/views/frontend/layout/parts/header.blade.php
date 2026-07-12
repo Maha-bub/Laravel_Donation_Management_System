@@ -6,6 +6,7 @@
 
 
                      <div class="logo">
+
                          <a href="{{ route('home') }}" class="header-logo">
                              @if (!empty($siteSettings?->logo))
                                  <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="logo-img">
@@ -13,6 +14,9 @@
                                  <img src="{{ asset('') }}frontent-assets/img/logo/black-logo.svg" alt="logo-img">
                              @endif
                          </a>
+
+
+
                      </div>
 
 

@@ -49,7 +49,7 @@
                                     @if (!empty($siteSettings?->site_phone))
                                         <a href="tel:{{ $siteSettings->site_phone }}">{{ $siteSettings->site_phone }}</a>
                                     @else
-                                        <a href="tel:+13685678954">+1 368 567 89 54</a>
+                                        <a href="tel:+8801758-285407">+8801758-285407</a>
                                     @endif
                                 </h5>
                             </div>
@@ -61,7 +61,7 @@
                             <div class="contact-us-content">
                                 <span>Location</span>
                                 <h5>
-                                    7th Floor, 1350 Lexington <br> New York, NY 10028, USA
+                                    {!! $siteSettings?->address ?? 'Walton Plaza<br>Jaldhaka' !!}
                                 </h5>
                             </div>
                         </div>
@@ -72,8 +72,11 @@
                             <div class="contact-us-content">
                                 <span>Email Address</span>
                                 <h5>
-                                    <a href="mailto:example@email.com">example@email.com</a> <br>
-                                    <a href="mailto:hridoytb@email.com">hridoytb@email.com</a>
+                                    @if (!empty($siteSettings?->site_email))
+                                        <a href="mailto:{{ $siteSettings->site_email }}">{{ $siteSettings->site_email }}</a>
+                                    @else
+                                        <a href="mailto:info.mahabubul0511@gmail.com">info.mahabubul0511@gmail.com</a> <br>
+                                    @endif
                                 </h5>
                             </div>
                         </div>
