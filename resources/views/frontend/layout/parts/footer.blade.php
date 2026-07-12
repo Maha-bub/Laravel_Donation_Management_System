@@ -155,7 +155,9 @@
          </div>
          <div class="footer-bottom">
              <div class="footer-wrapper">
-                 <p>Copyright & Design By <span>@Kindi</span></p>
+                 <p>Copyright &copy; {{ date('Y') }}
+                     <span>{{ $siteSettings?->site_name ?? 'Designed By Mahabubul Alam' }}</span>. All Rights Reserved.
+                 </p>
                  <ul class="footer-bottom-list">
                      <li>
                          <a href="faq.html">Faq</a>
