@@ -113,10 +113,13 @@
                              <h3>Newsletter</h3>
                          </div>
                          <div class="footer-newsletter">
+                             
                              <p>
-                                 Charity not only helps to reduce suffering but also fosters a sense of unity and
-                                 shared responsibility in society.
+                                 <?php echo e($siteSettings?->footer_text ?? 'Charity not only helps to reduce suffering but also fosters a sense of unity and shared responsibility in society.'); ?>
+
                              </p>
+
+
                              <form action="#">
                                  <div class="form-clt">
                                      <input type="text" name="email" id="email" placeholder="Enter Your Email">
@@ -125,11 +128,26 @@
                                      </button>
                                  </div>
                              </form>
+
+
+                             
                              <div class="social-icon">
-                                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                 <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                 <?php if(!empty($siteSettings?->facebook_url)): ?>
+                                     <a href="<?php echo e($siteSettings->facebook_url); ?>" target="_blank"><i
+                                             class="fa-brands fa-facebook-f"></i></a>
+                                 <?php endif; ?>
+                                 <?php if(!empty($siteSettings?->twitter_url)): ?>
+                                     <a href="<?php echo e($siteSettings->twitter_url); ?>" target="_blank"><i
+                                             class="fa-brands fa-twitter"></i></a>
+                                 <?php endif; ?>
+                                 <?php if(!empty($siteSettings?->instagram_url)): ?>
+                                     <a href="<?php echo e($siteSettings->instagram_url); ?>" target="_blank"><i
+                                             class="fa-brands fa-instagram"></i></a>
+                                 <?php endif; ?>
+                                 <?php if(!empty($siteSettings?->youtube_url)): ?>
+                                     <a href="<?php echo e($siteSettings->youtube_url); ?>" target="_blank"><i
+                                             class="fa-brands fa-youtube"></i></a>
+                                 <?php endif; ?>
                              </div>
                          </div>
                      </div>
@@ -138,7 +156,10 @@
          </div>
          <div class="footer-bottom">
              <div class="footer-wrapper">
-                 <p>Copyright & Design By <span>@Kindi</span></p>
+                 <p>Copyright &copy; <?php echo e(date('Y')); ?>
+
+                     <span><?php echo e($siteSettings?->site_name ?? 'Designed By Mahabubul Alam'); ?></span>. All Rights Reserved.
+                 </p>
                  <ul class="footer-bottom-list">
                      <li>
                          <a href="faq.html">Faq</a>

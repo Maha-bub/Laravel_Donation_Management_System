@@ -12,8 +12,7 @@
                              @else
                                  <img src="{{ asset('') }}frontent-assets/img/logo/black-logo.svg" alt="logo-img">
                              @endif
-
-
+                         </a>
                      </div>
 
 

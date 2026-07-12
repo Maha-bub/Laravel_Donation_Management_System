@@ -36,11 +36,21 @@
                             <div class="icon">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
-                            <div class="contact-us-content">
+                            {{-- <div class="contact-us-content">
                                 <span>Phone No</span>
                                 <h5>
                                     <a href="tel:+13685678954">+1 368 567 89 54</a> <br>
                                     <a href="tel:+23645689622">+236 456 896 22</a>
+                                </h5>
+                            </div> --}}
+                            <div class="contact-us-content">
+                                <span>Phone No</span>
+                                <h5>
+                                    @if (!empty($siteSettings?->site_phone))
+                                        <a href="tel:{{ $siteSettings->site_phone }}">{{ $siteSettings->site_phone }}</a>
+                                    @else
+                                        <a href="tel:+13685678954">+1 368 567 89 54</a>
+                                    @endif
                                 </h5>
                             </div>
                         </div>
