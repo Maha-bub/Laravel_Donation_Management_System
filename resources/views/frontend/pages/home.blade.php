@@ -186,21 +186,18 @@
                     <div class="col-lg-6">
                         <div class="about-item">
                             <div class="about-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/about/about-3.jpg" alt="img"
+                                <img src="{{ asset('') }}frontent-assets/img/flood-refief.jpg" alt="img"
                                     class="wow img-custom-anim-right" data-wow-duration="1.3s" data-wow-delay="0.3s">
                                 <div class="shape">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/about/shape.png"
-                                        alt="img">
+                                    <img src="{{ asset('') }}frontent-assets/img/unity.jpg" alt="img">
                                 </div>
                                 <div class="about-image-2">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/about/about-1.jpg"
-                                        alt="img" class="wow img-custom-anim-left" data-wow-duration="1.3s"
-                                        data-wow-delay="0.3s">
+                                    <img src="{{ asset('') }}frontent-assets/img/package.jpg" alt="img"
+                                        class="wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
                                 </div>
                                 <div class="about-image-3">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/about/about-2.png"
-                                        alt="img" class="wow img-custom-anim-left" data-wow-duration="1.3s"
-                                        data-wow-delay="0.3s">
+                                    <img src="{{ asset('') }}frontent-assets/img/food-distribution.jpg" alt="img"
+                                        class="wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
                                 </div>
                             </div>
                         </div>
