@@ -7,9 +7,9 @@
                  <img src="<?php echo e(asset('')); ?>assets/images/logo_dark.png" alt="logo-small" class="logo-sm">
              </span>
              <span class="">
-                 <img src="<?php echo e(asset('')); ?>assets/images/logo_dark.png" alt="logo-large" width="150px" height="150px"
+                 <img src="<?php echo e(asset('')); ?>assets/images/logo_dark.png" alt="logo-large" width="200px" height="100px"
                      class="logo-light">
-                 <img src="<?php echo e(asset('')); ?>assets/images/logo_dark.png" alt="logo-large" width="150px"
+                 <img src="<?php echo e(asset('')); ?>assets/images/logo_dark.png" alt="logo-large" width="200px"
                      height="100px" class="logo-dark">
              </span>
          </a>
