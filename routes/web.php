@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CampaignListController;
 use App\Http\Controllers\CategoryController;
@@ -56,6 +55,7 @@ Route::get('/our-campaigns/{campaign}', [FrontendController::class, 'campaignSho
 
 Route::get('/donation', [FrontendController::class, 'donation'])->name('donation');
 Route::post('/donation', [FrontendController::class, 'storeDonation'])->name('donation.store');
+Route::get('/donation/bkash/callback', [FrontendController::class, 'bkashCallback'])->name('donation.bkash.callback');
 
 
 
@@ -82,9 +82,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
         ->name('campaignlist.restore')->withTrashed();
     Route::delete('campaignlist/{id}/force-delete', [CampaignListController::class, 'forceDelete'])
         ->name('campaignlist.forceDelete')->withTrashed();
-
-
-        
     Route::resource('volunteerlist', VolunteerManageController::class);
     Route::resource('donations', DonationsController::class);
     Route::resource('category', CategoryController::class);

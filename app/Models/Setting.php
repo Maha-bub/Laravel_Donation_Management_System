@@ -17,20 +17,21 @@ class Setting extends Model
         'instagram_url',
         'youtube_url',
         'logo',
+        'favicon',
     ];
 
     /**
      * Convenience accessor used across the app: Setting::current()
-     * Always returns the single settings row, creating a default one if
-     * none exists yet.
+     * Returns the single settings row if the admin has configured one, or
+     * null otherwise. We deliberately do NOT auto-create a default row
+     * here — doing so as a side effect of a page view previously caused a
+     * "default" row to be created before the admin ever saved anything,
+     * which could silently shadow their real logo/favicon/contact info.
+     * Views should fall back to sensible defaults via `??`/`?->` when this
+     * is null.
      */
-    public static function current(): self
+    public static function current(): ?self
     {
-        return static::first() ?? static::create([
-            'site_name' => 'Donation Management',
-            'site_email' => 'info.mahabubul0511@gmail.com',
-            'site_phone' => '+8801758-285407',
-            'address' => 'Jaldhaka, Nilphamari',
-        ]);
+        return static::latest()->first();
     }
 }

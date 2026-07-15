@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Providers;
+
 use App\Models\CampaignList;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
@@ -20,13 +22,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('frontend.*', function ($view) {
+        View::composer(['frontend.*', 'admin.*'], function ($view) {
             $view->with('siteSettings', Setting::current());
         });
 
-
-        // Active campaigns show under the header's Projects dropdown submenu
-
+        // Active campaigns shown under the header's "Projects" dropdown, so
+        // any campaign the admin activates is immediately reachable from
+        // the main navigation, not just the homepage/campaigns list.
         View::composer('frontend.layout.parts.header', function ($view) {
             $view->with(
                 'navCampaigns',

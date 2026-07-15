@@ -35,4 +35,24 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | bKash Tokenized Checkout (Sandbox)
+    |--------------------------------------------------------------------------
+    |
+    | The default values below are bKash's publicly published SANDBOX-ONLY
+    | test credentials (used across bKash's own developer docs and sample
+    | apps) — they only work against the sandbox URL and can never move
+    | real money. Replace them with your own sandbox or live credentials
+    | in .env once you register on the bKash Merchant/Developer Portal.
+    |
+    */
+    'bkash' => [
+        'base_url' => env('BKASH_BASE_URL', 'https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized'),
+        'app_key' => env('BKASH_APP_KEY', '4f6o0cjiki2rfm34kfdadl1eqq'),
+        'app_secret' => env('BKASH_APP_SECRET', '2is7hdktrekvrbljjh44ll3d9l1dtjo4pasmjvs5vl5qr3fug4b'),
+        'username' => env('BKASH_USERNAME', 'sandboxTokenizedUser02'),
+        'password' => env('BKASH_PASSWORD', 'sandboxTokenizedUser02@12345'),
+    ],
+
 ];

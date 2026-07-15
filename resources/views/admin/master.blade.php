@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('') }}assets/images/logo-favicon.png">
+    <link rel="shortcut icon" href="{{ !empty($siteSettings?->favicon) ? asset('storage/' . $siteSettings->favicon) : asset('') . 'assets/images/logo-favicon.png' }}">
 
 
 

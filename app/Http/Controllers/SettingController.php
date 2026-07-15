@@ -48,6 +48,7 @@ class SettingController extends Controller
             'instagram_url' => 'nullable|url|max:255',
             'youtube_url' => 'nullable|url|max:255',
             'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'favicon' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg,ico|max:1024',
         ]);
 
         $data = $request->only([
@@ -64,6 +65,10 @@ class SettingController extends Controller
 
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store('settings', 'public');
+        }
+
+        if ($request->hasFile('favicon')) {
+            $data['favicon'] = $request->file('favicon')->store('settings', 'public');
         }
 
         Setting::create($data);
@@ -103,6 +108,7 @@ class SettingController extends Controller
             'instagram_url' => 'nullable|url|max:255',
             'youtube_url' => 'nullable|url|max:255',
             'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'favicon' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg,ico|max:1024',
         ]);
 
         $data = $request->only([
@@ -124,6 +130,13 @@ class SettingController extends Controller
             $data['logo'] = $request->file('logo')->store('settings', 'public');
         }
 
+        if ($request->hasFile('favicon')) {
+            if ($setting->favicon) {
+                Storage::disk('public')->delete($setting->favicon);
+            }
+            $data['favicon'] = $request->file('favicon')->store('settings', 'public');
+        }
+
         $setting->update($data);
 
         return redirect()->route('admin.settings.index')->with('success', 'Settings updated successfully!!');
@@ -136,6 +149,10 @@ class SettingController extends Controller
     {
         if ($setting->logo) {
             Storage::disk('public')->delete($setting->logo);
+        }
+
+        if ($setting->favicon) {
+            Storage::disk('public')->delete($setting->favicon);
         }
 
         $setting->delete();

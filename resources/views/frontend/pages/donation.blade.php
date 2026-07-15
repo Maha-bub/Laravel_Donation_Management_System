@@ -796,7 +796,7 @@
                                             Select Project
                                         </label>
 
-                                        <select class="form-select" name="campaign_id" required>
+                                        <select class="form-select @error('campaign_id') is-invalid @enderror" name="campaign_id" required>
 
                                             <option value="" disabled {{ old('campaign_id', $selectedCampaignId) ? '' : 'selected' }}>
                                                 Choose Project
@@ -812,6 +812,9 @@
                                             @endforelse
 
                                         </select>
+                                        @error('campaign_id')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                        @enderror
 
                                     </div>
 
@@ -853,8 +856,11 @@
                                             Your Name
                                         </label>
 
-                                        <input type="text" name="name" class="form-control"
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                                             value="{{ old('name') }}" placeholder="Enter Full Name" required>
+                                        @error('name')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                        @enderror
 
                                     </div>
 
@@ -866,8 +872,11 @@
                                             Mobile Number
                                         </label>
 
-                                        <input type="text" name="phone" class="form-control"
+                                        <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"
                                             value="{{ old('phone') }}" placeholder="01XXXXXXXXX">
+                                        @error('phone')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                        @enderror
 
                                     </div>
 
@@ -902,14 +911,18 @@
                                         <label class="form-label fw-semibold">
                                             Email Address
                                         </label>
-                                        <input type="email" name="email" class="form-control"
+                                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                                             value="{{ old('email') }}" placeholder="example@email.com" required>
+                                        @error('email')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Anonymous Donation -->
                                     <div class="col-md-6 d-flex align-items-end">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="anonymous">
+                                            <input class="form-check-input" type="checkbox" name="is_anonymous"
+                                                value="1" id="anonymous">
                                             <label class="form-check-label" for="anonymous">
                                                 Donate Anonymously
                                             </label>
@@ -965,9 +978,11 @@
 
                                         </div>
 
-                                    </div>
+                                        @error('amount')
+                                            <div class="text-danger mt-2 small">{{ $message }}</div>
+                                        @enderror
 
-                                    <!-- Custom Amount -->
+                                    </div>
 
                                     <div class="col-12">
 
@@ -1046,6 +1061,10 @@
                                             </div>
 
                                         </div>
+
+                                        @error('payment_method')
+                                            <div class="text-danger mt-2 small">{{ $message }}</div>
+                                        @enderror
 
                                     </div>
 
