@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Providers;
-
 use App\Models\CampaignList;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
