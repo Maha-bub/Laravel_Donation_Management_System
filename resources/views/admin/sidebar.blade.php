@@ -5,7 +5,7 @@
          <a href="{{ route('admin.dashboard') }}" class="logo">
              <span>
                  <img src="{{ !empty($siteSettings?->logo) ? asset('storage/' . $siteSettings->logo) : asset('') . 'assets/images/logo_dark.png' }}"
-                     alt="logo-small" class="logo-sm">
+                     alt="logo-small" class="logo-sm" width="200px" height="120px">
              </span>
              <span class="">
                  <img src="{{ !empty($siteSettings?->logo) ? asset('storage/' . $siteSettings->logo) : asset('') . 'assets/images/logo_dark.png' }}"
