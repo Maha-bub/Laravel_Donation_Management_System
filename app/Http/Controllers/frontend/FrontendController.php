@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\CampaignList;
 use App\Models\Donations;
+use App\Models\DonorList;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -140,10 +141,13 @@ class FrontendController extends Controller
         $request->validate([
             'campaign_id' => 'required|exists:campaign_lists,id',
             'name' => 'required|string|max:100',
+            'email' => 'required|email|max:100',
+            'phone' => 'required|string|max:50',
             'amount' => 'required|numeric|min:1',
             'payment_method' => 'required|string|max:100',
         ], [
             'amount.required' => 'Please choose a donation amount or enter a custom amount.',
+            'email.required' => 'Please enter your email so we can send your donation receipt.',
         ]);
 
         $donation = Donations::create([
@@ -156,6 +160,27 @@ class FrontendController extends Controller
         // Raised Amount for the campaign is derived automatically from its
         // donations, and its status flips to Completed once the goal is hit.
         $donation->campaign?->refreshStatus();
+
+
+        if (!$request->boolean('is_anonymous')) {
+            $donor = DonorList::firstOrCreate(
+                ['email' => $request->email],
+                [
+                    'name' => $request->name,
+                    'phone' => $request->phone ?: 'N/A',
+                    'image' => 'default.png',
+                    'total' => 0,
+                ]
+            );
+
+            $donor->donations()->create([
+                'amount' => $request->amount,
+                'donation_date' => now()->toDateString(),
+                'note' => 'Online donation — ' . ($donation->campaign->name ?? 'General') . ' (' . $request->payment_method . ')',
+            ]);
+
+            $donor->update(['total' => $donor->donations()->sum('amount')]);
+        }
 
         return redirect()->route('donation')->with('success', 'Thank you! Your donation has been received.');
     }
