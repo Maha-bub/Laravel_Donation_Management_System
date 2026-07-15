@@ -903,7 +903,7 @@
                                             Email Address
                                         </label>
                                         <input type="email" name="email" class="form-control"
-                                            value="{{ old('email') }}" placeholder="example@email.com">
+                                            value="{{ old('email') }}" placeholder="example@email.com" required>
                                     </div>
 
                                     <!-- Anonymous Donation -->

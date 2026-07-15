@@ -328,13 +328,16 @@
                                 </div>
 
                                 <div class="donation-image">
-                                    <img src="{{ asset('images/' . $campaign->image) }}" alt="{{ $campaign->name }}"
-                                        class="img-fluid w-100 rounded" style="height:250px;object-fit:cover;">
+                                    <a href="{{ route('campaigns.show', $campaign->id) }}">
+                                        <img src="{{ asset('images/' . $campaign->image) }}" alt="{{ $campaign->name }}"
+                                            class="img-fluid w-100 rounded" style="height:250px;object-fit:cover;">
+                                    </a>
                                 </div>
 
                                 <div class="donation-content">
 
-                                    <h4>{{ $campaign->name }}</h4>
+                                    <h4><a href="{{ route('campaigns.show', $campaign->id) }}">{{ $campaign->name }}</a>
+                                    </h4>
 
                                     @php
                                         $raised = $campaign->donations_sum_amount ?? 0;
@@ -355,12 +358,13 @@
                                         <li>Goal - ${{ number_format($campaign->goal_amount, 2) }}</li>
                                     </ul>
 
-                                    <a href="{{ route('donation', $campaign->id) }}"
+                                    {{-- <a href="{{ route('donation', $campaign->id) }}"
                                         class="theme-btn {{ $buttonClasses[$index] }}">
                                         Donate Now
                                         <i class="fa-solid fa-arrow-right-long"></i>
-                                    </a>
-
+                                    </a> --}}
+                                    <a href="{{ route('donation', ['campaign_id' => $campaign->id]) }}"
+                                        class="theme-btn {{ $buttonClasses[$index] }}">
                                 </div>
 
                             </div>
