@@ -43,68 +43,7 @@
                                              </a>
                                          </li>
 
-                                         <li>
-                                             <a href="<?php echo e(route('projects.build-masjid')); ?>">
-                                                 <i class="fas fa-mosque me-2"></i>
-                                                 Build a Masjid
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="<?php echo e(route('projects.house')); ?>">
-                                                 <i class="fas fa-home me-2"></i>
-                                                 Donate a House
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="<?php echo e(route('projects.quran')); ?>">
-                                                 <i class="fas fa-book-open me-2"></i>
-                                                 Donate a Quran
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="<?php echo e(route('projects.emergency-aid')); ?>">
-                                                 <i class="fas fa-hand-holding-medical me-2"></i>
-                                                 Emergency Aid
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="<?php echo e(route('projects.feed-daily')); ?>">
-                                                 <i class="fas fa-bowl-rice me-2"></i>
-                                                 Feed Daily
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="<?php echo e(route('projects.tubewell')); ?>">
-                                                 <i class="fas fa-tint me-2"></i>
-                                                 Tubewell / Gift of Water
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="<?php echo e(route('projects.healing')); ?>">
-                                                 <i class="fas fa-heartbeat me-2"></i>
-                                                 Healing Bangladesh
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="<?php echo e(route('projects.income-generating')); ?>">
-                                                 <i class="fas fa-seedling me-2"></i>
-                                                 Income Generating
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="<?php echo e(route('projects.yateem')); ?>">
-                                                 <i class="fas fa-child me-2"></i>
-                                                 Sponsored A Yateem
-                                             </a>
-                                         </li>
+                                       
                                      </ul>
                                  </li>
 
