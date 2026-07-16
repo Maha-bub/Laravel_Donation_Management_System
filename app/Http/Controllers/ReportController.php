@@ -11,6 +11,13 @@ class ReportController extends Controller
 {
     public function index(Request $request)
     {
+        if ($request->filled('period')) {
+            [$dateFrom, $dateTo] = $this->resolvePeriodDates($request->period);
+        } else {
+            $dateFrom = $request->filled('date_from') ? \Carbon\Carbon::parse($request->date_from)->startOfDay() : null;
+            $dateTo   = $request->filled('date_to') ? \Carbon\Carbon::parse($request->date_to)->endOfDay() : null;
+        }
+
         $totalDonationAmount = Donations::sum('amount');
         $totalTransactions = Donations::count();
         $totalDonors = DonorList::count();
@@ -21,12 +28,21 @@ class ReportController extends Controller
             ->get();
 
         return view('admin.reports.donations', compact(
-            'totalDonationAmount', 'totalTransactions', 'totalDonors', 'donors'
+            'totalDonationAmount',
+            'totalTransactions',
+            'totalDonors',
+            'donors'
         ));
     }
 
     public function export(Request $request, string $type)
     {
+        if ($request->filled('period')) {
+            [$dateFrom, $dateTo] = $this->resolvePeriodDates($request->period);
+        } else {
+            $dateFrom = $request->filled('date_from') ? \Carbon\Carbon::parse($request->date_from)->startOfDay() : null;
+            $dateTo   = $request->filled('date_to') ? \Carbon\Carbon::parse($request->date_to)->endOfDay() : null;
+        }
         // দুটো export-এই একই donor ডেটা লাগবে, তাই একবারই fetch করছি
         $donors = DonorList::withSum('donations', 'amount')
             ->withCount('donations')
@@ -42,7 +58,10 @@ class ReportController extends Controller
         // ---------------- PDF ----------------
         if ($type === 'pdf') {
             $pdf = Pdf::loadView('admin.reports.donations-pdf', compact(
-                'donors', 'totalDonationAmount', 'totalDonors', 'totalTransactions'
+                'donors',
+                'totalDonationAmount',
+                'totalDonors',
+                'totalTransactions'
             ));
 
             return $pdf->download($filename . '.pdf');
@@ -74,5 +93,15 @@ class ReportController extends Controller
 
         // ---------------- JSON (fallback / optional) ----------------
         return response()->json($donors);
+    }
+
+    private function resolvePeriodDates(?string $period): array
+    {
+        return match ($period) {
+            'today'   => [now()->startOfDay(), now()->endOfDay()],
+            'weekly'  => [now()->startOfWeek(), now()->endOfDay()],
+            'monthly' => [now()->startOfMonth(), now()->endOfDay()],
+            default   => [null, null],
+        };
     }
 }

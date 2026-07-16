@@ -90,16 +90,55 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                            <div class="d-flex col-4 gap-2">
+                            <div>
+                                <p>Download Donations Report</p>
+                                <div class="d-flex gap-2 mb-3 flex-wrap">
+                                    <a href="{{ route('admin.donations.index', ['period' => 'today']) }}"
+                                        class="btn btn-sm {{ request('period') === 'today' ? 'btn-primary' : 'btn-outline-secondary' }}">
+                                        Today
+                                    </a>
+                                    <a href="{{ route('admin.donations.index', ['period' => 'weekly']) }}"
+                                        class="btn btn-sm {{ request('period') === 'weekly' ? 'btn-primary' : 'btn-outline-secondary' }}">
+                                        This Week
+                                    </a>
+                                    <a href="{{ route('admin.donations.index', ['period' => 'monthly']) }}"
+                                        class="btn btn-sm {{ request('period') === 'monthly' ? 'btn-primary' : 'btn-outline-secondary' }}">
+                                        This Month
+                                    </a>
+                                    <a href="{{ route('admin.donations.index') }}"
+                                        class="btn btn-sm {{ !request('period') && !request('date_from') ? 'btn-primary' : 'btn-outline-secondary' }}">
+                                        All Time
+                                    </a>
+                                </div>
 
-                                <a class="btn btn-sm btn-outline-secondary "
-                                    href="{{ route('admin.reports.donations.export', ['type' => 'csv']) }}">
-                                    <i class="fas fa-file-csv"></i> Export CSV
-                                </a>
-                                <a class="btn btn-sm btn-outline-danger"
-                                    href="{{ route('admin.reports.donations.export', ['type' => 'pdf']) }}">
-                                    <i class="fas fa-file-pdf"></i> Export PDF
-                                </a>
+                                <div class="d-flex col-4 gap-2">
+
+                                    <a class="btn btn-sm btn-outline-secondary"
+                                        href="{{ route(
+                                            'admin.reports.donations.export',
+                                            array_filter([
+                                                'type' => 'csv',
+                                                'period' => request('period'),
+                                                'date_from' => request('date_from'),
+                                                'date_to' => request('date_to'),
+                                            ]),
+                                        ) }}">
+                                        <i class="fas fa-file-csv"></i> Export CSV
+                                    </a>
+
+                                    <a class="btn btn-sm btn-outline-danger"
+                                        href="{{ route(
+                                            'admin.reports.donations.export',
+                                            array_filter([
+                                                'type' => 'pdf',
+                                                'period' => request('period'),
+                                                'date_from' => request('date_from'),
+                                                'date_to' => request('date_to'),
+                                            ]),
+                                        ) }}">
+                                        <i class="fas fa-file-pdf"></i> Export PDF
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div><!--end card-body-->
