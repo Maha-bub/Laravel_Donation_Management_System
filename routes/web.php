@@ -7,6 +7,7 @@ use App\Http\Controllers\DonorController;
 use App\Http\Controllers\DonorListController;
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\VolunteerManageController;
@@ -86,6 +87,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::resource('donations', DonationsController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('settings', SettingController::class)->except(['show']);
+
+
+    // route for download report
+
+    Route::get('reports/donations', [ReportController::class, 'index'])->name('reports.donations');
+
+    Route::get('reports/donations/export/{type}', [ReportController::class, 'export'])
+        ->where('type', 'csv|json|pdf')
+        ->name('reports.donations.export');
 });
 
 
