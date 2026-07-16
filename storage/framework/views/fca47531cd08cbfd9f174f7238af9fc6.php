@@ -1,6 +1,4 @@
-@extends('frontend.layout.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="search-popup">
         <div class="search-popup__overlay search-toggler"></div>
         <div class="search-popup__content">
@@ -28,41 +26,9 @@
                 <div class="swiper-slide">
                     <div class="hero-1">
                         <div class="shape">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/hero/shape.png" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/hero/shape.png" alt="img">
                         </div>
-                         <div class="hero-bg bg-cover" style="background-image: url({{ asset('') }}frontent-assets/img/food-distribution.jpg);">
-                        </div>
-                        <div class="container">
-                            <div class="row g-4 justify-content-center">
-                                <div class="col-lg-10">
-                                    <div class="hero-content">
-                                        <h6 data-animation="fadeInUp" data-delay="1.3s">Start Donating Poor People
-                                        </h6>
-                                        <h1 data-animation="fadeInUp" data-delay="1.5s">
-                                            We Are Non Profit Charity Organization
-                                        </h1>
-                                        <p data-animation="fadeInUp" data-delay="1.3s">
-                                            Charity not only helps to reduce suffering but also fosters a sense of unity
-                                            and shared responsibility in difference in someone's life.
-                                        </p>
-                                        <div class="hero-button" data-animation="fadeInUp" data-delay="1.5s">
-                                            <a href="contact.html" class="theme-btn">Join With Us <i
-                                                    class="fa-solid fa-arrow-right-long"></i></a>
-                                            <a href="about.html" class="theme-btn border-btn">Read More <i
-                                                    class="fa-solid fa-arrow-right-long"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="hero-1">
-                        <div class="shape">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/hero/shape.png" alt="img">
-                        </div>
-                        <div class="hero-bg bg-cover" style="background-image: url({{ asset('') }}frontent-assets/img/flood-relief.jpg);">
+                        <div class="hero-bg bg-cover" style="background-image: url(assets/img/home-1/hero/hero-bg.jpg);">
                         </div>
                         <div class="container">
                             <div class="row g-4 justify-content-center">
@@ -92,9 +58,41 @@
                 <div class="swiper-slide">
                     <div class="hero-1">
                         <div class="shape">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/hero/shape.png" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/hero/shape.png" alt="img">
                         </div>
-                        <div class="hero-bg bg-cover" style="background-image: url({{ asset('') }}frontent-assets/img/blanket.jpg);">
+                        <div class="hero-bg bg-cover" style="background-image: url(assets/img/home-1/hero/hero-bg-2.jpg);">
+                        </div>
+                        <div class="container">
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="hero-content">
+                                        <h6 data-animation="fadeInUp" data-delay="1.3s">Start Donating Poor People
+                                        </h6>
+                                        <h1 data-animation="fadeInUp" data-delay="1.5s">
+                                            We Are Non Profit Charity Organization
+                                        </h1>
+                                        <p data-animation="fadeInUp" data-delay="1.3s">
+                                            Charity not only helps to reduce suffering but also fosters a sense of unity
+                                            and shared responsibility in difference in someone's life.
+                                        </p>
+                                        <div class="hero-button" data-animation="fadeInUp" data-delay="1.5s">
+                                            <a href="contact.html" class="theme-btn">Join With Us <i
+                                                    class="fa-solid fa-arrow-right-long"></i></a>
+                                            <a href="about.html" class="theme-btn border-btn">Read More <i
+                                                    class="fa-solid fa-arrow-right-long"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-1">
+                        <div class="shape">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/hero/shape.png" alt="img">
+                        </div>
+                        <div class="hero-bg bg-cover" style="background-image: url(assets/img/home-1/hero/hero-bg-3.jpg);">
                         </div>
                         <div class="container">
                             <div class="row g-4 justify-content-center">
@@ -126,7 +124,7 @@
     </section>
 
     <!-- About Section Start -->
-   <section class="about-section section-padding fix">
+    <section class="about-section section-padding fix">
         <div class="container">
             <div class="about-wrapper">
                 <div class="row g-4">
@@ -145,37 +143,39 @@
                             </p>
                             <div class="about-icon-item wow fadeInUp" data-wow-delay=".3s">
                                 <div class="icon">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/icon/01.svg" alt="img">
+                                    <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/icon/01.svg" alt="img">
                                 </div>
                                 <div class="content">
-                                    <h4>What is The Purpose?</h4>
+                                    <h4>Fundraising</h4>
                                     <p>
-                                        These organizations work primarily to help the general population, frequently concentrating on issues like environmental preservation, healthcare, education, and poverty reduction. The 100 Club of Arizona is a prime example of the influence and commitment of these groups, highlighting the critical role they play in improving lives.
+                                        Looking for a restaurant that serves delicious, beautifully presented dishes
+                                        with impeccable service, look no further.
                                     </p>
                                 </div>
                             </div>
                             <div class="about-icon-item mb-0 wow fadeInUp" data-wow-delay=".5s">
                                 <div class="icon">
-                                    <img src="{{ asset('') }}frontent-assets/img/home-1/icon/02.svg" alt="img">
+                                    <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/icon/02.svg" alt="img">
                                 </div>
                                 <div class="content">
                                     <h4>Donation Marketing</h4>
                                     <p>
-                                       These organizations work primarily to help the general population, frequently concentrating on issues like environmental preservation, healthcare, education, and poverty reduction. 
+                                        Looking for a restaurant that serves delicious, beautifully presented dishes
+                                        with impeccable service, look no further.
                                     </p>
                                 </div>
                             </div>
-                            <div class="about-bottom wow fadeInUp" data-wow-delay=".2s">
+                            <div class="about-bottom wow fadeInUp" data-wow-delay=".3s">
                                 <a href="about.html" class="theme-btn">More About Us <i
                                         class="fa-solid fa-arrow-right-long"></i></a>
                                 <div class="info-item">
                                     <div class="client-image">
-                                        <img src="{{ asset('') }}frontent-assets/img/founder.png" width="50px" height="50px" rounded
+                                        <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/about/client.png"
                                             alt="img">
                                     </div>
                                     <div class="info-content">
-                                        <h5>Mahabubul Alam</h5>
-                                        <span>Web Application Developer</span>
+                                        <h5>James Anderson</h5>
+                                        <span>Software Engineer</span>
                                     </div>
                                 </div>
                             </div>
@@ -185,24 +185,24 @@
                         <div class="about-gallery">
 
                             <div class="gallery-item">
-                                <img src="{{ asset('frontent-assets/img/blanket.jpg') }}" alt="">
+                                <img src="<?php echo e(asset('frontent-assets/img/flood-refief.jpg')); ?>" alt="">
                             </div>
 
                             <div class="gallery-item">
-                                <img src="{{ asset('frontent-assets/img/package.jpg') }}" alt="">
+                                <img src="<?php echo e(asset('frontent-assets/img/package.jpg')); ?>" alt="">
                             </div>
 
                             <div class="gallery-item">
-                                <img src="{{ asset('frontent-assets/img/food-distribution.jpg') }}" alt="">
+                                <img src="<?php echo e(asset('frontent-assets/img/food-distribution.jpg')); ?>" alt="">
                             </div>
 
                             <div class="gallery-item">
-                                <img src="{{ asset('frontent-assets/img/emegency-aid.jpg') }}" alt="">
+                                <img src="<?php echo e(asset('frontent-assets/img/unity.jpg')); ?>" alt="">
                             </div>
 
                             <!-- Center Image -->
                             <div class="center-image">
-                                <img src="{{ asset('frontent-assets/img/unity.jpg') }}" alt="">
+                                <img src="<?php echo e(asset('frontent-assets/img/home-1/about/client.png')); ?>" alt="">
                             </div>
 
                         </div>
@@ -216,7 +216,7 @@
     <section class="causes-section section-padding fix bg-cover"
         style="background-image: url(assets/img/home-1/service/bg.jpg);">
         <div class="shape">
-            <img src="{{ asset('') }}frontent-assets/img/home-1/service/shape.png" alt="img">
+            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/service/shape.png" alt="img">
         </div>
         <div class="container">
             <div class="section-title text-center">
@@ -230,7 +230,7 @@
                     <div class="swiper-slide">
                         <div class="causes-box-item">
                             <div class="icon">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/icon/03.svg" alt="img">
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/icon/03.svg" alt="img">
                             </div>
                             <div class="content">
                                 <h3>
@@ -248,7 +248,7 @@
                     <div class="swiper-slide">
                         <div class="causes-box-item">
                             <div class="icon">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/icon/04.svg" alt="img">
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/icon/04.svg" alt="img">
                             </div>
                             <div class="content">
                                 <h3>
@@ -266,7 +266,7 @@
                     <div class="swiper-slide">
                         <div class="causes-box-item">
                             <div class="icon">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/icon/05.svg" alt="img">
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/icon/05.svg" alt="img">
                             </div>
                             <div class="content">
                                 <h3>
@@ -291,7 +291,7 @@
 
 
 
-    {{-- Active campaigns sections  --}}
+    
 
     <section class="donation-section-2 section-padding fix">
         <div class="container">
@@ -302,61 +302,61 @@
                 </h2>
             </div>
             <div class="donation-wrapper-2">
-                @php
+                <?php
                     $shapes = ['shape-1.png', 'shape-2.png', 'shape-3.png'];
 
                     $buttonClasses = ['style-2', '', 'style-3'];
 
                     $progressClasses = ['', 'style-2', 'style-3'];
-                @endphp
+                ?>
 
                 <div class="row">
-                    @foreach ($campaigns as $campaign)
-                        @php
+                    <?php $__currentLoopData = $campaigns; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $campaign): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php
                             $index = $loop->index % 3;
-                        @endphp
+                        ?>
 
-                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="{{ 0.3 + $index * 0.2 }}s">
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="<?php echo e(0.3 + $index * 0.2); ?>s">
 
                             <div class="donation-card-item-2">
 
                                 <div class="left-shape">
-                                    <img src="{{ asset('frontent-assets/img/home-2/donation/' . $shapes[$index]) }}"
+                                    <img src="<?php echo e(asset('frontent-assets/img/home-2/donation/' . $shapes[$index])); ?>"
                                         alt="shape">
                                 </div>
 
                                 <div class="donation-image">
-                                    <a href="{{ route('campaigns.show', $campaign->id) }}">
-                                        <img src="{{ asset('images/' . $campaign->image) }}" alt="{{ $campaign->name }}"
+                                    <a href="<?php echo e(route('campaigns.show', $campaign->id)); ?>">
+                                        <img src="<?php echo e(asset('images/' . $campaign->image)); ?>" alt="<?php echo e($campaign->name); ?>"
                                             class="img-fluid w-100 rounded" style="height:250px;object-fit:cover;">
                                     </a>
                                 </div>
 
                                 <div class="donation-content">
 
-                                    <h4><a href="{{ route('campaigns.show', $campaign->id) }}">{{ $campaign->name }}</a></h4>
+                                    <h4><a href="<?php echo e(route('campaigns.show', $campaign->id)); ?>"><?php echo e($campaign->name); ?></a></h4>
 
-                                    @php
+                                    <?php
                                         $raised = $campaign->donations_sum_amount ?? 0;
                                         $goal = $campaign->goal_amount ?? 1;
                                         $percentage = $goal > 0 ? min(($raised / $goal) * 100, 100) : 0;
-                                    @endphp
+                                    ?>
 
-                                    <div class="pro-items {{ $progressClasses[$index] }}">
+                                    <div class="pro-items <?php echo e($progressClasses[$index]); ?>">
                                         <div class="progress">
-                                            <div class="progress-value style-two" style="width: {{ $percentage }}%;">
-                                                <p>{{ round($percentage, 2) }}%</p>
+                                            <div class="progress-value style-two" style="width: <?php echo e($percentage); ?>%;">
+                                                <p><?php echo e(round($percentage, 2)); ?>%</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <ul class="donate-list">
-                                        <li>Raised - ${{ number_format($raised, 2) }}</li>
-                                        <li>Goal - ${{ number_format($campaign->goal_amount, 2) }}</li>
+                                        <li>Raised - $<?php echo e(number_format($raised, 2)); ?></li>
+                                        <li>Goal - $<?php echo e(number_format($campaign->goal_amount, 2)); ?></li>
                                     </ul>
 
-                                    <a href="{{ route('donation', ['campaign_id' => $campaign->id]) }}"
-                                        class="theme-btn {{ $buttonClasses[$index] }}">
+                                    <a href="<?php echo e(route('donation', ['campaign_id' => $campaign->id])); ?>"
+                                        class="theme-btn <?php echo e($buttonClasses[$index]); ?>">
                                         Donate Now
                                         <i class="fa-solid fa-arrow-right-long"></i>
                                     </a>
@@ -365,7 +365,7 @@
 
                             </div>
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
         </div>
@@ -388,9 +388,9 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/01.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/01.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/shape.png"
                                     alt="img">
                             </div>
                             <div class="project-content">
@@ -409,9 +409,9 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/02.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/02.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/shape.png"
                                     alt="img">
                             </div>
                             <div class="project-content">
@@ -430,9 +430,9 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/03.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/03.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/shape.png"
                                     alt="img">
                             </div>
                             <div class="project-content">
@@ -455,9 +455,9 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/01.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/01.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/shape.png"
                                     alt="img">
                             </div>
                             <div class="project-content style-2">
@@ -476,9 +476,9 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/02.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/02.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/shape.png"
                                     alt="img">
                             </div>
                             <div class="project-content style-2">
@@ -497,9 +497,9 @@
                 <div class="swiper-slide brand-slide-element">
                     <div class="project-card-item">
                         <div class="project-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/project/03.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/03.jpg" alt="img">
                             <div class="shape-image">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/project/shape.png"
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/project/shape.png"
                                     alt="img">
                             </div>
                             <div class="project-content style-2">
@@ -532,7 +532,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/01.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/team/01.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -551,7 +551,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/02.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/team/02.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -570,7 +570,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/03.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/team/03.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -589,7 +589,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".8s">
                     <div class="team-card-items">
                         <div class="team-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/team/04.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/team/04.jpg" alt="img">
                         </div>
                         <div class="team-content">
                             <h5>
@@ -622,9 +622,9 @@
                 <div class="row g-4">
                     <div class="col-lg-5 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
                         <div class="testimonial-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/testimonial/01.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/testimonial/01.jpg" alt="img">
                             <div class="shape">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/testimonial/shape.png"
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/testimonial/shape.png"
                                     alt="img">
                             </div>
                         </div>
@@ -697,25 +697,25 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="brand-image text-center">
-                                            <img src="{{ asset('') }}frontent-assets/img/home-1/brand/01.png"
+                                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/brand/01.png"
                                                 alt="img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="brand-image text-center">
-                                            <img src="{{ asset('') }}frontent-assets/img/home-1/brand/02.png"
+                                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/brand/02.png"
                                                 alt="img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="brand-image text-center">
-                                            <img src="{{ asset('') }}frontent-assets/img/home-1/brand/03.png"
+                                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/brand/03.png"
                                                 alt="img">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="brand-image text-center">
-                                            <img src="{{ asset('') }}frontent-assets/img/home-1/brand/04.png"
+                                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/brand/04.png"
                                                 alt="img">
                                         </div>
                                     </div>
@@ -731,16 +731,16 @@
     <!-- Counter Section Start -->
     <div class="counter-section fix section-bg-1">
         <div class="right-shape">
-            <img src="{{ asset('') }}frontent-assets/img/home-1/feature/shape-2.png" alt="img">
+            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/feature/shape-2.png" alt="img">
         </div>
         <div class="container">
             <div class="counter-wrapper">
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6">
                         <div class="counter-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/feature/01.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/feature/01.jpg" alt="img">
                             <div class="shape">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/feature/shape-1.png"
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/feature/shape-1.png"
                                     alt="img">
                             </div>
                         </div>
@@ -901,7 +901,7 @@
                                 in someone's life.
                             </p>
                             <div class="faq-image wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/faq.jpg" alt="img">
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/faq.jpg" alt="img">
                                 <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I"
                                     class="video-btn ripple video-popup">
                                     <i class="fa-solid fa-play"></i>
@@ -927,7 +927,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                     <div class="news-card-items">
                         <div class="news-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/news/01.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/news/01.jpg" alt="img">
                             <div class="news-layer-wrapper">
                                 <div class="news-layer-image"
                                     style="background-image: url('assets/img/home-1/news/01.jpg');"></div>
@@ -939,7 +939,7 @@
                                     style="background-image: url('assets/img/home-1/news/01.jpg');"></div>
                             </div>
                             <div class="bottom-shape">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/news/shape.png" alt="img">
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/news/shape.png" alt="img">
                             </div>
                         </div>
                         <div class="news-content">
@@ -966,7 +966,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
                     <div class="news-card-items">
                         <div class="news-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/news/02.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/news/02.jpg" alt="img">
                             <div class="news-layer-wrapper">
                                 <div class="news-layer-image"
                                     style="background-image: url('assets/img/home-1/news/02.jpg');"></div>
@@ -978,7 +978,7 @@
                                     style="background-image: url('assets/img/home-1/news/02.jpg');"></div>
                             </div>
                             <div class="bottom-shape">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/news/shape.png" alt="img">
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/news/shape.png" alt="img">
                             </div>
                         </div>
                         <div class="news-content">
@@ -1005,7 +1005,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
                     <div class="news-card-items">
                         <div class="news-image">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/news/03.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/news/03.jpg" alt="img">
                             <div class="news-layer-wrapper">
                                 <div class="news-layer-image"
                                     style="background-image: url('assets/img/home-1/news/03.jpg');"></div>
@@ -1017,7 +1017,7 @@
                                     style="background-image: url('assets/img/home-1/news/03.jpg');"></div>
                             </div>
                             <div class="bottom-shape">
-                                <img src="{{ asset('') }}frontent-assets/img/home-1/news/shape.png" alt="img">
+                                <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/news/shape.png" alt="img">
                             </div>
                         </div>
                         <div class="news-content">
@@ -1053,14 +1053,14 @@
                     <div class="col-lg-6">
                         <div class="contact-image wow img-custom-anim-left" data-wow-duration="1.3s"
                             data-wow-delay="0.3s">
-                            <img src="{{ asset('') }}frontent-assets/img/home-1/contact.jpg" alt="img">
+                            <img src="<?php echo e(asset('')); ?>frontent-assets/img/home-1/contact.jpg" alt="img">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="contact-content">
                             <div class="logo-image">
                                 <a href="index.html"><img
-                                        src="{{ asset('') }}frontent-assets/img/logo/white-logo.svg"
+                                        src="<?php echo e(asset('')); ?>frontent-assets/img/logo/white-logo.svg"
                                         alt="img"></a>
                             </div>
                             <div class="section-title mb-0">
@@ -1086,4 +1086,6 @@
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.layout.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Xampp\htdocs\Laravel_Donation_Management_System\resources\views/frontend/pages/home.blade.php ENDPATH**/ ?>

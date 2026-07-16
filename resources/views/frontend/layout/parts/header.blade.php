@@ -8,13 +8,12 @@
 
                          <a href="{{ route('home') }}" class="header-logo">
                              @if (!empty($siteSettings?->logo))
-                                 <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="logo-img">
+                                 <img src="{{ asset('storage/' . $siteSettings->logo) }}" alt="logo-img" width="200px"
+                                     height="100px" !important>
                              @else
                                  <img src="{{ asset('') }}frontent-assets/img/logo/black-logo.svg" alt="logo-img">
                              @endif
                          </a>
-
-
 
                      </div>
                  </div>
@@ -36,78 +35,10 @@
                                      </a>
 
                                      <ul class="submenu">
-                                         <li>
-                                             <a href="{{ route('projects.school-bags') }}">
-                                                 <i class="fas fa-school me-2"></i>
-                                                 School Bags
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.build-masjid') }}">
-                                                 <i class="fas fa-mosque me-2"></i>
-                                                 Build a Masjid
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.house') }}">
-                                                 <i class="fas fa-home me-2"></i>
-                                                 Donate a House
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.quran') }}">
-                                                 <i class="fas fa-book-open me-2"></i>
-                                                 Donate a Quran
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.emergency-aid') }}">
-                                                 <i class="fas fa-hand-holding-medical me-2"></i>
-                                                 Emergency Aid
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.feed-daily') }}">
-                                                 <i class="fas fa-bowl-rice me-2"></i>
-                                                 Feed Daily
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.tubewell') }}">
-                                                 <i class="fas fa-tint me-2"></i>
-                                                 Tubewell / Gift of Water
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.healing') }}">
-                                                 <i class="fas fa-heartbeat me-2"></i>
-                                                 Healing Bangladesh
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.income-generating') }}">
-                                                 <i class="fas fa-seedling me-2"></i>
-                                                 Income Generating
-                                             </a>
-                                         </li>
-
-                                         <li>
-                                             <a href="{{ route('projects.yateem') }}">
-                                                 <i class="fas fa-child me-2"></i>
-                                                 Sponsored A Yateem
-                                             </a>
-                                         </li>
 
                                          @if ($navCampaigns->isNotEmpty())
-                                             <li style="padding: 8px 20px 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; opacity: .6; border-top: 1px solid rgba(0,0,0,.08); margin-top: 6px;">
+                                             <li
+                                                 style="padding: 8px 20px 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; opacity: .6; border-top: 1px solid rgba(0,0,0,.08); margin-top: 6px;">
                                                  Active Campaigns
                                              </li>
                                              @foreach ($navCampaigns as $navCampaign)
@@ -143,13 +74,15 @@
 
                  {{-- Header Right  Btn and Search --}}
                  <div class="header-right d-flex justify-content-end align-items-center">
-                     <a href="#" class="main-header__search search-toggler">
-                         <i class="fa-regular fa-magnifying-glass"></i>
-                     </a>
 
+                     <div class="header-button">
+                         <a href="{{ route('donation') }}" class="btn btn-success btn-sm">
+                             Donte Now <i class="fa-solid fa-arrow-right"></i>
+                         </a>
+                     </div>
                      @guest
                          <div class="header-button me-2">
-                             <a href="{{ route('login') }}" class="theme-btn style-2">
+                             <a href="{{ route('login') }}" class="btn btn-success btn-sm">
                                  <i class="fa-solid fa-right-to-bracket"></i> Login
                              </a>
                          </div>
@@ -163,22 +96,11 @@
                              };
                          @endphp
                          <div class="header-button me-2">
-                             <a href="{{ $dashboardRoute }}" class="theme-btn style-2">
+                             <a href="{{ $dashboardRoute }}" class="btn btn-success btn-sm">
                                  <i class="fa-solid fa-user"></i> {{ auth()->user()->name }}
                              </a>
                          </div>
                      @endguest
-
-                     <div class="header-button">
-                         <a href="{{ route('donation') }}" class="theme-btn">
-                             Donte Now <i class="fa-solid fa-arrow-right"></i>
-                         </a>
-                     </div>
-                     <div class="header__hamburger d-xl-none my-auto">
-                         <div class="sidebar__toggle">
-                             <i class="fas fa-bars"></i>
-                         </div>
-                     </div>
 
                  </div>
              </div>
