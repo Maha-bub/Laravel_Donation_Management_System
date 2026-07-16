@@ -1,6 +1,4 @@
-@extends('admin.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="container-fluid col-12">
         <div class="row">
             <div class="col-sm-12">
@@ -8,9 +6,9 @@
                     <h4 class="page-title">Datatable</h4>
                     <div class="">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Approx</a>
+                            <li class="breadcrumb-item"><a href="<?php echo e(route('admin.dashboard')); ?>">Approx</a>
                             </li><!--end nav-item-->
-                            <li class="breadcrumb-item"><a href="{{ route('admin.donations.index') }} ">Donation</a>
+                            <li class="breadcrumb-item"><a href="<?php echo e(route('admin.donations.index')); ?> ">Donation</a>
                             </li><!--end nav-item-->
                             <li class="breadcrumb-item active">Datatable</li>
                         </ol>
@@ -19,9 +17,9 @@
             </div><!--end col-->
         </div><!--end row-->
 
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+        <?php if(session('success')): ?>
+            <div class="alert alert-success"><?php echo e(session('success')); ?></div>
+        <?php endif; ?>
 
 
         <div class="row justify-content-center">
@@ -29,7 +27,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-0">Donations</h4>
-                        <a class="btn btn-sm btn-info " href="{{ route('admin.donations.create') }}">Add Donations <i
+                        <a class="btn btn-sm btn-info " href="<?php echo e(route('admin.donations.create')); ?>">Add Donations <i
                                 class="fas fa-arrow-right"></i> </a>
 
 
@@ -49,32 +47,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($items as $item)
+                                    <?php $__empty_1 = true; $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                         <tr>
-                                            <td>{{ $item->id }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->campaign->name ?? '-' }}</td>
-                                            <td>{{ $item->amount }}</td>
-                                            <td>{{ $item->payment_method }}</td>
-                                            <td>{{ $item->created_at->format('d-m-Y') }}</td>
+                                            <td><?php echo e($item->id); ?></td>
+                                            <td><?php echo e($item->name); ?></td>
+                                            <td><?php echo e($item->campaign->name ?? '-'); ?></td>
+                                            <td><?php echo e($item->amount); ?></td>
+                                            <td><?php echo e($item->payment_method); ?></td>
+                                            <td><?php echo e($item->created_at->format('d-m-Y')); ?></td>
                                             <td class="text-nowrap">
                                                 <!-- View -->
-                                                <a href="{{ route('admin.donations.show', $item->id) }}"
+                                                <a href="<?php echo e(route('admin.donations.show', $item->id)); ?>"
                                                     class="btn btn-sm btn-primary">
                                                     <i class="fas fa-eye"></i> View
                                                 </a>
 
                                                 <!-- Edit -->
-                                                <a href="{{ route('admin.donations.edit', $item->id) }}"
+                                                <a href="<?php echo e(route('admin.donations.edit', $item->id)); ?>"
                                                     class="btn btn-sm btn-warning">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </a>
 
                                                 <!-- Delete -->
-                                                <form action="{{ route('admin.donations.destroy', $item->id) }}"
+                                                <form action="<?php echo e(route('admin.donations.destroy', $item->id)); ?>"
                                                     method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
+                                                    <?php echo csrf_field(); ?>
+                                                    <?php echo method_field('DELETE'); ?>
 
                                                     <button type="submit" class="btn btn-sm btn-danger"
                                                         onclick="return confirm('Are you sure you want to delete this donation?')">
@@ -83,21 +81,21 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @empty
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <tr>
                                             <td colspan="7" class="text-center">No donations found.</td>
                                         </tr>
-                                    @endforelse
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                             <div class="d-flex col-4 gap-2">
 
                                 <a class="btn btn-sm btn-outline-secondary "
-                                    href="{{ route('admin.reports.donations.export', ['type' => 'csv']) }}">
+                                    href="<?php echo e(route('admin.reports.donations.export', ['type' => 'csv'])); ?>">
                                     <i class="fas fa-file-csv"></i> Export CSV
                                 </a>
                                 <a class="btn btn-sm btn-outline-danger"
-                                    href="{{ route('admin.reports.donations.export', ['type' => 'pdf']) }}">
+                                    href="<?php echo e(route('admin.reports.donations.export', ['type' => 'pdf'])); ?>">
                                     <i class="fas fa-file-pdf"></i> Export PDF
                                 </a>
                             </div>
@@ -107,4 +105,6 @@
             </div> <!--end col-->
         </div><!--end row-->
     </div><!-- container -->
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Laravel_Donation_Management_System\resources\views/admin/donations/index.blade.php ENDPATH**/ ?>

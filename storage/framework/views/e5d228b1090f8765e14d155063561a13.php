@@ -7,10 +7,10 @@
             <div class="col-sm-12">
                 <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
                     <h4 class="page-title">Dashboard</h4>
-                    <div class="">
+                    <div class="d-flex align-items-center gap-2">
+
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Approx</a>
-                            </li><!--end nav-item-->
+                            <li class="breadcrumb-item"><a href="#">Approx</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
@@ -38,6 +38,20 @@
                             Total donation collected from all active campaigns.
                         </p>
 
+                    </div>
+                    <div>
+                        <p>Download Donations Report</p>
+                        <div class="d-flex col-4 gap-2">
+
+                            <a class="btn btn-sm btn-outline-secondary "
+                                href="<?php echo e(route('admin.reports.donations.export', ['type' => 'csv'])); ?>">
+                                <i class="fas fa-file-csv"></i> Export CSV
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger"
+                                href="<?php echo e(route('admin.reports.donations.export', ['type' => 'pdf'])); ?>">
+                                <i class="fas fa-file-pdf"></i> Export PDF
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
